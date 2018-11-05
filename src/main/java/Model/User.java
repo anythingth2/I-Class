@@ -18,6 +18,7 @@ public class User {
     public User() {
     }
 
+
     public User(String fullName) {
         this.fullName = fullName;
     }
