@@ -26,16 +26,8 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         launch(args);
-        SessionFactory factory;
-        Session session;
 
-        factory = HibernateUtil.getSessionFactory();
-        session = factory.openSession();
-        session.beginTransaction();
-        User user = new User("ChiChaCdadhai");
-        session.save(user);
-        session.getTransaction().commit();
-        factory.close();
-        System.out.println("Started");
+
+
     }
 }
