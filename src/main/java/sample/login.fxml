@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
+<GridPane alignment="center" hgap="10" stylesheets="@style/login.css" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -17,14 +17,14 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane styleClass="page-template" stylesheets="@login.css">
+      <Pane fx:id="page" styleClass="page-template">
          <children>
-            <Button layoutX="583.0" layoutY="584.0" mnemonicParsing="false" styleClass="btn-login" stylesheets="@login.css" text="LOGIN" />
-            <TextField layoutX="500.0" layoutY="384.0" promptText="YOUR ID" styleClass="input-bar" />
-            <TextField layoutX="500.0" layoutY="474.0" promptText="PIN" styleClass="input-bar" />
-            <ImageView id="brand" fitHeight="300.0" fitWidth="400.0" layoutX="523.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="login" layoutX="583.0" layoutY="584.0" mnemonicParsing="false" onAction="#onLoginAction" onKeyPressed="#onLoginPressed" onKeyReleased="#onLoginReleased" onMouseEntered="#onLoginEntered" onMouseExited="#onLoginExited" styleClass="btn-login" text="LOGIN" />
+            <TextField fx:id="userid" layoutX="500.0" layoutY="384.0" onAction="#onIdAction" onKeyReleased="#onIdAction" onMouseClicked="#onIdAction" promptText="YOUR ID" styleClass="input-bar" />
+            <TextField fx:id="pin" accessibleRole="PASSWORD_FIELD" layoutX="500.0" layoutY="474.0" onAction="#onPinAction" onKeyReleased="#onPinAction" onMouseClicked="#onPinAction" promptText="PIN" styleClass="input-bar" />
+            <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="523.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@ICLASS.png" />
+                  <Image url="@style/ICLASS.png" />
                </image>
             </ImageView>
          </children>
