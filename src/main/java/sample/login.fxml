@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -18,14 +17,14 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #707070;">
+      <Pane styleClass="page-template" stylesheets="@login.css">
          <children>
-            <Button layoutX="571.0" layoutY="485.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="201.0" style="-fx-font-size: 30;" text="LOGIN" />
-            <TextField layoutX="494.0" layoutY="270.0" prefHeight="54.0" prefWidth="363.0" />
-            <TextField layoutX="492.0" layoutY="359.0" prefHeight="54.0" prefWidth="363.0" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="562.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="583.0" layoutY="584.0" mnemonicParsing="false" styleClass="btn-login" stylesheets="@login.css" text="LOGIN" />
+            <TextField layoutX="500.0" layoutY="384.0" promptText="YOUR ID" styleClass="input-bar" />
+            <TextField layoutX="500.0" layoutY="474.0" promptText="PIN" styleClass="input-bar" />
+            <ImageView id="brand" fitHeight="300.0" fitWidth="400.0" layoutX="523.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../กล้อง/16298485_1297172273686664_7488812347791958042_n.jpg" />
+                  <Image url="@ICLASS.png" />
                </image>
             </ImageView>
          </children>

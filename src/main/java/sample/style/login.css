@@ -1,0 +1,40 @@
+/* 863, 384 */
+
+.page-template{
+	-fx-min-width: 1366;
+	-fx-min-height: 768;
+	-fx-pref-width: 1366;
+	-fx-pref-height: 768;
+	-fx-max-width: 1366;
+	-fx-max-height: 768;
+
+	-fx-background-color: #131315;
+}
+
+.input-bar{
+	-fx-font-size: 25px;
+	-fx-font-weight: normal;
+	-fx-text-fill: white;
+
+	-fx-pref-width: 370;
+	-fx-pref-height: 56;
+	-fx-background-color: #131315;
+
+	/* border : ... right bottom left */
+	/* -fx-border-style: solid none none none; */
+	-fx-border-width: 4px;
+	-fx-border-color: #131315 #131315 #2275A0 #131315;
+}
+
+.btn-login{
+	-fx-font-size: 30px;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+
+	-fx-pref-width: 200;
+	-fx-pref-height: 56;
+	
+	-fx-background-color: #2275A0;
+	-fx-background-radius: 20px;
+}

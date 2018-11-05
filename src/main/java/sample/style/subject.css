@@ -1,0 +1,66 @@
+/* 863, 384 */
+
+.page-template{
+	-fx-min-width: 1366;
+	-fx-min-height: 768;
+	-fx-pref-width: 1366;
+	-fx-pref-height: 768;
+	-fx-max-width: 1366;
+	-fx-max-height: 768;
+
+	-fx-border-width: 160px;
+	-fx-border-style: solid none none none;
+	-fx-border-color: #131315;
+
+	-fx-background-color: #FFFFFF;
+}
+
+.header{
+	-fx-font-size: 65px;
+	-fx-font-weight: normal;
+	-fx-text-fill: #0399D8;
+	-fx-alignment: center;
+
+	-fx-pref-width: 300;
+	-fx-pref-height: 160;
+}
+.header .text{
+    -fx-stroke: white;
+    -fx-stroke-width: 2px;
+}
+
+.pane-subject{
+	-fx-pref-width: 300;
+	-fx-pref-height: 300;
+
+	-fx-background-color: #131315;
+
+	-fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+}
+
+.text-subject{
+	-fx-font-size: 65px;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+
+	-fx-pref-width: 300;
+	-fx-pref-height: 160;
+}
+.text-subject .text{
+    /* -fx-fill: lightseagreen; */
+    -fx-stroke: #0399D8;
+    -fx-stroke-width: 2px;
+}
+
+.label-subject{
+	-fx-font-size: 30px;
+	-fx-font-weight: bold;
+	-fx-text-fill: #0399D8;
+	-fx-alignment: center;
+
+	-fx-pref-width: 300;
+	-fx-pref-height: 70;
+
+	-fx-background-color: white;
+}
