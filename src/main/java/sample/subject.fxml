@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" stylesheets="@style/subject.css" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SubjectController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane styleClass="page-template">
+         <children>
+            <Label layoutX="40.0" layoutY="15.0" styleClass="header" text="SUBJECTS" />
+            <Pane fx:id="sbj1" layoutX="198.0" layoutY="300.0" onMouseClicked="#onSubject1Clicked" onMouseEntered="#onSubject1Entered" onMouseExited="#onSubject1Exited" styleClass="pane-subject">
+               <children>
+                  <Label fx:id="name1" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                  <Label fx:id="label1" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+               </children>
+            </Pane>
+            <Pane fx:id="sbj2" layoutX="548.0" layoutY="300.0" onMouseClicked="#onSubject2Clicked" onMouseEntered="#onSubject2Entered" onMouseExited="#onSubject2Exited" styleClass="pane-subject">
+               <children>
+                  <Label fx:id="name2" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                  <Label fx:id="label2" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+               </children>
+            </Pane>
+            <Pane fx:id="sbj3" layoutX="898.0" layoutY="300.0" onMouseClicked="#onSubject3Clicked" onMouseEntered="#onSubject3Entered" onMouseExited="#onSubject3Exited" styleClass="pane-subject">
+               <children>
+                  <Label fx:id="name3" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                  <Label fx:id="label3" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+               </children>
+            </Pane>
+            <ImageView fx:id="arwl" fitHeight="120.0" fitWidth="160.0" layoutX="68.0" layoutY="378.0" onMouseClicked="#onLeftAction" onMouseEntered="#onLeftEntered" onMouseExited="#onLeftExited" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@style/Arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="arwr" fitHeight="120.0" fitWidth="160.0" layoutX="1218.0" layoutY="378.0" onMouseClicked="#onRightAction" onMouseEntered="#onRightEntered" onMouseExited="#onRightExited" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@style/Arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</GridPane>
