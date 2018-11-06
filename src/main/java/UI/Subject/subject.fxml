@@ -18,33 +18,33 @@
    <children>
       <Pane styleClass="page-template">
          <children>
-            <Label layoutX="40.0" layoutY="2.0" styleClass="header" text="SUBJECTS" />
-            <Pane layoutX="130.0" layoutY="290.0" styleClass="pane-subject" stylesheets="@subject.css">
+            <Label layoutX="40.0" layoutY="15.0" styleClass="header" text="SUBJECTS" />
+            <Pane fx:id="sbj1" layoutX="198.0" layoutY="300.0" onMouseClicked="#onSubject1Clicked" onMouseEntered="#onSubject1Entered" onMouseExited="#onSubject1Exited" styleClass="pane-subject">
                <children>
-                  <Label layoutY="40.0" styleClass="text-subject" text="OOAD" />
-                  <Label layoutY="230.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+                  <Label fx:id="name1" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                  <Label fx:id="label1" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
                </children>
             </Pane>
-            <Pane layoutX="530.0" layoutY="290.0" styleClass="pane-subject" stylesheets="@subject.css">
+            <Pane fx:id="sbj2" layoutX="548.0" layoutY="300.0" onMouseClicked="#onSubject2Clicked" onMouseEntered="#onSubject2Entered" onMouseExited="#onSubject2Exited" styleClass="pane-subject">
                <children>
-                  <Label layoutY="40.0" styleClass="text-subject" text="OOAD" />
-                  <Label layoutY="230.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+                  <Label fx:id="name2" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                  <Label fx:id="label2" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
                </children>
             </Pane>
-            <Pane layoutX="930.0" layoutY="290.0" styleClass="pane-subject" stylesheets="@subject.css">
+            <Pane fx:id="sbj3" layoutX="898.0" layoutY="300.0" onMouseClicked="#onSubject3Clicked" onMouseEntered="#onSubject3Entered" onMouseExited="#onSubject3Exited" styleClass="pane-subject">
                <children>
-                  <Label layoutY="40.0" styleClass="text-subject" text="OOAD" />
-                  <Label layoutY="230.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+                  <Label fx:id="name3" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                  <Label fx:id="label3" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
                </children>
             </Pane>
-            <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="arwl" fitHeight="120.0" fitWidth="160.0" layoutX="68.0" layoutY="378.0" onMouseClicked="#onLeftAction" onMouseEntered="#onLeftEntered" onMouseExited="#onLeftExited" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="resource/Assets/Arrow.png" />
+                  <Image url="@../../../resources/Assets/Arrow.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="1266.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <ImageView fx:id="arwr" fitHeight="120.0" fitWidth="160.0" layoutX="1218.0" layoutY="378.0" onMouseClicked="#onRightAction" onMouseEntered="#onRightEntered" onMouseExited="#onRightExited" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                <image>
-                  <Image url="resource/Assets/Arrow.png" />
+                  <Image url="@../../../resources/Assets/Arrow.png" />
                </image>
             </ImageView>
          </children>

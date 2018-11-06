@@ -1,4 +1,4 @@
-/* 863, 384 */
+/* 683, 384 */
 
 .page-template{
 	-fx-min-width: 1366;
@@ -16,8 +16,8 @@
 }
 
 .header{
-	-fx-font-size: 65px;
-	-fx-font-weight: normal;
+	-fx-font-size: 60px;
+	-fx-font-weight: bold;
 	-fx-text-fill: #0399D8;
 	-fx-alignment: center;
 
@@ -25,13 +25,13 @@
 	-fx-pref-height: 160;
 }
 .header .text{
-    -fx-stroke: white;
+    -fx-stroke: gray;
     -fx-stroke-width: 2px;
 }
 
 .pane-subject{
-	-fx-pref-width: 300;
-	-fx-pref-height: 300;
+	-fx-pref-width: 270;
+	-fx-pref-height: 270;
 
 	-fx-background-color: #131315;
 
@@ -39,13 +39,13 @@
 }
 
 .text-subject{
-	-fx-font-size: 65px;
+	-fx-font-size: 55px;
 	-fx-font-weight: bold;
 	-fx-text-fill: white;
 	-fx-alignment: center;
 
-	-fx-pref-width: 300;
-	-fx-pref-height: 160;
+	-fx-pref-width: 270;
+	-fx-pref-height: 150;
 }
 .text-subject .text{
     /* -fx-fill: lightseagreen; */
@@ -54,13 +54,13 @@
 }
 
 .label-subject{
-	-fx-font-size: 30px;
+	-fx-font-size: 28px;
 	-fx-font-weight: bold;
 	-fx-text-fill: #0399D8;
 	-fx-alignment: center;
 
-	-fx-pref-width: 300;
-	-fx-pref-height: 70;
+	-fx-pref-width: 270;
+	-fx-pref-height: 60;
 
 	-fx-background-color: white;
 }

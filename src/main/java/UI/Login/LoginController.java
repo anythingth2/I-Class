@@ -1,49 +1,32 @@
 package UI.Login;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+import Main.Main;
 
 public class LoginController {
     @FXML private TextField userid;
     @FXML private TextField pin;
     @FXML private Button login;
-
-//    public LoginController(Stage primaryStage) throws IOException {
-//
-//    }
+    @FXML private Label inc_userid;
+    @FXML private Label inc_pin;
 
     @FXML private void onLoginAction() throws IOException {
         boolean pass = true;
-        if(userid.getText().trim().isEmpty() || userid.getStyle() == "-fx-text-fill: red;"){
-            userid.setStyle("-fx-text-fill: red;");
-            userid.setText("Incorrect ID!");
+        if(userid.getText().trim().isEmpty()){
+            inc_userid.setVisible(true);
             pass = false;
         }
-        if(pin.getText().trim().isEmpty() || pin.getStyle() == "-fx-text-fill: red;"){
-            pin.setStyle("-fx-text-fill: red;");
-            pin.setText("Incorrect pin!");
+        if(pin.getText().trim().isEmpty()){
+            inc_pin.setVisible(true);
             pass = false;
         }
         if(pass){
-//            URL url = new File("src/main/java/UI/Subject/subject.fxml").toURL();
-//            Parent root = FXMLLoader.load(url);
-//            primaryStage.setTitle("I-ClassRoom");
-//            primaryStage.setScene(new Scene(root, 1366, 768));
-//            primaryStage.show();
-//            ScreenController screenController = new ScreenController(scene);
-//            screenController.add("I-ClassRoom", FXMLLoader.load(getClass().getResource( "subject.fxml" )));
-//            screenController.activate("I-ClassRoom");
+            Main.showPage("src/main/java/UI/Subject/subject.fxml");
         }
     }
     @FXML private void onLoginEntered() throws IOException {
@@ -60,15 +43,15 @@ public class LoginController {
     }
 
     @FXML private void onIdAction() throws IOException {
-        if(userid.getStyle() == "-fx-text-fill: red;"){
-            userid.setStyle("-fx-text-fill: white;");
+        if(inc_userid.isVisible() == true){
+            inc_userid.setVisible(false);
             userid.setText("");
         }
     }
 
     @FXML private void onPinAction() throws IOException {
-        if(pin.getStyle() == "-fx-text-fill: red;"){
-            pin.setStyle("-fx-text-fill: white;");
+        if(inc_pin.isVisible() == true) {
+            inc_pin.setVisible(false);
             pin.setText("");
         }
     }

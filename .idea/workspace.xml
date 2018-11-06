@@ -2,89 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="721a0134-953d-41b1-9b72-b6895a168244" name="Default Changelist" comment="Construct project structure">
-      <change afterPath="$PROJECT_DIR$/src/main/java/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Teacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/Login/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/converter.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/enhancer.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/enhancer.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/explorer-b.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/explorer.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/explorer.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/explorer.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/objectdb-jee.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/objectdb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/server-b.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/server.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/bin/server.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/db/points.odb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/db/world.odb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/doc/api-javadoc.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/doc/objectdb-2-5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/license.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/log/odb20181025.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/objectdb.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/readme.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/src/jdo_2.2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/src/jpa_2.0.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/java/guest/Guest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/java/guest/GuestDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/java/guest/GuestServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/webapp/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/webapp/WEB-INF/sun-web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/webapp/guest.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-jee6/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/java/guest/Guest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/java/guest/GuestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/java/guest/GuestDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/webapp/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/webapp/META-INF/context.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/webapp/WEB-INF/guest.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/webapp/WEB-INF/spring-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-spring/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/java/guest/Guest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/java/guest/GuestListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/java/guest/GuestServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/webapp/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/webapp/META-INF/context.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/webapp/guest.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/guestbook-web/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/points-console/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/points-console/src/main/java/point/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/points-console/src/main/java/point/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectdb/tutorials/readme.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/ScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Subject/ScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Subject/SubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/style/Arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Assets/Arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/style/ICLASS.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Assets/ICLASS.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/style/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/style/subject.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Subject/subject.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/subject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Subject/subject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/User.hbm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/ScreenController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/SubjectController.class" beforeDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,20 +48,52 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1707808226">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.44" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="fxml" value="2" />
+          <entry key="java" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="13" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="fxml" value="18" />
+          <entry key="java" value="287" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="287" />
+          <entry key="XML" value="18" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="75" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -148,18 +101,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UI/Login/login.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+            <state relative-caret-position="221">
+              <caret line="13" column="173" selection-start-line="13" selection-start-column="173" selection-end-line="13" selection-end-column="173" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HibernateUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UI/Subject/subject.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="170">
+              <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#519#520#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UI/Subject/SubjectController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#777#778#0" expanded="true" />
+                <element signature="e#809#810#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UI/Login/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,35 +158,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="75" lean-forward="true" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="6" selection-start-column="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/UI/Subject/subject.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="36" column="79" lean-forward="true" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ooad</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -204,15 +172,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/UI/login.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/UI/Login/login.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UI/Login/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/UI/Login/login.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UI/Login/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UI/Subject/SubjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/UI/Subject/subject.fxml" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -223,8 +199,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,11 +214,6 @@
             <path>
               <item name="i-classroom" type="b2602c69:ProjectViewProjectNode" />
               <item name="i-classroom" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="i-classroom" type="b2602c69:ProjectViewProjectNode" />
-              <item name="i-classroom" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -266,7 +235,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="i-classroom" type="b2602c69:ProjectViewProjectNode" />
@@ -275,16 +244,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="i-classroom" type="b2602c69:ProjectViewProjectNode" />
-              <item name="i-classroom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Subject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="i-classroom" type="b2602c69:ProjectViewProjectNode" />
@@ -292,31 +251,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="i-classroom" type="b2602c69:ProjectViewProjectNode" />
-              <item name="i-classroom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="Assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="i-classroom" type="b2602c69:ProjectViewProjectNode" />
-              <item name="i-classroom" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541422568672" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541451578046" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="sample" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ChiChaChai\Documents\i-classroom\src\main\resources\Assets" />
       <recent name="C:\Users\ChiChaChai\Documents\i-classroom\src\main\java\UI\Subject" />
@@ -336,8 +286,10 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-10.0.2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="I-ClassRoom" />
       <extension name="coverage">
         <pattern>
@@ -349,18 +301,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+      <changelist id="721a0134-953d-41b1-9b72-b6895a168244" name="Default Changelist" comment="Construct project structure" />
       <created>1359379246138</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -370,10 +317,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" x="71" y="83" width="557" height="473" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3738255" />
+      <window_info x="71" y="83" width="557" height="473" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2632375" />
       <window_info id="Structure" order="1" weight="0.24966443" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -381,8 +327,8 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32765958" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32131147" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39908257" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -393,7 +339,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32907802" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3262295" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -424,134 +370,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Teacher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UI/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UI/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Assets/ICLASS.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UI/Login/login.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Teacher.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Student.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Course.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI/login.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Assets/ICLASS.png" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI/Login/login.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/User.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/login.fxml" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/HibernateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UI/Login/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="68" column="57" lean-forward="true" selection-start-line="68" selection-start-column="57" selection-end-line="68" selection-end-column="57" />
+        <state relative-caret-position="51">
+          <caret line="3" column="75" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UI/Login/login.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        <state relative-caret-position="221">
+          <caret line="13" column="173" selection-start-line="13" selection-start-column="173" selection-end-line="13" selection-end-column="173" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/login.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="145">
+          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HibernateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="75" lean-forward="true" selection-start-line="3" selection-start-column="75" selection-end-line="3" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UI/Subject/subject.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="36" column="79" lean-forward="true" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
+        <state relative-caret-position="170">
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI/Subject/SubjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UI/Login/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
