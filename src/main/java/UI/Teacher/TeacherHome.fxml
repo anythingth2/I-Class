@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="538.0" layoutY="53.0" prefHeight="115.0" prefWidth="1382.0" style="-fx-background-color: #80CBC4;">
+         <children>
+            <Button fx:id="editButton" contentDisplay="CENTER" layoutX="1258.0" layoutY="54.0" mnemonicParsing="false" prefHeight="41.94" prefWidth="104.05" style="-fx-background-color: #B1DFDB;" text="Edit" textAlignment="CENTER">
+               <font>
+                  <Font name="Roboto Bold" size="20.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="Annoucement" fitHeight="64.09" fitWidth="71.96" layoutX="-542.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" x="565.0">
+               <image>
+                  <Image url="@../../img/Annoucement.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="105.0" layoutY="3.0" prefHeight="113.0" prefWidth="1135.0" text="Lorem Lorem" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="538.0" layoutY="167.0" prefHeight="109.0" prefWidth="1382.0" style="-fx-background-color: #E6E6E6;">
+         <children>
+            <Label layoutX="65.0" prefHeight="109.0" prefWidth="1318.0" text="Title Name">
+               <font>
+                  <Font name="Segoe UI Semibold" size="50.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane prefHeight="56.37" prefWidth="1920.0" style="-fx-background-color: #393434;" />
+      <VBox layoutY="57.0" prefHeight="1024.0" prefWidth="540.0" style="-fx-background-color: #171C1D;">
+         <children>
+            <Pane prefHeight="174.0" prefWidth="538.0" style="-fx-background-color: #171C1D;">
+               <children>
+                  <TextFlow prefHeight="174.34" prefWidth="538.0" textAlignment="CENTER">
+                     <children>
+                        <Label fx:id="subjectName" alignment="CENTER" prefHeight="170.0" prefWidth="537.0" text="Subject Name" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="50.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </TextFlow>
+               </children>
+            </Pane>
+            <ScrollPane prefHeight="851.0" prefWidth="573.0">
+               <content>
+                  <VBox prefHeight="846.0" prefWidth="538.0" style="-fx-background-color: #1B1C1B;">
+                     <children>
+                        <Pane prefHeight="180.0" prefWidth="534.0" style="-fx-background-color: #1B1C1B;" />
+                        <Pane prefHeight="180.0" prefWidth="534.0" style="-fx-background-color: #1B1C1B;" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <ImageView fx:id="addCourse" fitHeight="90.41" fitWidth="90.42" layoutX="405.0" layoutY="951.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/plus.png" />
+         </image></ImageView>
+      <ImageView fx:id="chatIcon" fitHeight="72.42" fitWidth="72.42" layoutX="1788.58" layoutY="950.58" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/chat.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inBoxIcon" fitHeight="72.42" fitWidth="72.42" layoutX="1695.58" layoutY="950.58" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/inbox.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
