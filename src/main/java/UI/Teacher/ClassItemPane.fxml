@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+
+<fx:root xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" prefHeight="119.0" prefWidth="294.0"
+         style="-fx-background-color: #010101;"
+         type="javafx.scene.layout.Pane">
+    <children>
+        <ImageView fx:id="iconImageView" fitHeight="40.0" fitWidth="28.0" layoutX="14.0" layoutY="8.0"
+                   pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../../Designed/icon/img_49719%20(1).png"/>
+            </image>
+        </ImageView>
+        <Text fx:id="dateTextView" fill="WHITE" layoutX="49.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="DATE ">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Text>
+        <Text fx:id="timeTextView" fill="WHITE" layoutX="225.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="TIME">
+            <font>
+                <Font name="Segoe UI" size="25.0"/>
+            </font>
+        </Text>
+        <Text fx:id="chaptureTextView" fill="WHITE" layoutX="14.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHAPTER"
+              wrappingWidth="187.13671875">
+            <font>
+                <Font name="Segoe UI" size="42.0"/>
+            </font>
+        </Text>
+    </children>
+</fx:root>

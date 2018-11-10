@@ -31,6 +31,7 @@ public class ApplicationController {
             File file = new File(this.getResourcePath());
             Parent root;
             try {
+
                 root = FXMLLoader.load(file.toURL());
             } catch (IOException e) {
                 root = null;

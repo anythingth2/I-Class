@@ -7,15 +7,63 @@ import java.util.Date;
 @Entity
 @Table(name = "classes")
 public class TeachingClass {
-    String title;
-    Date date;
+    private String title;
+    private Date date;
 
-    Course course;
-    Material material;
-    Homework homework;
+    private Course course;
+    private Material material;
+    private Homework homework;
 
-    TeachingClass(Material material) {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
         this.material = material;
+    }
+
+    public Homework getHomework() {
+        return homework;
+    }
+
+    public void setHomework(Homework homework) {
+        this.homework = homework;
+    }
+
+    public TeachingClass() {
+    }
+
+    public TeachingClass(Material material) {
+        this.material = material;
+    }
+
+    public TeachingClass(Material material, Homework homework) {
+        this(material);
+        this.homework = homework;
     }
 
 }

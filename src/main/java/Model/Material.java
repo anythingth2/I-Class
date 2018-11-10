@@ -8,13 +8,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "material")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Material  {
+public class Material {
     String title;
     String description;
     String link;
 
     TeachingClass teachingClass;
-    Material(TeachingClass teachingClass){
+
+    public Material() {
+    }
+
+    public Material(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
     }
 }

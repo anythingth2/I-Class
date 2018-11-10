@@ -42,7 +42,6 @@ public class Main extends Application {
         globalStage = primaryStage;
         applicationController = new ApplicationController(primaryStage, ApplicationController.Resource.Teacher);
 
-
     }
 
     public static void main(String[] args) {
