@@ -66,7 +66,7 @@ public class SubjectController {
         displayBlackShadow(sbj1);
     }
     @FXML private void onSubject1Clicked() throws IOException {
-        Main.showPage(path1);
+//        Main.showPage(path1);
     }
 
     @FXML private void onSubject2Entered() throws IOException {
@@ -76,7 +76,7 @@ public class SubjectController {
         displayBlackShadow(sbj2);
     }
     @FXML private void onSubject2Clicked() throws IOException {
-        Main.showPage(path2);
+//        Main.showPage(path2);
     }
 
     @FXML private void onSubject3Entered() throws IOException {
@@ -86,7 +86,7 @@ public class SubjectController {
         displayBlackShadow(sbj3);
     }
     @FXML private void onSubject3Clicked() throws IOException {
-        Main.showPage(path3);
+//        Main.showPage(path3);
     }
 
     @FXML private void onLeftAction() throws IOException {
