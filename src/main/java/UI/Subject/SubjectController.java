@@ -10,6 +10,7 @@ import java.io.IOException;
 import Main.Main;
 
 public class SubjectController {
+
     @FXML private Pane sbj1;
     @FXML private Label name1;
     @FXML private Label label1;

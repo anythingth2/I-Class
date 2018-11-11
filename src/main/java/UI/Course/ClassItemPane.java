@@ -1,4 +1,4 @@
-package UI.Teacher;
+package UI.Course;
 
 import Model.TeachingClass;
 import javafx.fxml.FXML;
@@ -16,6 +16,7 @@ import java.net.URL;
 public class ClassItemPane extends Pane {
 
     public TeachingClass teachingClass;
+
     @FXML
     ImageView iconImageView;
     @FXML
@@ -28,9 +29,7 @@ public class ClassItemPane extends Pane {
 
     public void setTeachingClass(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
-
         this.dateTextView.setText(teachingClass.getDate().toString());
-
     }
 
     public ClassItemPane() {
