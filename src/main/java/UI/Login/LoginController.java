@@ -1,16 +1,17 @@
 package UI.Login;
 
-import Main.ApplicationController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
-import Main.Main;
-
-public class LoginController {
+public class LoginController extends GridPane {
     @FXML
     private TextField userid;
     @FXML
@@ -21,6 +22,20 @@ public class LoginController {
     private Label inc_userid;
     @FXML
     private Label inc_pin;
+
+    public LoginController() {
+        super();
+        try {
+            URL url = new File("src/main/java/UI/Login/login.fxml").toURL();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Login/login.fxml"));
+            loader.setRoot(this);
+            loader.setController(this);
+            loader.setLocation(url);
+            loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void onLoginAction() throws IOException {
@@ -34,10 +49,6 @@ public class LoginController {
             pass = false;
         }
         if (pass) {
-//            Main.showPage("src/main/java/UI/Subject/subject.fxml");
-//            Main.showPage("src/main/java/UI/Course/course.fxml");
-            Main.getApplicationController().navigateTo(ApplicationController.Resource.Subject);
-//            Main.showPage("src/main/java/UI/Teacher/TeacherHome.fxml");
         }
     }
 
