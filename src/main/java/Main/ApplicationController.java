@@ -53,15 +53,14 @@ public class ApplicationController {
 
     public ApplicationController(Stage stage) {
         this.stage = stage;
-
         initialize();
     }
 
     private void initialize() {
-        Parent root = new SubjectController();
+        Parent root = new LoginController();
         this.scene = new Scene(root);
         this.stage.setScene(scene);
-        this.stage.setFullScreen(true);
+//        this.stage.setFullScreen(true);
         this.stage.show();
     }
 

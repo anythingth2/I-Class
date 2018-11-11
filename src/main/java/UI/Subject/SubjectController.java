@@ -1,5 +1,6 @@
 package UI.Subject;
 
+import Model.Course;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -11,6 +12,7 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import Main.Main;
 
@@ -47,6 +49,8 @@ public class SubjectController extends GridPane {
     private ColorAdjust color = new ColorAdjust();
 
 
+    private List<Course> courses;
+
     public SubjectController() {
         super();
         try {
@@ -59,6 +63,12 @@ public class SubjectController extends GridPane {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public SubjectController(List<Course> courses) {
+        this();
+        this.courses = courses;
+        this.name1.setText(this.courses.get(0).getName());
     }
 
     public void initialize() {
