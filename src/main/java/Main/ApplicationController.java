@@ -1,6 +1,7 @@
 package Main;
 
 import UI.Login.LoginController;
+import UI.Subject.SubjectController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -50,7 +51,6 @@ public class ApplicationController {
     private Stage stage;
     private Scene scene;
 
-
     public ApplicationController(Stage stage) {
         this.stage = stage;
 
@@ -58,7 +58,7 @@ public class ApplicationController {
     }
 
     private void initialize() {
-        Parent root = new LoginController();
+        Parent root = new SubjectController();
         this.scene = new Scene(root);
         this.stage.setScene(scene);
         this.stage.setFullScreen(true);
