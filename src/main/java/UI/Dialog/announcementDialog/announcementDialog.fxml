@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="299.31" prefWidth="1063.81" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.announcementDialog.announcementDialogController">
+   <children>
+      <Label layoutX="66.0" layoutY="42.0" text="แก้ไขข้อความภายในประกาศ" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="386.0" layoutY="231.0" text="ยกเลิก" textFill="#80cbc4">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="624.0" layoutY="231.0" prefHeight="30.0" prefWidth="50.0" text="แก้ไข" textFill="#80cbc4">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="108.0" layoutY="150.0" prefHeight="36.0" prefWidth="847.0" />
+   </children>
+</AnchorPane>

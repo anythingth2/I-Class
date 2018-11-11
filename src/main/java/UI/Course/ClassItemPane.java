@@ -4,13 +4,10 @@ import Model.TeachingClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 
 public class ClassItemPane extends Pane {
@@ -35,8 +32,8 @@ public class ClassItemPane extends Pane {
     public ClassItemPane() {
         super();
         try {
-            URL url = new File("src/main/java/UI/Teacher/ClassItemPane.fxml").toURL();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Teacher/ClassItemPane.fxml"));
+            URL url = new File("src/main/java/UI/Course/ClassItemPane.fxml").toURL();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Course/ClassItemPane.fxml"));
             loader.setRoot(this);
             loader.setController(this);
             loader.setLocation(url);

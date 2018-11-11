@@ -16,7 +16,8 @@ public class ApplicationController {
         Login("/UI/Login/login.fxml"),
         Subject("/UI/Subject/subject.fxml"),
         Course("/UI/Course/course.fxml"),
-        Teacher("/UI/Teacher/TeacherHome.fxml");
+        Teacher("/UI/Course/Course.fxml"),
+        Dialog("/UI/Dialog/callDialog.fxml");
         String source = "src/main/java";
         String path;
 
@@ -53,6 +54,7 @@ public class ApplicationController {
 
     public ApplicationController(Stage stage) {
         this.stage = stage;
+
         initialize();
     }
 
