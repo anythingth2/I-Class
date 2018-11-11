@@ -1,5 +1,7 @@
 package Main;
 
+import UI.Login.LoginController;
+import UI.Subject.SubjectController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,7 +33,6 @@ public class ApplicationController {
             File file = new File(this.getResourcePath());
             Parent root;
             try {
-
                 root = FXMLLoader.load(file.toURL());
             } catch (IOException e) {
                 root = null;
@@ -39,6 +40,7 @@ public class ApplicationController {
             }
             return root;
         }
+
 
         @Override
         public String toString() {
@@ -49,21 +51,22 @@ public class ApplicationController {
     private Stage stage;
     private Scene scene;
 
-
-    public ApplicationController(Stage stage, Resource resource) {
+    public ApplicationController(Stage stage) {
         this.stage = stage;
-        initialize(resource);
+
+        initialize();
     }
 
-    private void initialize(Resource resource) {
-        this.scene = new Scene(resource.getRoot());
+    private void initialize() {
+        Parent root = new SubjectController();
+        this.scene = new Scene(root);
         this.stage.setScene(scene);
         this.stage.setFullScreen(true);
         this.stage.show();
     }
 
-    public void navigateTo(Resource resource) {
-        Parent root = resource.getRoot();
+    public void navigateTo(Parent root) {
+//        Parent root = resource.getRoot();
         if (scene == null)
             scene = new Scene(root);
         else

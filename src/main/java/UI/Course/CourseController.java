@@ -1,17 +1,14 @@
-package UI.Teacher;
+package UI.Course;
 
-import Model.Material;
 import Model.TeachingClass;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-
 import java.util.Date;
 
-public class TeacherHomeController {
+public class CourseController {
+
     @FXML
     VBox classVBox;
     @FXML
@@ -19,7 +16,7 @@ public class TeacherHomeController {
     @FXML
     Button button;
 
-    public TeacherHomeController() {
+    public CourseController() {
         super();
     }
 
@@ -29,7 +26,6 @@ public class TeacherHomeController {
         TeachingClass teachingClass = new TeachingClass();
         teachingClass.setDate(new Date(System.currentTimeMillis()));
         ClassItemPane child = new ClassItemPane(teachingClass);
-
 
         this.classVBox.getChildren().add(child);
 

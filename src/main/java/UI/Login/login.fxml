@@ -11,27 +11,39 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" stylesheets="@login.css" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Login.LoginController">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-   <children>
-      <Pane fx:id="page" styleClass="page-template">
-         <children>
-            <Button fx:id="login" layoutX="608.0" layoutY="604.0" mnemonicParsing="false" onAction="#onLoginAction" onKeyPressed="#onLoginPressed" onKeyReleased="#onLoginReleased" onMouseEntered="#onLoginEntered" onMouseExited="#onLoginExited" styleClass="btn-login" text="LOGIN" />
-            <TextField fx:id="userid" layoutX="508.0" layoutY="384.0" onAction="#onIdAction" onKeyReleased="#onIdAction" onMouseClicked="#onIdAction" promptText="YOUR ID" styleClass="input-bar" />
-            <PasswordField fx:id="pin" accessibleRole="PASSWORD_FIELD" layoutX="508.0" layoutY="474.0" onAction="#onPinAction" onKeyReleased="#onPinAction" onMouseClicked="#onPinAction" promptText="PIN" styleClass="input-bar" />
-            <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="553.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../resources/Assets/ICLASS.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="inc_userid" layoutX="878.0" layoutY="387.0" styleClass="incorrect" text="Incorrect ID!" visible="false" />
-            <Label fx:id="inc_pin" layoutX="878.0" layoutY="477.0" styleClass="incorrect" text="Incorrect pin!" visible="false" />
-         </children>
-      </Pane>
-   </children>
-</GridPane>
+<fx:root alignment="center" hgap="10" stylesheets="@login.css"
+         vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+
+         type="GridPane">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+    <children>
+        <Pane fx:id="page" styleClass="page-template">
+            <children>
+                <Button fx:id="login" layoutX="608.0" layoutY="604.0" mnemonicParsing="false" onAction="#onLoginAction"
+                        onKeyPressed="#onLoginPressed" onKeyReleased="#onLoginReleased" onMouseEntered="#onLoginEntered"
+                        onMouseExited="#onLoginExited" styleClass="btn-login" text="LOGIN"/>
+                <TextField fx:id="userid" layoutX="508.0" layoutY="384.0" onAction="#onIdAction"
+                           onKeyReleased="#onIdAction" onMouseClicked="#onIdAction" promptText="YOUR ID"
+                           styleClass="input-bar"/>
+                <PasswordField fx:id="pin" accessibleRole="PASSWORD_FIELD" layoutX="508.0" layoutY="474.0"
+                               onAction="#onPinAction" onKeyReleased="#onPinAction" onMouseClicked="#onPinAction"
+                               promptText="PIN" styleClass="input-bar"/>
+                <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="553.0" layoutY="104.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../../resources/Assets/ICLASS.png"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="inc_userid" layoutX="878.0" layoutY="387.0" styleClass="incorrect" text="Incorrect ID!"
+                       visible="false"/>
+                <Label fx:id="inc_pin" layoutX="878.0" layoutY="477.0" styleClass="incorrect" text="Incorrect pin!"
+                       visible="false"/>
+            </children>
+        </Pane>
+    </children>
+</fx:root>
