@@ -1,4 +1,4 @@
-package UI.Dialog;
+package UI.Dialog.announcementDialog;
 
 public class announcementDialogController {
 }

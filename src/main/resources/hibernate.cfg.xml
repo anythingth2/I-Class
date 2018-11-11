@@ -16,7 +16,7 @@
         <!--<mapping resource="User.hbm.xml"/>-->
         <mapping class="Model.User"/>
         <!--<mapping class="Model.Student"/>-->
-        <!--<mapping class="Model.Teacher"/>-->
+        <!--<mapping class="Model.Course"/>-->
         <!--<mapping class="Model.Course"/>-->
 
     </session-factory>

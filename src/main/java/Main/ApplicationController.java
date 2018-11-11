@@ -16,7 +16,8 @@ public class ApplicationController {
         Login("/UI/Login/login.fxml"),
         Subject("/UI/Subject/subject.fxml"),
         Course("/UI/Course/course.fxml"),
-        Teacher("/UI/Teacher/TeacherHome.fxml");
+        Teacher("/UI/Course/Course.fxml"),
+        Dialog("/UI/Dialog/callDialog.fxml");
         String source = "src/main/java";
         String path;
 
@@ -61,7 +62,7 @@ public class ApplicationController {
         Parent root = new SubjectController();
         this.scene = new Scene(root);
         this.stage.setScene(scene);
-        this.stage.setFullScreen(true);
+        //this.stage.setFullScreen(true);
         this.stage.show();
     }
 
