@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 
 public class ClassItemPane extends Pane {
 
@@ -29,14 +30,19 @@ public class ClassItemPane extends Pane {
 
     public void setTeachingClass(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
-        this.dateTextView.setText(teachingClass.getDate().toString());
+
+        this.dateTextView.setText(new SimpleDateFormat("dd/mm/yyyy")
+                .format(teachingClass.getDate()));
+        this.timeTextView.setText(new SimpleDateFormat("hh:mm")
+                .format(teachingClass.getDate()));
+
     }
 
     public ClassItemPane() {
         super();
         try {
-            URL url = new File("src/main/java/UI/Teacher/ClassItemPane.fxml").toURL();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Teacher/ClassItemPane.fxml"));
+            URL url = new File("src/main/java/UI/Course/ClassItemPane.fxml").toURL();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Course/ClassItemPane.fxml"));
             loader.setRoot(this);
             loader.setController(this);
             loader.setLocation(url);

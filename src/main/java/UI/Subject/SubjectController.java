@@ -1,9 +1,13 @@
 package UI.Subject;
 
+import Model.Course;
+import Model.TeachingClass;
+import UI.Course.CourseController;
 import Main.Main;
 import UI.Login.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,6 +19,9 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.List;
 
 public class SubjectController extends GridPane {
@@ -109,6 +116,21 @@ public class SubjectController extends GridPane {
     @FXML
     private void onSubject1Clicked() throws IOException {
 //        Main.showPage(path1);
+        List<TeachingClass> teachingClasses = new ArrayList<TeachingClass>();
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+
+        Course course = new Course(teachingClasses);
+        course.setName("OOAD NAJA");
+        course.setAnnouncement("อาจารย์ยงดสอน");
+        CourseController courseController = new CourseController(course);
+        Main.getApplicationController().navigateTo(courseController);
     }
 
     @FXML

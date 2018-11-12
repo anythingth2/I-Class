@@ -1,38 +1,45 @@
 package UI.Course;
 
+import Model.Course;
 import Model.TeachingClass;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class CourseController extends AnchorPane {
 
+    @FXML
+    Label courseNameTextView;
+    @FXML
+    Label announcementLabel;
     @FXML
     private VBox classVBox;
     private List<ClassItemPane> classItemPanes = new ArrayList<ClassItemPane>();
     @FXML
     private ScrollPane scrollPane;
-    @FXML
-    private Button button;
 
+    private Course course;
     private List<TeachingClass> teachingClasses;
 
 
     public CourseController() {
         super();
         try {
-            URL url = new File("src/main/java/UI/Teacher/Course.fxml").toURL();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Teacher/Course.fxml"));
+            URL url = new File("src/main/java/UI/Course/Course.fxml").toURL();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Course/Course.fxml"));
             loader.setRoot(this);
             loader.setController(this);
             loader.setLocation(url);
@@ -42,15 +49,23 @@ public class CourseController extends AnchorPane {
         }
     }
 
-    public CourseController(List<TeachingClass> teachingClasses) {
+    public CourseController(Course course) {
         this();
-        this.teachingClasses = teachingClasses;
-        for (TeachingClass teachingClass : this.teachingClasses) {
+        this.course = course;
+        this.teachingClasses = course.getTeachingClasses();
+        this.announcementLabel.setText(course.getAnnouncement());
+        this.courseNameTextView.setText(this.course.getName());
+        for (final TeachingClass teachingClass : this.teachingClasses) {
             ClassItemPane classItemPane = new ClassItemPane(teachingClass);
-
+            classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    selectTeachingClass(teachingClass);
+                }
+            });
             classItemPanes.add(classItemPane);
-            this.classVBox.getChildren().add(classItemPane);
         }
+        refresh();
     }
 
     private void refresh() {
@@ -60,14 +75,7 @@ public class CourseController extends AnchorPane {
         }
     }
 
-    @FXML
-    void onAddClick() {
-        System.out.println("clicked");
-        TeachingClass teachingClass = new TeachingClass();
-        teachingClass.setDate(new Date(System.currentTimeMillis()));
-        ClassItemPane child = new ClassItemPane(teachingClass);
-
-        this.classVBox.getChildren().add(child);
-
+    private void selectTeachingClass(TeachingClass teachingClass) {
+        System.out.println("select teaching class" + teachingClass.toString());
     }
 }
