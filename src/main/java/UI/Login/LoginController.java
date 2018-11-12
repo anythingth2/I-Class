@@ -1,8 +1,10 @@
 package UI.Login;
 
 import Main.Main;
+import Model.Course;
 import Model.Student;
 import Model.Teacher;
+import Model.TeachingClass;
 import UI.Subject.SubjectController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,11 +59,25 @@ public class LoginController extends GridPane {
             pass = false;
         }
         if (pass) {
-
+            //--------------------------------------------- Moc data for test ---------------------------------------------
+            List<String> names = new ArrayList<String>();
             Main.getApplicationController().setUser(new Student());
 
-            List<String> names = new ArrayList<String>();
-            Parent root = new SubjectController();
+            List<Course> courses = new ArrayList<Course>();
+            courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Software End", "SE", "0000000002", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Comp Net", "CN", "0000000003", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Foundation Eng", "FE", "0000000004", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Infomation Retrieval", "IR", "0000000005", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Micro Robot", "MR", "0000000006", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+
+            Parent root = new SubjectController(courses);
+            //-------------------------------------------------------------------------------------------------------------
+
+//            Parent root = new SubjectController();
             Main.getApplicationController().navigateTo(root);
         }
     }
