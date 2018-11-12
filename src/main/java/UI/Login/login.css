@@ -1,18 +1,18 @@
-/* 683, 384 */
+/* 640, 360 */
 
 .page-template{
-	-fx-min-width: 1366;
-	-fx-min-height: 768;
-	-fx-pref-width: 1366;
-	-fx-pref-height: 768;
-	-fx-max-width: 1366;
-	-fx-max-height: 768;
+	-fx-min-width: 1280;
+	-fx-min-height: 720;
+	-fx-pref-width: 1280;
+	-fx-pref-height: 720;
+	-fx-max-width: 1280;
+	-fx-max-height: 720;
 
 	-fx-background-color: #131315;
 }
 
 .input-bar{
-	-fx-font-size: 22px;
+	-fx-font-size: 26px;
 	-fx-font-weight: normal;
 	-fx-text-fill: white;
 
@@ -27,7 +27,7 @@
 }
 
 .btn-login{
-	-fx-font-size: 20px;
+	-fx-font-size: 22px;
 	-fx-font-weight: bold;
 	-fx-text-fill: white;
 	-fx-alignment: center;
@@ -40,7 +40,7 @@
 }
 
 .incorrect{
-	-fx-font-size: 25px;
+	-fx-font-size: 26px;
 	-fx-font-weight: normal;
 	-fx-text-fill: #C1192A;
 
