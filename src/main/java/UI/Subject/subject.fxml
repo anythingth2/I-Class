@@ -27,20 +27,20 @@
             </Label>
                 <Pane fx:id="sbj1" layoutX="155.0" layoutY="250.0" onMouseClicked="#onSubject1Clicked" onMouseEntered="#onSubject1Entered" onMouseExited="#onSubject1Exited" styleClass="pane-subject">
                     <children>
-                        <Label fx:id="name1" layoutY="40.0" styleClass="text-subject" text="OOAD" />
-                        <Label fx:id="label1" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+                        <Label fx:id="alias1" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                        <Label fx:id="name1" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
                     </children>
                 </Pane>
                 <Pane fx:id="sbj2" layoutX="505.0" layoutY="250.0" onMouseClicked="#onSubject2Clicked" onMouseEntered="#onSubject2Entered" onMouseExited="#onSubject2Exited" styleClass="pane-subject">
                     <children>
-                        <Label fx:id="name2" layoutY="40.0" styleClass="text-subject" text="OOAD" />
-                        <Label fx:id="label2" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+                        <Label fx:id="alias2" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                        <Label fx:id="name2" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
                     </children>
                 </Pane>
                 <Pane fx:id="sbj3" layoutX="855.0" layoutY="250.0" onMouseClicked="#onSubject3Clicked" onMouseEntered="#onSubject3Entered" onMouseExited="#onSubject3Exited" styleClass="pane-subject">
                     <children>
-                        <Label fx:id="name3" layoutY="40.0" styleClass="text-subject" text="OOAD" />
-                        <Label fx:id="label3" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
+                        <Label fx:id="alias3" layoutY="40.0" styleClass="text-subject" text="OOAD" />
+                        <Label fx:id="name3" layoutY="210.0" styleClass="label-subject" text="Object Oriented Analysis and Design" />
                     </children>
                 </Pane>
                 <ImageView fx:id="arwl" fitHeight="90.0" fitWidth="120.0" layoutX="45.0" layoutY="340.0" onMouseClicked="#onLeftAction" onMouseEntered="#onLeftEntered" onMouseExited="#onLeftExited" pickOnBounds="true" preserveRatio="true" visible="false">

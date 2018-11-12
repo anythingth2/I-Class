@@ -13,6 +13,8 @@ public class Course {
     @GeneratedValue
     int id;
     String name;
+    String alias;
+    String codenumber;
     String description;
     String announcement;
     List<TeachingClass> teachingClasses;
@@ -23,6 +25,22 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public String getCodenumber() {
+        return codenumber;
+    }
+
+    public void setCodenumber(String codenumber) {
+        this.codenumber = codenumber;
     }
 
     public String getDescription() {
@@ -50,6 +68,15 @@ public class Course {
     }
 
     public Course(List<TeachingClass> teachingClasses) {
+        this.teachingClasses = teachingClasses;
+    }
+
+    public Course(String name, String alias, String codenumber, String description, String announcement, List<TeachingClass> teachingClasses) {
+        this.name = name;
+        this.alias = alias;
+        this.codenumber = codenumber;
+        this.description = description;
+        this.announcement = announcement;
         this.teachingClasses = teachingClasses;
     }
 
