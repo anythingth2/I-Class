@@ -31,6 +31,8 @@ public class ApplicationController {
         Parent root = new SubjectController();
         this.scene = new Scene(root);
         this.stage.setScene(scene);
+//        this.stage.setFullScreen(true);
+        this.stage.setResizable(false);
         this.stage.show();
     }
 
