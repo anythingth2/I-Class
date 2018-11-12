@@ -1,6 +1,8 @@
 package UI.Course;
 
+import Main.Main;
 import Model.Course;
+import Model.Teacher;
 import Model.TeachingClass;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -24,12 +27,19 @@ public class CourseController extends AnchorPane {
     @FXML
     Label courseNameTextView;
     @FXML
+    Button editAnnouncementButton;
+    @FXML
     Label announcementLabel;
+    @FXML
+    Label titleLabel;
     @FXML
     private VBox classVBox;
     private List<ClassItemPane> classItemPanes = new ArrayList<ClassItemPane>();
     @FXML
     private ScrollPane scrollPane;
+
+    @FXML
+    Pane teachingClassPane;
 
     private Course course;
     private List<TeachingClass> teachingClasses;
@@ -55,16 +65,21 @@ public class CourseController extends AnchorPane {
         this.teachingClasses = course.getTeachingClasses();
         this.announcementLabel.setText(course.getAnnouncement());
         this.courseNameTextView.setText(this.course.getName());
+        this.titleLabel.setText(this.course.getName());
+
         for (final TeachingClass teachingClass : this.teachingClasses) {
             ClassItemPane classItemPane = new ClassItemPane(teachingClass);
             classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    selectTeachingClass(teachingClass);
+                    setTeachingClassPane(teachingClass);
                 }
             });
             classItemPanes.add(classItemPane);
         }
+
+        boolean isTeacher = Main.getApplicationController().getUser() instanceof Teacher;
+        editAnnouncementButton.setVisible(isTeacher);
         refresh();
     }
 
@@ -75,7 +90,13 @@ public class CourseController extends AnchorPane {
         }
     }
 
-    private void selectTeachingClass(TeachingClass teachingClass) {
-        System.out.println("select teaching class" + teachingClass.toString());
+
+    private void setTeachingClassPane(TeachingClass teachingClass) {
+
+        if (this.teachingClassPane.getChildren().size() > 1) {
+
+        }else{
+
+        }
     }
 }

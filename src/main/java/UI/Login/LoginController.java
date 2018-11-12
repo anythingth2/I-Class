@@ -1,6 +1,8 @@
 package UI.Login;
 
 import Main.Main;
+import Model.Student;
+import Model.Teacher;
 import UI.Subject.SubjectController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +56,9 @@ public class LoginController extends GridPane {
             pass = false;
         }
         if (pass) {
+
+            Main.getApplicationController().setUser(new Student());
+
             List<String> names = new ArrayList<String>();
             Parent root = new SubjectController();
             Main.getApplicationController().navigateTo(root);
@@ -63,6 +68,7 @@ public class LoginController extends GridPane {
     @FXML
     private void onLoginEntered() throws IOException {
         login.setStyle("-fx-background-color: #0399D8;");
+
     }
 
     @FXML

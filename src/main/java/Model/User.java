@@ -10,7 +10,6 @@ public class User {
 
     @Id
     @GeneratedValue
-
     int id;
     String fullName;
     String pin;
