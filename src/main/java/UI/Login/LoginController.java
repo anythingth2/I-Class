@@ -59,10 +59,9 @@ public class LoginController extends GridPane {
             pass = false;
         }
         if (pass) {
-            //--------------------------------------------- Moc data for test ---------------------------------------------
-            List<String> names = new ArrayList<String>();
-            Main.getApplicationController().setUser(new Student());
-
+//--------------------------------------------- Moc data for test ---------------------------------------------
+//            List<String> names = new ArrayList<String>();
+//            Main.getApplicationController().setUser(new Student());
             List<Course> courses = new ArrayList<Course>();
             courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
@@ -74,11 +73,24 @@ public class LoginController extends GridPane {
             courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
 
-            Parent root = new SubjectController(courses);
-            //-------------------------------------------------------------------------------------------------------------
+            Student exstudent = new Student("Example Mocstudent");
+            exstudent.setUserid("1234567890");
+            exstudent.setPin("1234567890");
+            exstudent.setEnrolledCourses(courses);
+            Main.getApplicationController().setUser(exstudent);
+//-------------------------------------------------------------------------------------------------------------
 
+            if( userid.getText().equals(exstudent.getUserid()) && pin.getText().equals(exstudent.getPin())) {
+                Parent root = new SubjectController(exstudent.getEnrolledCourses()); // Pass moc data
 //            Parent root = new SubjectController();
-            Main.getApplicationController().navigateTo(root);
+                Main.getApplicationController().navigateTo(root);
+            }
+            else if(userid.getText().equals(exstudent.getUserid())) {
+                inc_pin.setVisible(true);
+            }
+            else{
+                inc_userid.setVisible(true);
+            }
         }
     }
 
@@ -107,7 +119,6 @@ public class LoginController extends GridPane {
     private void onIdAction() throws IOException {
         if (inc_userid.isVisible() == true) {
             inc_userid.setVisible(false);
-            userid.setText("");
         }
     }
 
@@ -115,7 +126,6 @@ public class LoginController extends GridPane {
     private void onPinAction() throws IOException {
         if (inc_pin.isVisible() == true) {
             inc_pin.setVisible(false);
-            pin.setText("");
         }
     }
 }
