@@ -1,0 +1,15 @@
+.page-template{
+	-fx-min-width: 940;
+	-fx-min-height: 600;
+	-fx-pref-width: 940;
+	-fx-pref-height: 600;
+	-fx-max-width: 940;
+	-fx-max-height: 600;
+}
+#dowloadbtn {
+    -fx-font-weight: bold;
+    -fx-background-color: #0399D8;
+    -fx-background-radius: 5px;
+    -fx-text-fill: White;
+    -fx-text-size: 20px;
+}
