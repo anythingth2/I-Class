@@ -1,0 +1,13 @@
+#dowloadbtn {
+    -fx-font-weight: bold;
+    -fx-background-color: #0399D8;
+    -fx-background-radius: 5px;
+    -fx-text-fill: White;
+    -fx-text-size: 20px;
+}
+#submitbtn{
+    -fx-background-color: #0399D8;
+        -fx-text-fill: White;
+        -fx-text-size: 20px;
+
+}

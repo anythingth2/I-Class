@@ -1,14 +1,14 @@
-/* 683, 384 */
+/* 640, 360 */
 
 .page-template{
-	-fx-min-width: 1366;
-	-fx-min-height: 768;
-	-fx-pref-width: 1366;
-	-fx-pref-height: 768;
-	-fx-max-width: 1366;
-	-fx-max-height: 768;
+	-fx-min-width: 1280;
+	-fx-min-height: 720;
+	-fx-pref-width: 1280;
+	-fx-pref-height: 720;
+	-fx-max-width: 1280;
+	-fx-max-height: 720;
 
-	-fx-border-width: 160px;
+	-fx-border-width: 110px;
 	-fx-border-style: solid none none none;
 	-fx-border-color: #131315;
 
@@ -16,16 +16,16 @@
 }
 
 .header{
-	-fx-font-size: 60px;
+	-fx-font-size: 70px;
 	-fx-font-weight: bold;
-	-fx-text-fill: #0399D8;
+	-fx-text-fill: white;
 	-fx-alignment: center;
 
 	-fx-pref-width: 300;
 	-fx-pref-height: 160;
 }
 .header .text{
-    -fx-stroke: gray;
+    -fx-stroke: #0399D8;
     -fx-stroke-width: 2px;
 }
 
@@ -63,4 +63,16 @@
 	-fx-pref-height: 60;
 
 	-fx-background-color: white;
+}
+
+.btn-logout{
+	-fx-font-size: 22px;
+	-fx-font-weight: normal;
+	-fx-text-fill: #0399D8;
+	-fx-alignment: center;
+
+	-fx-pref-width: 150;
+	-fx-pref-height: 46;
+	
+	-fx-background-color: #131315;
 }

@@ -1,7 +1,15 @@
 package UI.Subject;
 
+import Model.Course;
+import Model.TeachingClass;
+import UI.Course.CourseController;
+import Main.Main;
+import UI.Login.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.GridPane;
@@ -11,8 +19,10 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-
-import Main.Main;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.List;
 
 public class SubjectController extends GridPane {
 
@@ -44,6 +54,8 @@ public class SubjectController extends GridPane {
     private ImageView arwl;
     @FXML
     private ImageView arwr;
+    @FXML
+    private Button logout;
     private ColorAdjust color = new ColorAdjust();
 
 
@@ -60,8 +72,8 @@ public class SubjectController extends GridPane {
             e.printStackTrace();
         }
     }
-
-    public void initialize() {
+    public SubjectController(List<String > names){
+        this();
         setInitialData();
     }
 
@@ -104,6 +116,21 @@ public class SubjectController extends GridPane {
     @FXML
     private void onSubject1Clicked() throws IOException {
 //        Main.showPage(path1);
+        List<TeachingClass> teachingClasses = new ArrayList<TeachingClass>();
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+
+        Course course = new Course(teachingClasses);
+        course.setName("OOAD NAJA");
+        course.setAnnouncement("อาจารย์ยงดสอน");
+        CourseController courseController = new CourseController(course);
+        Main.getApplicationController().navigateTo(courseController);
     }
 
     @FXML
@@ -178,10 +205,26 @@ public class SubjectController extends GridPane {
         arwr.setEffect(color);
     }
 
+    @FXML
+    private void onLogoutAction() throws IOException {
+        Parent root = new LoginController();
+        Main.getApplicationController().navigateTo(root);
+    }
+
+    @FXML
+    private void onLogoutEntered() throws IOException {
+        logout.setStyle("-fx-text-fill: white;");
+    }
+
+    @FXML
+    private void onLogoutExited() throws IOException {
+        logout.setStyle("-fx-text-fill: #0399D8;");
+    }
+
     public void setInitialData() {
         setSubject1Detail("OOAD", "Object Oriented Analysis and Design", "src/main/java/UI/Login/login.fxml");
-        setSubject2Detail("OOAD", "Object Oriented Analysis and Design", "src/main/java/UI/Login/login.fxml");
-        setSubject3Detail("OOAD", "Object Oriented Analysis and Design", "src/main/java/UI/Login/login.fxml");
+        setSubject2Detail("OOAA", "Object Oriented Analysis and Analysis", "src/main/java/UI/Login/login.fxml");
+        setSubject3Detail("OOAF", "Object Oriented Analysis and Fantacy", "src/main/java/UI/Login/login.fxml");
     }
 
 }

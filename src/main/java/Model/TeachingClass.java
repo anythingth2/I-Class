@@ -57,6 +57,10 @@ public class TeachingClass {
     public TeachingClass() {
     }
 
+    public TeachingClass(Date date) {
+        this.date = date;
+    }
+
     public TeachingClass(Material material) {
         this.material = material;
     }
@@ -66,4 +70,8 @@ public class TeachingClass {
         this.homework = homework;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
