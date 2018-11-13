@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="323.0" style="-fx-background-color: #010101; -fx-border-color: grey;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="ItemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="323.0" style="-fx-background-color: #010101; -fx-border-bottom: grey;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fx:id="iconImageView" fitHeight="40.0" fitWidth="28.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -32,5 +29,6 @@
                 <Font name="Segoe UI" size="26.0" />
             </font>
         </Text>
+      <Line endX="267.0" endY="11.4" layoutX="54.0" layoutY="105.0" startX="-54.0" startY="11.4" stroke="#2c2b2b" strokeWidth="5.0" />
     </children>
 </fx:root>

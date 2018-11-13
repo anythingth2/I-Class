@@ -2,6 +2,7 @@ package Model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -15,12 +16,16 @@ public class User {
     private String userid;
     private String pin;
 
-    public User() {
-    }
-
+    public User() { }
 
     public User(String fullName) {
         this.fullName = fullName;
+    }
+
+    public User(String fullName, String userid, String pin) {
+        this.fullName = fullName;
+        this.userid = userid;
+        this.pin = pin;
     }
 
     public String getFullName() {
@@ -45,5 +50,9 @@ public class User {
 
     public void setPin(String pin) {
         this.pin = pin;
+    }
+
+    public List<Course> getUserCourse(){
+        return null;
     }
 }

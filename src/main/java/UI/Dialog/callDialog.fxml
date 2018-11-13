@@ -5,14 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.dialog.callDialogController">
-   <children>
-      <Button fx:id="buttonTest" layoutX="212.0" layoutY="275.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="151.0" text="Button" />
-      <Label fx:id="text" layoutX="230.0" layoutY="92.0" text="Main">
-         <font>
-            <Font size="52.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="buttonTest" layoutX="56.0" layoutY="168.0" mnemonicParsing="false" onAction="#openDialog" prefHeight="49.0" prefWidth="90.0" text="Button" />
+        <Label fx:id="text" layoutX="230.0" layoutY="92.0" text="Main">
+            <font>
+                <Font size="52.0" />
+            </font>
+        </Label>
+      <Button fx:id="announce" layoutX="56.0" layoutY="283.0" mnemonicParsing="false" onAction="#openAnnouncement" text="announce" />
+      <Button fx:id="type" layoutX="190.0" layoutY="283.0" mnemonicParsing="false" onAction="#openType" text="type" />
+      <Button fx:id="comfirm" layoutX="300.0" layoutY="283.0" mnemonicParsing="false" onAction="#openComfirm" text="comfirm" />
+      <Button fx:id="file" layoutX="395.0" layoutY="283.0" mnemonicParsing="false" onAction="#openFile" text="file" />
+      <Button fx:id="homework" layoutX="486.0" layoutY="283.0" mnemonicParsing="false" onAction="#openHomework" text="HW" />
+    </children>
+</fx:root>

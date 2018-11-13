@@ -2,12 +2,16 @@ package UI.Course;
 
 import Main.Main;
 import Model.Course;
+import Model.Student;
 import Model.Teacher;
 import Model.TeachingClass;
+import UI.Login.LoginController;
+import UI.Subject.SubjectController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -18,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,6 +43,8 @@ public class CourseController extends AnchorPane {
     private List<ClassItemPane> classItemPanes = new ArrayList<ClassItemPane>();
     @FXML
     private ScrollPane scrollPane;
+    @FXML
+    Button logout;
 
     @FXML
     private Pane teachingClassPane;
@@ -117,5 +124,23 @@ public class CourseController extends AnchorPane {
         } else {
             this.teachingClassPane.getChildren().add(0, pane);
         }
+    }
+
+
+    @FXML
+    private void onLogoutAction() throws IOException {
+//        Parent root = new LoginController();
+        Parent root = new SubjectController(((Student)Main.getApplicationController().getUser()).getEnrolledCourses());
+        Main.getApplicationController().navigateTo(root);
+    }
+
+    @FXML
+    private void onLogoutEntered() throws IOException {
+        logout.setStyle("-fx-text-fill: #71f2e5;");
+    }
+
+    @FXML
+    private void onLogoutExited() throws IOException {
+        logout.setStyle("-fx-text-fill: white;");
     }
 }

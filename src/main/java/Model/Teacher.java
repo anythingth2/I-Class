@@ -17,8 +17,18 @@ public class Teacher extends User {
         this.ownCourses = ownCourses;
     }
 
+    public Teacher(String fullName, String userid, String pin, List<Course> ownCourses) {
+        super(fullName, userid, pin);
+        this.ownCourses = ownCourses;
+    }
+
+    @Override
+    public List<Course> getUserCourse() {
+        return this.ownCourses;
+    }
+
     public List<Course> getOwnCourses() {
-        return ownCourses;
+        return this.ownCourses;
     }
 
     public void setOwnCourses(List<Course> ownCourses) {

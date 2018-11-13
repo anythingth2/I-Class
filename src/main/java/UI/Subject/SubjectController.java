@@ -15,7 +15,9 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.ImageView;
+import javassist.bytecode.stackmap.TypeData;
 
+import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -83,27 +85,63 @@ public class SubjectController extends GridPane {
     }
 
     private void setCourse1Detail(String alias, String name, Course course) {
-        alias1.setText(alias);
-        name1.setText(name);
-        course1 = course;
+        this.alias1.setText(alias);
+        this.name1.setText(name);
+        this.course1 = course;
     }
 
     private void setCourse2Detail(String alias, String name, Course course) {
-        alias2.setText(alias);
-        name2.setText(name);
-        course2 = course;
+        this.alias2.setText(alias);
+        this.name2.setText(name);
+        this.course2 = course;
     }
 
     private void setCourse3Detail(String alias, String name, Course course) {
-        alias3.setText(alias);
-        name3.setText(name);
-        course3 = course;
+        this.alias3.setText(alias);
+        this.name3.setText(name);
+        this.course3 = course;
+    }
+
+    private void setCourse1Visible(boolean mode) {
+        this.sbj1.setVisible(mode);
+        this.alias1.setVisible(mode);
+        this.name1.setVisible(mode);
+    }
+
+    private void setCourse2Visible(boolean mode) {
+        this.sbj2.setVisible(mode);
+        this.alias2.setVisible(mode);
+        this.name2.setVisible(mode);
+    }
+
+    private void setCourse3Visible(boolean mode) {
+        this.sbj3.setVisible(mode);
+        this.alias3.setVisible(mode);
+        this.name3.setVisible(mode);
     }
 
     public void setAllCourseDetail() {
-        setCourse1Detail(this.courses.get(index).getAlias(), this.courses.get(index).getName(), this.courses.get(index));
-        setCourse2Detail(this.courses.get(index + 1).getAlias(), this.courses.get(index + 1).getName(), this.courses.get(index + 1));
-        setCourse3Detail(this.courses.get(index + 2).getAlias(), this.courses.get(index + 2).getName(), this.courses.get(index + 2));
+        try {
+            setCourse1Detail(this.courses.get(this.index).getAlias(), this.courses.get(this.index).getName(), this.courses.get(this.index));
+            setCourse1Visible(true);
+        }
+        catch (Exception e){
+            setCourse1Visible(false);
+        }
+        try {
+            setCourse2Detail(this.courses.get(this.index+1).getAlias(), this.courses.get(this.index+1).getName(), this.courses.get(this.index+1));
+            setCourse2Visible(true);
+        }
+        catch (Exception e){
+            setCourse2Visible(false);
+        }
+        try {
+            setCourse3Detail(this.courses.get(this.index+2).getAlias(), this.courses.get(this.index+2).getName(), this.courses.get(this.index+2));
+            setCourse3Visible(true);
+        }
+        catch (Exception e){
+            setCourse3Visible(false);
+        }
     }
 
     private void displayBlueShadow(Pane subject) {
@@ -116,60 +154,60 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject1Entered() throws IOException {
-        displayBlueShadow(sbj1);
+        displayBlueShadow(this.sbj1);
     }
 
     @FXML
     private void onSubject1Exited() throws IOException {
-        displayBlackShadow(sbj1);
+        displayBlackShadow(this.sbj1);
     }
 
     @FXML
     private void onSubject1Clicked() throws IOException {
+        CourseController courseController = new CourseController(this.course1);
 
-        CourseController courseController = new CourseController(course1);
         Main.getApplicationController().navigateTo(courseController);
     }
 
     @FXML
     private void onSubject2Entered() throws IOException {
-        displayBlueShadow(sbj2);
+        displayBlueShadow(this.sbj2);
     }
 
     @FXML
     private void onSubject2Exited() throws IOException {
-        displayBlackShadow(sbj2);
+        displayBlackShadow(this.sbj2);
     }
 
     @FXML
     private void onSubject2Clicked() throws IOException {
-        CourseController courseController = new CourseController(course2);
+        CourseController courseController = new CourseController(this.course2);
         Main.getApplicationController().navigateTo(courseController);
     }
 
     @FXML
     private void onSubject3Entered() throws IOException {
-        displayBlueShadow(sbj3);
+        displayBlueShadow(this.sbj3);
     }
 
     @FXML
     private void onSubject3Exited() throws IOException {
-        displayBlackShadow(sbj3);
+        displayBlackShadow(this.sbj3);
     }
 
     @FXML
     private void onSubject3Clicked() throws IOException {
-        CourseController courseController = new CourseController(course3);
+        CourseController courseController = new CourseController(this.course3);
         Main.getApplicationController().navigateTo(courseController);
     }
 
     @FXML
     private void onLeftAction() throws IOException {
-        if (this.index > 0) {
-            if (this.index - 3 == 0) {
-                arwl.setVisible(false);
+        if(this.index > 0) {
+            if(this.index-3 == 0) {
+                this.arwl.setVisible(false);
             }
-            arwr.setVisible(true);
+            this.arwr.setVisible(true);
             this.index -= 3;
             setAllCourseDetail();
         }
@@ -177,23 +215,23 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onLeftEntered() throws IOException {
-        color.setBrightness(-100.0);
-        arwl.setEffect(color);
+        this.color.setBrightness(-100.0);
+        this.arwl.setEffect(this.color);
     }
 
     @FXML
     private void onLeftExited() throws IOException {
-        color.setBrightness(0.0);
-        arwl.setEffect(color);
+        this.color.setBrightness(0.0);
+        this.arwl.setEffect(this.color);
     }
 
     @FXML
     private void onRightAction() throws IOException {
-        if (this.index < this.courses.size()) {
-            if (this.index + 6 >= this.courses.size()) {
-                arwr.setVisible(false);
+        if(this.index < this.courses.size()) {
+            if(this.index+6 >= this.courses.size()) {
+                this.arwr.setVisible(false);
             }
-            arwl.setVisible(true);
+            this.arwl.setVisible(true);
             this.index += 3;
             setAllCourseDetail();
         }
@@ -201,14 +239,14 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onRightEntered() throws IOException {
-        color.setBrightness(-100.0);
-        arwr.setEffect(color);
+        this.color.setBrightness(-100.0);
+        this.arwr.setEffect(this.color);
     }
 
     @FXML
     private void onRightExited() throws IOException {
-        color.setBrightness(0.0);
-        arwr.setEffect(color);
+        this.color.setBrightness(0.0);
+        this.arwr.setEffect(this.color);
     }
 
     @FXML
@@ -219,12 +257,12 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onLogoutEntered() throws IOException {
-        logout.setStyle("-fx-text-fill: white;");
+        this.logout.setStyle("-fx-text-fill: white;");
     }
 
     @FXML
     private void onLogoutExited() throws IOException {
-        logout.setStyle("-fx-text-fill: #0399D8;");
+        this.logout.setStyle("-fx-text-fill: #0399D8");
     }
 
 }

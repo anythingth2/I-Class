@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +20,7 @@ public class Course {
     List<TeachingClass> teachingClasses;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -29,7 +28,7 @@ public class Course {
     }
 
     public String getAlias() {
-        return alias;
+        return this.alias;
     }
 
     public void setAlias(String alias) {
@@ -37,7 +36,7 @@ public class Course {
     }
 
     public String getCodenumber() {
-        return codenumber;
+        return this.codenumber;
     }
 
     public void setCodenumber(String codenumber) {
@@ -45,7 +44,7 @@ public class Course {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -53,17 +52,15 @@ public class Course {
     }
 
     public List<TeachingClass> getTeachingClasses() {
-        if (this.teachingClasses == null) this.teachingClasses = new ArrayList<TeachingClass>();
-        return teachingClasses;
+        return this.teachingClasses;
     }
 
     public void setTeachingClasses(List<TeachingClass> teachingClasses) {
-
         this.teachingClasses = teachingClasses;
     }
 
     public String getAnnouncement() {
-        return announcement;
+        return this.announcement;
     }
 
     public void setAnnouncement(String announcement) {

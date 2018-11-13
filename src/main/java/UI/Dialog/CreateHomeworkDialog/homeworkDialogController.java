@@ -1,4 +1,4 @@
-package UI.Dialog.createHomeworkDialog;
+package UI.Dialog.CreateHomeworkDialog;
 
 public class homeworkDialogController {
 }
