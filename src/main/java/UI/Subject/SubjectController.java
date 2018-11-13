@@ -1,8 +1,6 @@
 package UI.Subject;
 
 import Model.Course;
-import Model.Student;
-import Model.Teacher;
 import Model.TeachingClass;
 import UI.Course.CourseController;
 import Main.Main;
@@ -60,8 +58,6 @@ public class SubjectController extends GridPane {
     private Button logout;
     private ColorAdjust color = new ColorAdjust();
 
-//    private Teacher teacher;
-//    private Student student;
     private List<Course> courses;
     private int index = 0;
 
@@ -85,20 +81,6 @@ public class SubjectController extends GridPane {
         this.courses = courses;
         setAllCourseDetail();
     }
-
-//    public SubjectController(Student student){
-//        this();
-//        this.student = student;
-//        this.courses = student.getEnrolledCourses();
-//        setAllCourseDetail();
-//    }
-//
-//    public SubjectController(Teacher teacher){
-//        this();
-//        this.teacher = teacher;
-//        this.courses = teacher.getOwnCourses();
-//        setAllCourseDetail();
-//    }
 
     private void setCourse1Detail(String alias, String name, Course course) {
         alias1.setText(alias);
