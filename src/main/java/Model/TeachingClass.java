@@ -61,12 +61,13 @@ public class TeachingClass {
         this.date = date;
     }
 
-    public TeachingClass(Material material) {
+    public TeachingClass(Date date, Material material) {
+        this(date);
         this.material = material;
     }
 
-    public TeachingClass(Material material, Homework homework) {
-        this(material);
+    public TeachingClass(Date date, Material material, Homework homework) {
+        this(date, material);
         this.homework = homework;
     }
 

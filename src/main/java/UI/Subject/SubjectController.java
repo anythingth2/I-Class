@@ -76,7 +76,7 @@ public class SubjectController extends GridPane {
         }
     }
 
-    public SubjectController(List<Course> courses){
+    public SubjectController(List<Course> courses) {
         this();
         this.courses = courses;
         setAllCourseDetail();
@@ -102,8 +102,8 @@ public class SubjectController extends GridPane {
 
     public void setAllCourseDetail() {
         setCourse1Detail(this.courses.get(index).getAlias(), this.courses.get(index).getName(), this.courses.get(index));
-        setCourse2Detail(this.courses.get(index+1).getAlias(), this.courses.get(index+1).getName(), this.courses.get(index+1));
-        setCourse3Detail(this.courses.get(index+2).getAlias(), this.courses.get(index+2).getName(), this.courses.get(index+2));
+        setCourse2Detail(this.courses.get(index + 1).getAlias(), this.courses.get(index + 1).getName(), this.courses.get(index + 1));
+        setCourse3Detail(this.courses.get(index + 2).getAlias(), this.courses.get(index + 2).getName(), this.courses.get(index + 2));
     }
 
     private void displayBlueShadow(Pane subject) {
@@ -126,19 +126,7 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject1Clicked() throws IOException {
-//        List<TeachingClass> teachingClasses = new ArrayList<TeachingClass>();
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-//
-//        Course course = new Course(teachingClasses);
-//        course.setName("OOAD NAJA");
-//        course.setAnnouncement("อาจารย์ยงดสอน");
+
         CourseController courseController = new CourseController(course1);
         Main.getApplicationController().navigateTo(courseController);
     }
@@ -177,8 +165,8 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onLeftAction() throws IOException {
-        if(this.index > 0) {
-            if(this.index-3 == 0) {
+        if (this.index > 0) {
+            if (this.index - 3 == 0) {
                 arwl.setVisible(false);
             }
             arwr.setVisible(true);
@@ -201,8 +189,8 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onRightAction() throws IOException {
-        if(this.index < this.courses.size()) {
-            if(this.index+6 >= this.courses.size()) {
+        if (this.index < this.courses.size()) {
+            if (this.index + 6 >= this.courses.size()) {
                 arwr.setVisible(false);
             }
             arwl.setVisible(true);

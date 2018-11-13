@@ -1,10 +1,7 @@
 package UI.Login;
 
 import Main.Main;
-import Model.Course;
-import Model.Student;
-import Model.Teacher;
-import Model.TeachingClass;
+import Model.*;
 import UI.Subject.SubjectController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LoginController extends GridPane {
@@ -60,10 +58,14 @@ public class LoginController extends GridPane {
         }
         if (pass) {
 //--------------------------------------------- Moc data for test ---------------------------------------------
-//            List<String> names = new ArrayList<String>();
-//            Main.getApplicationController().setUser(new Student());
+
             List<Course> courses = new ArrayList<Course>();
-            courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            Course mockCourse = new Course("Object Oriented A & D", "OOAD", "0000000000", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1));
+            mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), new Material("Introduction"), new Homework("What is OOAD")));
+            mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), new Material("Use case")));
+
+            courses.add(mockCourse);
+
             courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Software End", "SE", "0000000002", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Comp Net", "CN", "0000000003", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
@@ -80,15 +82,12 @@ public class LoginController extends GridPane {
             Main.getApplicationController().setUser(exstudent);
 //-------------------------------------------------------------------------------------------------------------
 
-            if( userid.getText().equals(exstudent.getUserid()) && pin.getText().equals(exstudent.getPin())) {
+            if (true || userid.getText().equals(exstudent.getUserid()) && pin.getText().equals(exstudent.getPin())) {
                 Parent root = new SubjectController(exstudent.getEnrolledCourses()); // Pass moc data
-//            Parent root = new SubjectController();
                 Main.getApplicationController().navigateTo(root);
-            }
-            else if(userid.getText().equals(exstudent.getUserid())) {
+            } else if (userid.getText().equals(exstudent.getUserid())) {
                 inc_pin.setVisible(true);
-            }
-            else{
+            } else {
                 inc_userid.setVisible(true);
             }
         }

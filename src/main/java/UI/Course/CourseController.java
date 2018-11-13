@@ -4,6 +4,7 @@ import Main.Main;
 import Model.Course;
 import Model.Teacher;
 import Model.TeachingClass;
+import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,13 +26,13 @@ import java.util.List;
 public class CourseController extends AnchorPane {
 
     @FXML
-    Label courseNameTextView;
+    private Label courseNameTextView;
     @FXML
-    Button editAnnouncementButton;
+    private Button editAnnouncementButton;
     @FXML
-    Label announcementLabel;
+    private Label announcementLabel;
     @FXML
-    Label titleLabel;
+    private Label titleLabel;
     @FXML
     private VBox classVBox;
     private List<ClassItemPane> classItemPanes = new ArrayList<ClassItemPane>();
@@ -39,7 +40,7 @@ public class CourseController extends AnchorPane {
     private ScrollPane scrollPane;
 
     @FXML
-    Pane teachingClassPane;
+    private Pane teachingClassPane;
 
     private Course course;
     private List<TeachingClass> teachingClasses;
@@ -68,19 +69,38 @@ public class CourseController extends AnchorPane {
         this.titleLabel.setText(this.course.getName());
 
         for (final TeachingClass teachingClass : this.teachingClasses) {
-            ClassItemPane classItemPane = new ClassItemPane(teachingClass);
-            classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    setTeachingClassPane(teachingClass);
-                }
-            });
-            classItemPanes.add(classItemPane);
+
+
+            if (teachingClass.getMaterial() != null) {
+                ClassItemPane classItemPane = new ClassItemPane(teachingClass,
+                        teachingClass.getMaterial());
+                classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+
+                    }
+                });
+                classItemPanes.add(classItemPane);
+            }
+            if (teachingClass.getHomework() != null) {
+                ClassItemPane classItemPane = new ClassItemPane(teachingClass,
+                        teachingClass.getHomework());
+                classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+
+                    }
+                });
+                classItemPanes.add(classItemPane);
+            }
+
         }
 
         boolean isTeacher = Main.getApplicationController().getUser() instanceof Teacher;
-        editAnnouncementButton.setVisible(isTeacher);
-        refresh();
+        this.editAnnouncementButton.setVisible(isTeacher);
+
+        this.setTeachingClassPane(new CourseInfoPane(this.course));
+        this.refresh();
     }
 
     private void refresh() {
@@ -91,12 +111,11 @@ public class CourseController extends AnchorPane {
     }
 
 
-    private void setTeachingClassPane(TeachingClass teachingClass) {
-
+    private void setTeachingClassPane(Pane pane) {
         if (this.teachingClassPane.getChildren().size() > 1) {
-
-        }else{
-
+            this.teachingClassPane.getChildren().set(0, pane);
+        } else {
+            this.teachingClassPane.getChildren().add(0, pane);
         }
     }
 }

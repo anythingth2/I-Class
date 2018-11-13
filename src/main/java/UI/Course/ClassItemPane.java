@@ -1,5 +1,7 @@
 package UI.Course;
 
+import Model.Homework;
+import Model.Material;
 import Model.TeachingClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,9 +28,9 @@ public class ClassItemPane extends Pane {
     Text timeTextView;
 
     @FXML
-    Text captureTextView;
+    Text chapterTextView;
 
-    public void setTeachingClass(TeachingClass teachingClass) {
+    private void setTeachingClass(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
 
         this.dateTextView.setText(new SimpleDateFormat("dd/mm/yyyy")
@@ -52,9 +54,15 @@ public class ClassItemPane extends Pane {
         }
     }
 
-    ClassItemPane(TeachingClass teachingClass) {
+    public ClassItemPane(TeachingClass teachingClass, Material material) {
         this();
         this.setTeachingClass(teachingClass);
+        this.chapterTextView.setText(material.getTitle());
     }
 
+    public ClassItemPane(TeachingClass teachingClass, Homework homework) {
+        this();
+        this.setTeachingClass(teachingClass);
+        this.chapterTextView.setText(homework.getTitle());
+    }
 }

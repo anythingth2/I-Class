@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -52,10 +53,12 @@ public class Course {
     }
 
     public List<TeachingClass> getTeachingClasses() {
+        if (this.teachingClasses == null) this.teachingClasses = new ArrayList<TeachingClass>();
         return teachingClasses;
     }
 
     public void setTeachingClasses(List<TeachingClass> teachingClasses) {
+
         this.teachingClasses = teachingClasses;
     }
 
