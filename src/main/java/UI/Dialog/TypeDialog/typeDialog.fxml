@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="279.69" prefWidth="578.09" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.typeDialog.typeDialogController">
+<AnchorPane prefHeight="279.69" prefWidth="578.09" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.TypeDialog.typeDialogController">
     <children>
         <Label layoutX="41.0" layoutY="43.0" text="ชนิดของเนื้อหา" textFill="WHITE">
             <font>

@@ -46,6 +46,7 @@ public class callDialogController extends AnchorPane {
             loader.setLocation(url);
             loader.load();
         } catch (Exception e) {
+            System.out.println("Can't load");
             e.printStackTrace();
         }
     }
@@ -54,13 +55,14 @@ public class callDialogController extends AnchorPane {
     void openDialog(ActionEvent event) {
 
         try{
-            URL url = new File("src/main/java/UI/Dialog/Dialog.fxml").toURL();
+            URL url = new File("src/main/java/UI/Dialog/dialog.fxml").toURL();
             Parent root1 = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();
         }catch (Exception e){
             System.out.println("Can't load");
+
         }
     }
 
@@ -74,6 +76,8 @@ public class callDialogController extends AnchorPane {
             stage.show();
         }catch (Exception e){
             System.out.println("Can't load");
+            e.printStackTrace();
+
         }
     }
 
@@ -101,6 +105,7 @@ public class callDialogController extends AnchorPane {
             stage.show();
         }catch (Exception e){
             System.out.println("Can't load");
+            e.printStackTrace();
         }
     }
 
@@ -114,6 +119,7 @@ public class callDialogController extends AnchorPane {
             stage.show();
         }catch (Exception e){
             System.out.println("Can't load");
+            e.printStackTrace();
         }
     }
 
@@ -127,6 +133,7 @@ public class callDialogController extends AnchorPane {
             stage.show();
         }catch (Exception e){
             System.out.println("Can't load");
+            e.printStackTrace();
         }
     }
 
