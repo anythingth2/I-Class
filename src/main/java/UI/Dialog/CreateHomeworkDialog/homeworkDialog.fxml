@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="565.2" prefWidth="539.48" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.createFileDialog.flieDialogController">
+<AnchorPane prefHeight="565.2" prefWidth="539.48" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.CreateFileDialog.fileDialogController">
     <children>
         <Label layoutX="49.0" layoutY="39.0" text="งานที่มอบหมาย" textFill="WHITE">
             <font>
