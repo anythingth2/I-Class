@@ -5,6 +5,8 @@ import Model.Course;
 import Model.Student;
 import Model.Teacher;
 import Model.TeachingClass;
+import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
+import UI.Course.InnerPane.Homework.HomeworkPane;
 import UI.Login.LoginController;
 import UI.Subject.SubjectController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
@@ -84,6 +86,8 @@ public class CourseController extends AnchorPane {
                 classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
+                        Pane pane = new CourseMaterialPane();
+                        setTeachingClassPane(pane);
 
                     }
                 });
@@ -95,7 +99,8 @@ public class CourseController extends AnchorPane {
                 classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-
+                        Pane pane = new HomeworkPane();
+                        setTeachingClassPane(pane);
                     }
                 });
                 classItemPanes.add(classItemPane);
@@ -130,7 +135,7 @@ public class CourseController extends AnchorPane {
     @FXML
     private void onLogoutAction() throws IOException {
 //        Parent root = new LoginController();
-        Parent root = new SubjectController(((Student)Main.getApplicationController().getUser()).getEnrolledCourses());
+        Parent root = new SubjectController(((Student) Main.getApplicationController().getUser()).getEnrolledCourses());
         Main.getApplicationController().navigateTo(root);
     }
 

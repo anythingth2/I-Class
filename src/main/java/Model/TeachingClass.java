@@ -14,10 +14,6 @@ public class TeachingClass {
     private Material material;
     private Homework homework;
 
-
-
-
-
     public String getTitle() {
         return this.title;
     }
