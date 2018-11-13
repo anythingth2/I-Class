@@ -15,7 +15,9 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.ImageView;
+import javassist.bytecode.stackmap.TypeData;
 
+import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -29,26 +31,26 @@ public class SubjectController extends GridPane {
     @FXML
     private Pane sbj1;
     @FXML
-    private Label name1;
+    private Label alias1;
     @FXML
-    private Label label1;
-    private String path1;
+    private Label name1;
+    private Course course1;
 
     @FXML
     private Pane sbj2;
     @FXML
-    private Label name2;
+    private Label alias2;
     @FXML
-    private Label label2;
-    private String path2;
+    private Label name2;
+    private Course course2;
 
     @FXML
     private Pane sbj3;
     @FXML
-    private Label name3;
+    private Label alias3;
     @FXML
-    private Label label3;
-    private String path3;
+    private Label name3;
+    private Course course3;
 
     @FXML
     private ImageView arwl;
@@ -57,6 +59,9 @@ public class SubjectController extends GridPane {
     @FXML
     private Button logout;
     private ColorAdjust color = new ColorAdjust();
+
+    private List<Course> courses;
+    private int index = 0;
 
 
     public SubjectController() {
@@ -72,27 +77,71 @@ public class SubjectController extends GridPane {
             e.printStackTrace();
         }
     }
-    public SubjectController(List<String > names){
+
+    public SubjectController(List<Course> courses){
         this();
-        setInitialData();
+        this.courses = courses;
+        setAllCourseDetail();
     }
 
-    private void setSubject1Detail(String name, String label, String path) {
+    private void setCourse1Detail(String alias, String name, Course course) {
+        alias1.setText(alias);
         name1.setText(name);
-        label1.setText(label);
-        path1 = path;
+        course1 = course;
     }
 
-    private void setSubject2Detail(String name, String label, String path) {
+    private void setCourse2Detail(String alias, String name, Course course) {
+        alias2.setText(alias);
         name2.setText(name);
-        label2.setText(label);
-        path2 = path;
+        course2 = course;
     }
 
-    private void setSubject3Detail(String name, String label, String path) {
+    private void setCourse3Detail(String alias, String name, Course course) {
+        alias3.setText(alias);
         name3.setText(name);
-        label3.setText(label);
-        path3 = path;
+        course3 = course;
+    }
+
+    private void setCourse1Visible(boolean mode) {
+        sbj1.setVisible(mode);
+        alias1.setVisible(mode);
+        name1.setVisible(mode);
+    }
+
+    private void setCourse2Visible(boolean mode) {
+        sbj2.setVisible(mode);
+        alias2.setVisible(mode);
+        name2.setVisible(mode);
+    }
+
+    private void setCourse3Visible(boolean mode) {
+        sbj3.setVisible(mode);
+        alias3.setVisible(mode);
+        name3.setVisible(mode);
+    }
+
+    public void setAllCourseDetail() {
+        try {
+            setCourse1Detail(this.courses.get(index).getAlias(), this.courses.get(index).getName(), this.courses.get(index));
+            setCourse1Visible(true);
+        }
+        catch (Exception e){
+            setCourse1Visible(false);
+        }
+        try {
+            setCourse2Detail(this.courses.get(index+1).getAlias(), this.courses.get(index+1).getName(), this.courses.get(index+1));
+            setCourse2Visible(true);
+        }
+        catch (Exception e){
+            setCourse2Visible(false);
+        }
+        try {
+            setCourse3Detail(this.courses.get(index+2).getAlias(), this.courses.get(index+2).getName(), this.courses.get(index+2));
+            setCourse3Visible(true);
+        }
+        catch (Exception e){
+            setCourse3Visible(false);
+        }
     }
 
     private void displayBlueShadow(Pane subject) {
@@ -115,21 +164,20 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject1Clicked() throws IOException {
-//        Main.showPage(path1);
-        List<TeachingClass> teachingClasses = new ArrayList<TeachingClass>();
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
-
-        Course course = new Course(teachingClasses);
-        course.setName("OOAD NAJA");
-        course.setAnnouncement("อาจารย์ยงดสอน");
-        CourseController courseController = new CourseController(course);
+//        List<TeachingClass> teachingClasses = new ArrayList<TeachingClass>();
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//        teachingClasses.add(new TeachingClass(new Date(System.currentTimeMillis())));
+//
+//        Course course = new Course(teachingClasses);
+//        course.setName("OOAD NAJA");
+//        course.setAnnouncement("อาจารย์ยงดสอน");
+        CourseController courseController = new CourseController(course1);
         Main.getApplicationController().navigateTo(courseController);
     }
 
@@ -145,7 +193,8 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject2Clicked() throws IOException {
-//        Main.showPage(path2);
+        CourseController courseController = new CourseController(course2);
+        Main.getApplicationController().navigateTo(courseController);
     }
 
     @FXML
@@ -160,16 +209,20 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject3Clicked() throws IOException {
-//        Main.showPage(path3);
+        CourseController courseController = new CourseController(course3);
+        Main.getApplicationController().navigateTo(courseController);
     }
 
     @FXML
     private void onLeftAction() throws IOException {
-        arwr.setVisible(true);
-        arwl.setVisible(false);
-        setSubject1Detail("OOAD", "Object Oriented Analysis and Design", "src/main/java/UI/Login/login.fxml");
-        setSubject2Detail("OOAD", "Object Oriented Analysis and Design", "src/main/java/UI/Login/login.fxml");
-        setSubject3Detail("OOAD", "Object Oriented Analysis and Design", "src/main/java/UI/Login/login.fxml");
+        if(this.index > 0) {
+            if(this.index-3 == 0) {
+                arwl.setVisible(false);
+            }
+            arwr.setVisible(true);
+            this.index -= 3;
+            setAllCourseDetail();
+        }
     }
 
     @FXML
@@ -186,11 +239,14 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onRightAction() throws IOException {
-        arwl.setVisible(true);
-        arwr.setVisible(false);
-        setSubject1Detail("SE", "Software Engineering", "src/main/java/UI/Login/login.fxml");
-        setSubject2Detail("ToC", "Theory of Computation", "src/main/java/UI/Login/login.fxml");
-        setSubject3Detail("CA", "Computer Architecture", "src/main/java/UI/Login/login.fxml");
+        if(this.index < this.courses.size()) {
+            if(this.index+6 >= this.courses.size()) {
+                arwr.setVisible(false);
+            }
+            arwl.setVisible(true);
+            this.index += 3;
+            setAllCourseDetail();
+        }
     }
 
     @FXML
@@ -218,13 +274,7 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onLogoutExited() throws IOException {
-        logout.setStyle("-fx-text-fill: #0399D8;");
-    }
-
-    public void setInitialData() {
-        setSubject1Detail("OOAD", "Object Oriented Analysis and Design", "src/main/java/UI/Login/login.fxml");
-        setSubject2Detail("OOAA", "Object Oriented Analysis and Analysis", "src/main/java/UI/Login/login.fxml");
-        setSubject3Detail("OOAF", "Object Oriented Analysis and Fantacy", "src/main/java/UI/Login/login.fxml");
+        logout.setStyle("-fx-text-fill: #0399D8");
     }
 
 }

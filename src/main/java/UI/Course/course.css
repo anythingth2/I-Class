@@ -1,0 +1,13 @@
+/* 640, 360 */
+
+.btn-logout{
+	-fx-font-size: 22px;
+	-fx-font-weight: normal;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+
+	-fx-pref-width: 150;
+	-fx-pref-height: 40;
+	
+	-fx-background-color: #80CBC4;
+}
