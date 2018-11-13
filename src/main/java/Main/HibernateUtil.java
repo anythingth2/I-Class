@@ -1,3 +1,5 @@
+package Main;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
