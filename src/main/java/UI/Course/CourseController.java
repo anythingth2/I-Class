@@ -7,7 +7,7 @@ import Model.Teacher;
 import Model.TeachingClass;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Course.InnerPane.Homework.HomeworkPane;
-import UI.Login.LoginController;
+import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
 import UI.Subject.SubjectController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import javafx.event.EventHandler;
@@ -21,13 +21,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class CourseController extends AnchorPane {
@@ -41,12 +39,16 @@ public class CourseController extends AnchorPane {
     @FXML
     private Label titleLabel;
     @FXML
+    private Button courseInfoButton;
+    @FXML
+    private Button todoButton;
+    @FXML
     private VBox classVBox;
     private List<ClassItemPane> classItemPanes = new ArrayList<ClassItemPane>();
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    Button logout;
+    private Button logout;
 
     @FXML
     private Pane teachingClassPane;
@@ -73,10 +75,26 @@ public class CourseController extends AnchorPane {
         this();
         this.course = course;
         this.teachingClasses = course.getTeachingClasses();
+        this.initialise();
+    }
+
+    private void initialise() {
         this.announcementLabel.setText(course.getAnnouncement());
         this.courseNameTextView.setText(this.course.getName());
         this.titleLabel.setText(this.course.getName());
-
+        this.courseInfoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                setTeachingClassPane(new CourseInfoPane(course));
+            }
+        });
+        this.todoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Pane pane = new StudentTodoPane();
+                setTeachingClassPane(pane);
+            }
+        });
         for (final TeachingClass teachingClass : this.teachingClasses) {
 
 
