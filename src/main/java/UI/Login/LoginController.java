@@ -1,10 +1,7 @@
 package UI.Login;
 
 import Main.Main;
-import Model.Course;
-import Model.Student;
-import Model.Teacher;
-import Model.TeachingClass;
+import Model.*;
 import UI.Subject.SubjectController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +28,8 @@ public class LoginController extends GridPane {
     private Label inc_userid;
     @FXML
     private Label inc_pin;
+    @FXML
+    private Label inc_data;
 
     public LoginController() {
         super();
@@ -47,86 +45,87 @@ public class LoginController extends GridPane {
         }
     }
 
+    private void validateUserLogin(){
+//--------------------------------------------- Moc data for test ---------------------------------------------
+        List<Course> courses = new ArrayList<Course>();
+        courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Software End", "SE", "0000000002", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Comp Net", "CN", "0000000003", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Foundation Eng", "FE", "0000000004", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Infomation Retrieval", "IR", "0000000005", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Micro Robot", "MR", "0000000006", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+        courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+
+        List<User> users = new ArrayList<User>(10);
+        users.add(new Student("Example Student1", "001", "001", courses));
+        users.add(new Student("Example Student2", "002", "002", courses));
+        users.add(new Student("Example Student3", "003", "003", courses));
+        users.add(new Teacher("Example Teacher1", "004", "004", courses));
+        users.add(new Teacher("Example Teacher2", "005", "005", courses));
+//-------------------------------------------------------------------------------------------------------------
+        for(int i=0; i<users.size(); i++) {
+            if (this.userid.getText().equals(users.get(i).getUserid()) && this.pin.getText().equals(users.get(i).getPin())) {
+                Main.getApplicationController().setUser(users.get(i)); // Set user in applicationController
+                Parent root = new SubjectController(users.get(i).getUserCourse()); // Change page
+                Main.getApplicationController().navigateTo(root);
+            } else {
+                this.inc_data.setVisible(true);
+            }
+        }
+    }
+
     @FXML
     private void onLoginAction() throws IOException {
         boolean pass = true;
-        if (userid.getText().trim().isEmpty()) {
-            inc_userid.setVisible(true);
+        if (this.userid.getText().trim().isEmpty()) {
+            this.inc_userid.setVisible(true);
             pass = false;
         }
-        if (pin.getText().trim().isEmpty()) {
-            inc_pin.setVisible(true);
+        if (this.pin.getText().trim().isEmpty()) {
+            this.inc_pin.setVisible(true);
             pass = false;
         }
         if (pass) {
-//--------------------------------------------- Moc data for test ---------------------------------------------
-//            List<String> names = new ArrayList<String>();
-//            Main.getApplicationController().setUser(new Student());
-
-            List<Course> courses = new ArrayList<Course>();
-            courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Software End", "SE", "0000000002", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Comp Net", "CN", "0000000003", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Foundation Eng", "FE", "0000000004", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Infomation Retrieval", "IR", "0000000005", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Micro Robot", "MR", "0000000006", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//            courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-
-            Student exstudent = new Student("Example Mocstudent"); // Example student
-            exstudent.setUserid("1");
-            exstudent.setPin("1");
-            exstudent.setEnrolledCourses(courses);
-            Main.getApplicationController().setUser(exstudent);
-//-------------------------------------------------------------------------------------------------------------
-
-            if( userid.getText().equals(exstudent.getUserid()) && pin.getText().equals(exstudent.getPin())) {
-                Parent root = new SubjectController(exstudent.getEnrolledCourses()); // Pass moc data
-//            Parent root = new SubjectController();
-                Main.getApplicationController().navigateTo(root);
-            }
-            else if(userid.getText().equals(exstudent.getUserid())) {
-                inc_pin.setVisible(true);
-            }
-            else{
-                inc_userid.setVisible(true);
-            }
+            validateUserLogin();
         }
     }
 
     @FXML
     private void onLoginEntered() throws IOException {
-        login.setStyle("-fx-background-color: #0399D8;");
+        this.login.setStyle("-fx-background-color: #0399D8;");
 
     }
 
     @FXML
     private void onLoginExited() throws IOException {
-        login.setStyle("-fx-background-color: #2275A0;");
+        this.login.setStyle("-fx-background-color: #2275A0;");
     }
 
     @FXML
     private void onLoginPressed() throws IOException {
-        login.setStyle("-fx-background-color: #2275A0;");
+        this.login.setStyle("-fx-background-color: #2275A0;");
     }
 
     @FXML
     private void onLoginReleased() throws IOException {
-        login.setStyle("-fx-background-color: #0399D8;");
+        this.login.setStyle("-fx-background-color: #0399D8;");
     }
 
     @FXML
     private void onIdAction() throws IOException {
-        if (inc_userid.isVisible() == true) {
-            inc_userid.setVisible(false);
+        if (this.inc_userid.isVisible() == true) {
+            this.inc_userid.setVisible(false);
         }
+        this.inc_data.setVisible(false);
     }
 
     @FXML
     private void onPinAction() throws IOException {
-        if (inc_pin.isVisible() == true) {
-            inc_pin.setVisible(false);
+        if (this.inc_pin.isVisible() == true) {
+            this.inc_pin.setVisible(false);
         }
+        this.inc_data.setVisible(false);
     }
 }

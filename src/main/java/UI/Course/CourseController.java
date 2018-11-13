@@ -1,10 +1,7 @@
 package UI.Course;
 
 import Main.Main;
-import Model.Course;
-import Model.Student;
-import Model.Teacher;
-import Model.TeachingClass;
+import Model.*;
 import UI.Login.LoginController;
 import UI.Subject.SubjectController;
 import javafx.event.EventHandler;
@@ -82,11 +79,11 @@ public class CourseController extends AnchorPane {
                 setTeachingClassPane(teachingClass);
                 }
             });
-            classItemPanes.add(classItemPane);
+            this.classItemPanes.add(classItemPane);
         }
 
         boolean isTeacher = Main.getApplicationController().getUser() instanceof Teacher;
-        editAnnouncementButton.setVisible(isTeacher);
+        this.editAnnouncementButton.setVisible(isTeacher);
         refresh();
     }
 
@@ -111,17 +108,17 @@ public class CourseController extends AnchorPane {
     @FXML
     private void onLogoutAction() throws IOException {
 //        Parent root = new LoginController();
-        Parent root = new SubjectController(((Student)Main.getApplicationController().getUser()).getEnrolledCourses());
+        Parent root = new SubjectController(Main.getApplicationController().getUser().getUserCourse());
         Main.getApplicationController().navigateTo(root);
     }
 
     @FXML
     private void onLogoutEntered() throws IOException {
-        logout.setStyle("-fx-text-fill: #71f2e5;");
+        this.logout.setStyle("-fx-text-fill: #71f2e5;");
     }
 
     @FXML
     private void onLogoutExited() throws IOException {
-        logout.setStyle("-fx-text-fill: white;");
+        this.logout.setStyle("-fx-text-fill: white;");
     }
 }

@@ -12,13 +12,24 @@ public class Student extends User {
         super(fullName);
     }
 
+
     public Student(String fullName, List<Course> enrolledCourses) {
         super(fullName);
         this.enrolledCourses = enrolledCourses;
     }
 
+    public Student(String fullName, String userid, String pin, List<Course> enrolledCourses) {
+        super(fullName, userid, pin);
+        this.enrolledCourses = enrolledCourses;
+    }
+
+    @Override
+    public List<Course> getUserCourse() {
+        return this.enrolledCourses;
+    }
+
     public List<Course> getEnrolledCourses() {
-        return enrolledCourses;
+        return this.enrolledCourses;
     }
 
     public void setEnrolledCourses(List<Course> enrolledCourses) {

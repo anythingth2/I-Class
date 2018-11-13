@@ -29,8 +29,9 @@
                         <Image url="@../../../resources/Assets/ICLASS.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="inc_userid" layoutX="848.0" layoutY="391.0" styleClass="incorrect" text="ชื่อผู้ใช้ไม่ถูกต้อง!" visible="false" />
-                <Label fx:id="inc_pin" layoutX="848.0" layoutY="481.0" styleClass="incorrect" text="รหัสผ่านไม่ถูกต้อง!" visible="false" />
+                <Label fx:id="inc_userid" layoutX="848.0" layoutY="391.0" styleClass="incorrect" text="คุณยังไม่กรอกชื่อผู้ใช้" visible="false" />
+                <Label fx:id="inc_pin" layoutX="848.0" layoutY="481.0" styleClass="incorrect" text="คุณยังไม่กรอกรหัสผ่าน" visible="false" />
+            <Label fx:id="inc_data" layoutX="505.0" layoutY="330.0" prefWidth="350.0" styleClass="incorrect" text="ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง" visible="false" />
             </children>
         </Pane>
     </children>

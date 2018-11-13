@@ -20,7 +20,7 @@ public class Course {
     List<TeachingClass> teachingClasses;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -28,7 +28,7 @@ public class Course {
     }
 
     public String getAlias() {
-        return alias;
+        return this.alias;
     }
 
     public void setAlias(String alias) {
@@ -36,7 +36,7 @@ public class Course {
     }
 
     public String getCodenumber() {
-        return codenumber;
+        return this.codenumber;
     }
 
     public void setCodenumber(String codenumber) {
@@ -44,7 +44,7 @@ public class Course {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -52,7 +52,7 @@ public class Course {
     }
 
     public List<TeachingClass> getTeachingClasses() {
-        return teachingClasses;
+        return this.teachingClasses;
     }
 
     public void setTeachingClasses(List<TeachingClass> teachingClasses) {
@@ -60,7 +60,7 @@ public class Course {
     }
 
     public String getAnnouncement() {
-        return announcement;
+        return this.announcement;
     }
 
     public void setAnnouncement(String announcement) {

@@ -36,7 +36,7 @@ public class TeachingClass {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -44,7 +44,7 @@ public class TeachingClass {
     }
 
     public Date getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(Date date) {
@@ -52,7 +52,7 @@ public class TeachingClass {
     }
 
     public Course getCourse() {
-        return course;
+        return this.course;
     }
 
     public void setCourse(Course course) {
@@ -60,7 +60,7 @@ public class TeachingClass {
     }
 
     public Material getMaterial() {
-        return material;
+        return this.material;
     }
 
     public void setMaterial(Material material) {
@@ -68,7 +68,7 @@ public class TeachingClass {
     }
 
     public Homework getHomework() {
-        return homework;
+        return this.homework;
     }
 
     public void setHomework(Homework homework) {
