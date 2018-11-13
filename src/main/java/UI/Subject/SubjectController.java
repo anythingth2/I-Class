@@ -15,7 +15,9 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.ImageView;
+import javassist.bytecode.stackmap.TypeData;
 
+import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -100,10 +102,46 @@ public class SubjectController extends GridPane {
         course3 = course;
     }
 
+    private void setCourse1Visible(boolean mode) {
+        sbj1.setVisible(mode);
+        alias1.setVisible(mode);
+        name1.setVisible(mode);
+    }
+
+    private void setCourse2Visible(boolean mode) {
+        sbj2.setVisible(mode);
+        alias2.setVisible(mode);
+        name2.setVisible(mode);
+    }
+
+    private void setCourse3Visible(boolean mode) {
+        sbj3.setVisible(mode);
+        alias3.setVisible(mode);
+        name3.setVisible(mode);
+    }
+
     public void setAllCourseDetail() {
-        setCourse1Detail(this.courses.get(index).getAlias(), this.courses.get(index).getName(), this.courses.get(index));
-        setCourse2Detail(this.courses.get(index+1).getAlias(), this.courses.get(index+1).getName(), this.courses.get(index+1));
-        setCourse3Detail(this.courses.get(index+2).getAlias(), this.courses.get(index+2).getName(), this.courses.get(index+2));
+        try {
+            setCourse1Detail(this.courses.get(index).getAlias(), this.courses.get(index).getName(), this.courses.get(index));
+            setCourse1Visible(true);
+        }
+        catch (Exception e){
+            setCourse1Visible(false);
+        }
+        try {
+            setCourse2Detail(this.courses.get(index+1).getAlias(), this.courses.get(index+1).getName(), this.courses.get(index+1));
+            setCourse2Visible(true);
+        }
+        catch (Exception e){
+            setCourse2Visible(false);
+        }
+        try {
+            setCourse3Detail(this.courses.get(index+2).getAlias(), this.courses.get(index+2).getName(), this.courses.get(index+2));
+            setCourse3Visible(true);
+        }
+        catch (Exception e){
+            setCourse3Visible(false);
+        }
     }
 
     private void displayBlueShadow(Pane subject) {
@@ -236,7 +274,7 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onLogoutExited() throws IOException {
-        logout.setStyle("-fx-text-fill: #0399D8;");
+        logout.setStyle("-fx-text-fill: #0399D8");
     }
 
 }

@@ -23,7 +23,7 @@
 	/* border : ... right bottom left */
 	/* -fx-border-style: solid none none none; */
 	-fx-border-width: 3px;
-	-fx-border-color: #131315 #131315 #2275A0 #131315;
+	-fx-border-color: #131315 #131315 #0399D8 #131315;
 }
 
 .btn-login{

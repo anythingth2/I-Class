@@ -62,8 +62,9 @@ public class LoginController extends GridPane {
 //--------------------------------------------- Moc data for test ---------------------------------------------
 //            List<String> names = new ArrayList<String>();
 //            Main.getApplicationController().setUser(new Student());
+
             List<Course> courses = new ArrayList<Course>();
-            courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+            courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Software End", "SE", "0000000002", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Comp Net", "CN", "0000000003", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
@@ -71,11 +72,11 @@ public class LoginController extends GridPane {
             courses.add(new Course("Infomation Retrieval", "IR", "0000000005", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Micro Robot", "MR", "0000000006", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
             courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-            courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
+//            courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
 
-            Student exstudent = new Student("Example Mocstudent");
-            exstudent.setUserid("1234567890");
-            exstudent.setPin("1234567890");
+            Student exstudent = new Student("Example Mocstudent"); // Example student
+            exstudent.setUserid("1");
+            exstudent.setPin("1");
             exstudent.setEnrolledCourses(courses);
             Main.getApplicationController().setUser(exstudent);
 //-------------------------------------------------------------------------------------------------------------

@@ -2,11 +2,15 @@ package UI.Course;
 
 import Main.Main;
 import Model.Course;
+import Model.Student;
 import Model.Teacher;
 import Model.TeachingClass;
+import UI.Login.LoginController;
+import UI.Subject.SubjectController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -17,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,6 +42,8 @@ public class CourseController extends AnchorPane {
     private List<ClassItemPane> classItemPanes = new ArrayList<ClassItemPane>();
     @FXML
     private ScrollPane scrollPane;
+    @FXML
+    Button logout;
 
     @FXML
     Pane teachingClassPane;
@@ -72,7 +79,7 @@ public class CourseController extends AnchorPane {
             classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    setTeachingClassPane(teachingClass);
+                setTeachingClassPane(teachingClass);
                 }
             });
             classItemPanes.add(classItemPane);
@@ -98,5 +105,23 @@ public class CourseController extends AnchorPane {
         }else{
 
         }
+    }
+
+
+    @FXML
+    private void onLogoutAction() throws IOException {
+//        Parent root = new LoginController();
+        Parent root = new SubjectController(((Student)Main.getApplicationController().getUser()).getEnrolledCourses());
+        Main.getApplicationController().navigateTo(root);
+    }
+
+    @FXML
+    private void onLogoutEntered() throws IOException {
+        logout.setStyle("-fx-text-fill: #71f2e5;");
+    }
+
+    @FXML
+    private void onLogoutExited() throws IOException {
+        logout.setStyle("-fx-text-fill: white;");
     }
 }
