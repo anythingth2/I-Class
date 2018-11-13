@@ -58,21 +58,26 @@ public class LoginController extends GridPane {
         courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
         courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
 
-        List<User> users = new ArrayList<User>(10);
-        users.add(new Student("Example Student1", "001", "001", courses));
-        users.add(new Student("Example Student2", "002", "002", courses));
-        users.add(new Student("Example Student3", "003", "003", courses));
-        users.add(new Teacher("Example Teacher1", "004", "004", courses));
-        users.add(new Teacher("Example Teacher2", "005", "005", courses));
-//-------------------------------------------------------------------------------------------------------------
-        for(int i=0; i<users.size(); i++) {
-            if (this.userid.getText().equals(users.get(i).getUserid()) && this.pin.getText().equals(users.get(i).getPin())) {
-                Main.getApplicationController().setUser(users.get(i)); // Set user in applicationController
-                Parent root = new SubjectController(users.get(i).getUserCourse()); // Change page
+        User login_user = User.findByUsername(this.userid.getText());
+        try {
+            System.out.println(login_user.getFullName());
+            if(login_user.validatePin(this.pin.getText())){
+                Main.getApplicationController().setUser(login_user);
+                Parent root = new SubjectController(courses); // Change page
                 Main.getApplicationController().navigateTo(root);
-            } else {
+
+
+            }else {
                 this.inc_data.setVisible(true);
             }
+
+        }
+        catch (Exception e){
+            if(e instanceof NullPointerException){
+                //Show user not found msg
+                System.out.println("User not found!");
+            }
+            e.printStackTrace();
         }
     }
 

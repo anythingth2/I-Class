@@ -1,11 +1,13 @@
 package Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 @Entity
-@Table(name = "students")
 public class Student extends User {
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Course> enrolledCourses;
 
     public Student(String fullName) {
