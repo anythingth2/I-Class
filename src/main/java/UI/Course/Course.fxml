@@ -64,7 +64,7 @@
             <children>
                 <Pane prefHeight="130.0" prefWidth="540.0" style="-fx-background-color: #171C1D;">
                     <children>
-                          <Label fx:id="courseNameTextView" alignment="CENTER" layoutX="4.0" prefHeight="110.0" prefWidth="178.0" text="59011300" textAlignment="CENTER" textFill="WHITE">
+                          <Label fx:id="accountIdTextView" alignment="CENTER" layoutX="4.0" prefHeight="110.0" prefWidth="178.0" text="59011300" textAlignment="CENTER" textFill="WHITE">
                               <font>
                                   <Font name="Segoe UI Semibold" size="43.0" />
                               </font>

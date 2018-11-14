@@ -35,7 +35,7 @@ import java.util.List;
 public class CourseController extends AnchorPane {
 
     @FXML
-    private Label courseNameTextView;
+    private Label accountIdTextView;
     @FXML
     private Button editAnnouncementButton;
     @FXML
@@ -86,7 +86,7 @@ public class CourseController extends AnchorPane {
 
     private void initialise() {
         this.announcementLabel.setText(course.getAnnouncement());
-        this.courseNameTextView.setText(this.course.getName());
+        this.accountIdTextView.setText(Main.getApplicationController().getUser().getUserid());
         this.titleLabel.setText(this.course.getName());
         this.courseInfoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
