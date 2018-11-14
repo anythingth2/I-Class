@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -53,7 +54,7 @@ public class CourseController extends AnchorPane {
     @FXML
     private Button logout;
     @FXML
-    private  Button logout1;
+    private Button logout1;
 
     @FXML
     private Pane teachingClassPane;
@@ -111,7 +112,6 @@ public class CourseController extends AnchorPane {
                     public void handle(MouseEvent event) {
                         Pane pane = new CourseMaterialPane();
                         setTeachingClassPane(pane);
-
                     }
                 });
                 classItemPanes.add(classItemPane);
@@ -147,10 +147,10 @@ public class CourseController extends AnchorPane {
 
 
     private void setTeachingClassPane(Pane pane) {
-        if (this.teachingClassPane.getChildren().size() > 1) {
+        if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, pane);
         } else {
-            this.teachingClassPane.getChildren().add(0, pane);
+            this.teachingClassPane.getChildren().add(pane);
         }
     }
 
@@ -163,7 +163,7 @@ public class CourseController extends AnchorPane {
     }
 
     @FXML
-    private  void  gotoSubject() throws  IOException{
+    private void gotoSubject() throws IOException {
         Parent root = new SubjectController(((Student) Main.getApplicationController().getUser()).getEnrolledCourses());
         Main.getApplicationController().navigateTo(root);
     }
@@ -194,13 +194,13 @@ public class CourseController extends AnchorPane {
 
     @FXML
     void openTypeDialog(MouseEvent event) {
-        try{
+        try {
             URL url = new File("src/main/java/UI/Dialog/TypeDialog/typeDialog.fxml").toURL();
             Parent root1 = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Can't load");
             e.printStackTrace();
         }

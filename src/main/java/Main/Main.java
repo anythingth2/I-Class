@@ -25,8 +25,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         // Initial and update DB
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
         launch(args);
     }
 }
