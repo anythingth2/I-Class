@@ -8,12 +8,14 @@ import Model.TeachingClass;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Course.InnerPane.Homework.HomeworkPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
+import UI.Login.LoginController;
 import UI.Subject.SubjectController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -21,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,6 +52,8 @@ public class CourseController extends AnchorPane {
     private ScrollPane scrollPane;
     @FXML
     private Button logout;
+    @FXML
+    private  Button logout1;
 
     @FXML
     private Pane teachingClassPane;
@@ -153,6 +158,12 @@ public class CourseController extends AnchorPane {
     @FXML
     private void onLogoutAction() throws IOException {
 //        Parent root = new LoginController();
+        Parent root = new LoginController();
+        Main.getApplicationController().navigateTo(root);
+    }
+
+    @FXML
+    private  void  gotoSubject() throws  IOException{
         Parent root = new SubjectController(((Student) Main.getApplicationController().getUser()).getEnrolledCourses());
         Main.getApplicationController().navigateTo(root);
     }
@@ -160,10 +171,38 @@ public class CourseController extends AnchorPane {
     @FXML
     private void onLogoutEntered() throws IOException {
         logout.setStyle("-fx-text-fill: #71f2e5;");
+        logout.setStyle("-fx-background-color: #171C1D");
     }
 
     @FXML
     private void onLogoutExited() throws IOException {
         logout.setStyle("-fx-text-fill: white;");
+        logout.setStyle("-fx-background-color: #171C1D");
+    }
+
+    @FXML
+    private void onLogout1Entered() throws IOException {
+        logout1.setStyle("-fx-text-fill: #71f2e5;");
+        logout1.setStyle("-fx-background-color: #171C1D");
+    }
+
+    @FXML
+    private void onLogout1Exited() throws IOException {
+        logout1.setStyle("-fx-text-fill: white;");
+        logout1.setStyle("-fx-background-color:#171C1D");
+    }
+
+    @FXML
+    void openTypeDialog(MouseEvent event) {
+        try{
+            URL url = new File("src/main/java/UI/Dialog/TypeDialog/typeDialog.fxml").toURL();
+            Parent root1 = FXMLLoader.load(url);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }catch (Exception e){
+            System.out.println("Can't load");
+            e.printStackTrace();
+        }
     }
 }
