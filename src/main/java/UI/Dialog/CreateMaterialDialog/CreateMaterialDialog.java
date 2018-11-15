@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import java.io.File;
 import java.net.URL;
 
-public class CreateMaterialDialog extends CreateDialog {
-
-
+abstract public class CreateMaterialDialog extends CreateDialog {
     public CreateMaterialDialog() {
         super();
         try {

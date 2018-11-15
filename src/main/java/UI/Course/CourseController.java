@@ -105,6 +105,18 @@ public class CourseController extends AnchorPane {
                 setTeachingClassPane(pane);
             }
         });
+
+
+        boolean isTeacher = Main.getApplicationController().getUser() instanceof Teacher;
+        this.editAnnouncementButton.setVisible(isTeacher);
+
+        this.setTeachingClassPane(new CourseInfoPane(this.course));
+        this.refresh();
+    }
+
+    private void refresh() {
+        this.classVBox.getChildren().clear();
+        this.classItemPanes.clear();
         for (final TeachingClass teachingClass : this.teachingClasses) {
 
 
@@ -118,7 +130,7 @@ public class CourseController extends AnchorPane {
                         setTeachingClassPane(pane);
                     }
                 });
-                classItemPanes.add(classItemPane);
+                this.classItemPanes.add(classItemPane);
             }
             if (teachingClass.getHomework() != null) {
                 ClassItemPane classItemPane = new ClassItemPane(teachingClass,
@@ -130,23 +142,15 @@ public class CourseController extends AnchorPane {
                         setTeachingClassPane(pane);
                     }
                 });
-                classItemPanes.add(classItemPane);
+                this.classItemPanes.add(classItemPane);
             }
 
         }
 
-        boolean isTeacher = Main.getApplicationController().getUser() instanceof Teacher;
-        this.editAnnouncementButton.setVisible(isTeacher);
-
-        this.setTeachingClassPane(new CourseInfoPane(this.course));
-        this.refresh();
-    }
-
-    private void refresh() {
-        this.classVBox.getChildren().clear();
         for (ClassItemPane classItemPane : this.classItemPanes) {
             this.classVBox.getChildren().add(classItemPane);
         }
+
     }
 
 
@@ -208,14 +212,21 @@ public class CourseController extends AnchorPane {
 //            System.out.println("Can't load");
 //            e.printStackTrace();
 //        }
-        final CreateMaterialDialog createMaterialDialog = new CreateMaterialDialog();
+        final CreateMaterialDialog createMaterialDialog = new CreateMaterialDialog() {
+            @Override
+            public void onCreateSuccess(TeachingClass teachingClass) {
+                teachingClasses.add(teachingClass);
+                refresh();
+
+            }
+        };
         final CreateHomeworkDialog createHomeworkDialog = new CreateHomeworkDialog();
         TypeDialog typeDialog = new TypeDialog() {
             @Override
             public void onAccept(TypeRadio typeRadio) {
-                if(typeRadio == TypeRadio.Material)
+                if (typeRadio == TypeRadio.Material)
                     createMaterialDialog.show();
-                else if(typeRadio == TypeRadio.Homework)
+                else if (typeRadio == TypeRadio.Homework)
                     createHomeworkDialog.show();
 
             }

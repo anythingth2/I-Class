@@ -33,9 +33,9 @@ public class ClassItemPane extends Pane {
     private void setTeachingClass(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
 
-        this.dateTextView.setText(new SimpleDateFormat("dd/mm/yyyy")
+        this.dateTextView.setText(new SimpleDateFormat("dd/MM/yyyy")
                 .format(teachingClass.getDate()));
-        this.timeTextView.setText(new SimpleDateFormat("hh:mm")
+        this.timeTextView.setText(new SimpleDateFormat("HH:mm")
                 .format(teachingClass.getDate()));
 
     }

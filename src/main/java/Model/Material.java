@@ -12,7 +12,8 @@ public class Material {
     private String title;
 
     private String description;
-    private String link;
+    private String fileLink;
+    private String vidLink;
 
     private TeachingClass teachingClass;
 
@@ -32,12 +33,20 @@ public class Material {
         this.description = description;
     }
 
-    public String getLink() {
-        return link;
+    public String getFileLink() {
+        return fileLink;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setFileLink(String fileLink) {
+        this.fileLink = fileLink;
+    }
+
+    public String getVidLink() {
+        return vidLink;
+    }
+
+    public void setVidLink(String vidLink) {
+        this.vidLink = vidLink;
     }
 
     public TeachingClass getTeachingClass() {

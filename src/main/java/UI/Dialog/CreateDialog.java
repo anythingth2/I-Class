@@ -1,26 +1,26 @@
 package UI.Dialog;
 
+import Model.Material;
+import Model.TeachingClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
-import java.awt.event.ActionEvent;
 import java.io.File;
-import java.net.URL;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class CreateDialog extends AnchorPane {
+abstract public class CreateDialog extends AnchorPane {
     @FXML
     protected DatePicker datePicker;
     @FXML
@@ -51,8 +51,6 @@ public class CreateDialog extends AnchorPane {
     }
 
     protected void initialise() {
-
-
         ObservableList<Integer> hourValues = FXCollections.observableArrayList();
         List<Integer> tempHourValues = new ArrayList<Integer>();
         for (int i = 8; i < 20; tempHourValues.add(i), i++) ;
@@ -69,7 +67,9 @@ public class CreateDialog extends AnchorPane {
         this.confirmButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("" + validateInput());
+                if (validateInput()) {
+                    createTeachingClass();
+                }
             }
         });
         this.cancelButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -110,6 +110,21 @@ public class CreateDialog extends AnchorPane {
         return true;
     }
 
+    abstract public void onCreateSuccess(TeachingClass teachingClass);
+
+    private void createTeachingClass() {
+        TeachingClass teachingClass = new TeachingClass();
+        Date date = Date.from(this.datePicker.getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        date.setHours(this.hourChoiceBox.getValue());
+        date.setMinutes(this.minuteChoiceBox.getValue());
+        teachingClass.setDate(date);
+        teachingClass.setTitle("FIX ME!");
+        Material material = new Material();
+        //todo: set Material
+        //todo: set teaching class name
+        teachingClass.setMaterial(material);
+        this.onCreateSuccess(teachingClass);
+    }
 
     private File browseFile() {
         FileChooser fileChooser = new FileChooser();

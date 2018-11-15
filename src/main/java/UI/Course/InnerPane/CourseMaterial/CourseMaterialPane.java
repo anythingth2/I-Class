@@ -49,7 +49,12 @@ public class CourseMaterialPane extends ScrollPane {
 
     @FXML
     void clickEdit(ActionEvent event) {
-        final CreateMaterialDialog materialDialog = new CreateMaterialDialog();
+        final CreateMaterialDialog materialDialog = new CreateMaterialDialog() {
+            @Override
+            public void onCreateSuccess(TeachingClass teachingClass) {
+
+            }
+        };
         materialDialog.show();
     }
 
