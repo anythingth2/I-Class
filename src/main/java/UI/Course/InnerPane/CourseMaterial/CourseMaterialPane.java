@@ -2,12 +2,13 @@ package UI.Course.InnerPane.CourseMaterial;
 
 import Model.TeachingClass;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.net.URL;
 
-public class CourseMaterialPane extends Pane {
+public class CourseMaterialPane extends ScrollPane {
     private TeachingClass teachingClass;
 
     public CourseMaterialPane() {

@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-         prefWidth="940.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.121"
-         xmlns:fx="http://javafx.com/fxml/1" type="Pane">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="940.0" style="-fx-background-color: white;" type="Pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <TextFlow fx:id="filename" layoutX="38.0" layoutY="168.0" prefHeight="225.0" prefWidth="813.0"/>
-        <Label layoutX="208.0" layoutY="107.0" prefHeight="28.0" prefWidth="627.0"
-               text="การวิเคราะห์ข้อมูลและออกแบบเชิงวัตถุ OBJECT-ORIENTED ANALYSIS AND DESIGN">
+        <TextFlow fx:id="filename" layoutX="106.0" layoutY="287.0" prefHeight="145.0" prefWidth="759.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement analysis; Object-oriented design; encapsulation; information hiding; classes and subclasses; inheritance; polymorphism, class hierarchies; objects; method; Fundamental design concepts; Design patterns; Software architecture." wrappingWidth="727.560546875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children></TextFlow>
+        <Label layoutX="208.0" layoutY="66.0" prefHeight="28.0" prefWidth="634.0" text="การวิเคราะห์ข้อมูลและออกแบบเชิงวัตถุ">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="104.0" layoutY="107.0" prefHeight="27.0" prefWidth="86.0" text="01076254">
+        <Label layoutX="104.0" layoutY="66.0" prefHeight="27.0" prefWidth="86.0" text="01076254">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <TextFlow layoutX="107.0" layoutY="186.0" prefHeight="212.0" prefWidth="732.0">
+        <TextFlow layoutX="107.0" layoutY="153.0" prefHeight="131.0" prefWidth="732.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                      text="การวิเคราะห์ความต้องการ การออกแบบเชิงวัตถุการห่อหุ้ม การซ่อนข้อมูล คลาส คลาสย่อย การสืบทอด การมีหลายรูปแบบลำดับชั้นของคลาส วัตถุ  วิธีการ แนวคิดการออกแบบขั้นพื้นฐาน  รูปแบบของการออกแบบ  สถาปัตยกรรมซอฟท์แวร์  Requirement analysis; Object-oriented design; encapsulation; information hiding; classes and subclasses; inheritance; polymorphism, class hierarchies; objects; method; Fundamental design concepts; Design patterns; Software architecture."
-                      wrappingWidth="720.859375">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="การวิเคราะห์ความต้องการ การออกแบบเชิงวัตถุการห่อหุ้ม การซ่อนข้อมูล คลาส คลาสย่อย การสืบทอด การมีหลายรูปแบบลำดับชั้นของคลาส วัตถุ  วิธีการ แนวคิดการออกแบบขั้นพื้นฐาน  รูปแบบของการออกแบบ  สถาปัตยกรรมซอฟท์แวร์ " wrappingWidth="705.830078125">
                     <font>
-                        <Font size="20.0"/>
+                        <Font size="20.0" />
                     </font>
                 </Text>
             </children>
         </TextFlow>
-        <Button fx:id="edit" layoutX="818.0" layoutY="30.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="72.0"
-                text="แก้ไข">
-            <font>
-                <Font size="17.0"/>
-            </font>
-        </Button>
+      <Label layoutX="208.0" layoutY="99.0" prefHeight="28.0" prefWidth="627.0" text="OBJECT-ORIENTED ANALYSIS AND DESIGN">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </fx:root>

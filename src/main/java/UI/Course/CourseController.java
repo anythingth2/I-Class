@@ -14,6 +14,7 @@ import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -110,7 +111,7 @@ public class CourseController extends AnchorPane {
                 classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        Pane pane = new CourseMaterialPane();
+                        Node pane = new CourseMaterialPane();
                         setTeachingClassPane(pane);
                     }
                 });
@@ -122,7 +123,7 @@ public class CourseController extends AnchorPane {
                 classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        Pane pane = new HomeworkPane();
+                        Node pane = new HomeworkPane();
                         setTeachingClassPane(pane);
                     }
                 });
@@ -146,7 +147,7 @@ public class CourseController extends AnchorPane {
     }
 
 
-    private void setTeachingClassPane(Pane pane) {
+    private void setTeachingClassPane(Node pane) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, pane);
         } else {

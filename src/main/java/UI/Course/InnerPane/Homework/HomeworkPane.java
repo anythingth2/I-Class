@@ -1,12 +1,13 @@
 package UI.Course.InnerPane.Homework;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.net.URL;
 
-public class HomeworkPane extends Pane {
+public class HomeworkPane extends ScrollPane {
     public HomeworkPane() {
         super();
         try {
