@@ -8,12 +8,14 @@ import Model.TeachingClass;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Course.InnerPane.Homework.HomeworkPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
+import UI.Dialog.AnnouncementDialog.announcementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialDialog;
 import UI.Dialog.TypeDialog.TypeDialog;
 import UI.Login.LoginController;
 import UI.Subject.SubjectController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -219,5 +221,13 @@ public class CourseController extends AnchorPane {
             }
         };
         typeDialog.show();
+    }
+
+    @FXML
+    void openEditAnnouncement(ActionEvent event) {
+
+        final announcementDialogController announcementDialog = new announcementDialogController();
+        announcementDialog.show();
+
     }
 }
