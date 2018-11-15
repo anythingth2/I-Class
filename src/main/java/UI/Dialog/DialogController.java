@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class dialogController {
+public class DialogController {
 
     @FXML
     private Button closeButton;

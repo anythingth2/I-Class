@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 
-public class callDialogController extends AnchorPane {
+public class CallDialogController extends AnchorPane {
 
     @FXML
     private Button buttonTest;
@@ -36,7 +36,7 @@ public class callDialogController extends AnchorPane {
     @FXML
     private Button homework;
 
-    public callDialogController() {
+    public CallDialogController() {
         super();
         try {
             URL url = new File("src/main/java/UI/Dialog/callDialog.fxml").toURL();
@@ -53,7 +53,6 @@ public class callDialogController extends AnchorPane {
 
     @FXML
     void openDialog(ActionEvent event) {
-
         try{
             URL url = new File("src/main/java/UI/Dialog/dialog.fxml").toURL();
             Parent root1 = FXMLLoader.load(url);
@@ -62,7 +61,6 @@ public class callDialogController extends AnchorPane {
             stage.show();
         }catch (Exception e){
             System.out.println("Can't load");
-
         }
     }
 
@@ -98,7 +96,7 @@ public class callDialogController extends AnchorPane {
     @FXML
     void openFile(ActionEvent event) {
         try{
-            URL url = new File("src/main/java/UI/Dialog/CreateFileDialog/fileDialog.fxml").toURL();
+            URL url = new File("src/main/java/UI/Dialog/CreateMaterialDialog/fileDialog.fxml").toURL();
             Parent root1 = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

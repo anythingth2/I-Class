@@ -27,6 +27,7 @@ public class Main extends Application {
         // Initial and update DB
 //        session = HibernateUtil.getSessionFactory().openSession();
 //        session.beginTransaction();
+        MockData.initialize();
         launch(args);
     }
 }

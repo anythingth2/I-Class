@@ -8,6 +8,9 @@ import Model.TeachingClass;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Course.InnerPane.Homework.HomeworkPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
+import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
+import UI.Dialog.CreateMaterialDialog.CreateMaterialDialog;
+import UI.Dialog.TypeDialog.TypeDialog;
 import UI.Login.LoginController;
 import UI.Subject.SubjectController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
@@ -15,16 +18,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -194,15 +195,28 @@ public class CourseController extends AnchorPane {
 
     @FXML
     void openTypeDialog(MouseEvent event) {
-        try {
-            URL url = new File("src/main/java/UI/Dialog/TypeDialog/typeDialog.fxml").toURL();
-            Parent root1 = FXMLLoader.load(url);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("Can't load");
-            e.printStackTrace();
-        }
+//        try {
+//            URL url = new File("src/main/java/UI/Dialog/TypeDialog/typeDialog.fxml").toURL();
+//            Parent root1 = FXMLLoader.load(url);
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root1));
+//            stage.show();
+//        } catch (Exception e) {
+//            System.out.println("Can't load");
+//            e.printStackTrace();
+//        }
+        final CreateMaterialDialog createMaterialDialog = new CreateMaterialDialog();
+        final CreateHomeworkDialog createHomeworkDialog = new CreateHomeworkDialog();
+        TypeDialog typeDialog = new TypeDialog() {
+            @Override
+            public void onAccept(TypeRadio typeRadio) {
+                if(typeRadio == TypeRadio.Material)
+                    createMaterialDialog.show();
+                else if(typeRadio == TypeRadio.Homework)
+                    createHomeworkDialog.show();
+
+            }
+        };
+        typeDialog.show();
     }
 }
