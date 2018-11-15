@@ -1,6 +1,12 @@
 package UI.Course.InnerPane.Homework;
 
+import UI.Dialog.AnnouncementDialog.announcementDialogController;
+import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
+import UI.Dialog.comfirmDialog.comfirmDialogController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
@@ -20,5 +26,23 @@ public class HomeworkPane extends ScrollPane {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private Button deleteButton;
+
+    @FXML
+    private Button editButton;
+
+    @FXML
+    void clickDelete(ActionEvent event) {
+        final comfirmDialogController comfirmDialog = new comfirmDialogController();
+        comfirmDialog.show();
+    }
+
+    @FXML
+    void clickEdit(ActionEvent event) {
+        final CreateHomeworkDialog createHomeworkDialog = new CreateHomeworkDialog();
+        createHomeworkDialog.show();
     }
 }
