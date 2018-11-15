@@ -5,23 +5,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="299.31" prefWidth="1063.81" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.AnnouncementDialog.announcementDialogController">
+<AnchorPane prefHeight="271.0" prefWidth="970.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.AnnouncementDialog.announcementDialogController">
     <children>
-        <Label layoutX="66.0" layoutY="42.0" text="แก้ไขข้อความภายในประกาศ" textFill="WHITE">
+        <Label layoutX="52.0" layoutY="34.0" text="แก้ไขข้อความภายในประกาศ" textFill="WHITE">
             <font>
-                <Font name="Segoe UI" size="48.0" />
+                <Font name="Segoe UI" size="36.0" />
             </font>
         </Label>
-        <Label layoutX="386.0" layoutY="231.0" text="ยกเลิก" textFill="#80cbc4">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
-        <Label layoutX="624.0" layoutY="231.0" prefHeight="30.0" prefWidth="50.0" text="แก้ไข" textFill="#80cbc4">
+        <Label fx:id="cancelButton" alignment="CENTER" layoutX="342.0" layoutY="170.0" prefHeight="65.0" prefWidth="94.0" text="ยกเลิก" textFill="#80cbc4">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <TextField layoutX="108.0" layoutY="150.0" prefHeight="36.0" prefWidth="847.0" />
+        <Label fx:id="editButton" alignment="CENTER" layoutX="539.0" layoutY="172.0" prefHeight="62.0" prefWidth="95.0" text="แก้ไข" textFill="#80cbc4">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="dataField" layoutX="113.0" layoutY="106.0" prefHeight="36.0" prefWidth="761.0" />
     </children>
 </AnchorPane>
