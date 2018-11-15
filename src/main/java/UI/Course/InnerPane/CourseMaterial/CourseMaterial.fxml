@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.Pane?>
@@ -9,9 +10,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-         prefWidth="940.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-         type="ScrollPane">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="940.0" type="ScrollPane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <content>
         <VBox prefHeight="593.0" prefWidth="922.0">
             <children>
@@ -19,24 +18,22 @@
                     <children>
                         <Label layoutX="51.0" layoutY="20.0" text="หัวข้อ :">
                             <font>
-                                <Font size="36.0"/>
+                                <Font size="36.0" />
                             </font>
                         </Label>
                         <Label layoutX="162.0" layoutY="21.0" prefHeight="53.0" prefWidth="524.0" text="ชื่อหัวข้อ">
                             <font>
-                                <Font size="36.0"/>
+                                <Font size="36.0" />
                             </font>
                         </Label>
-                        <Button layoutX="709.0" layoutY="23.0" mnemonicParsing="false" prefHeight="51.0"
-                                prefWidth="95.0" style="-fx-background-color: #B1DFDB;" text="ลบ">
+                        <Button layoutX="709.0" layoutY="23.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="95.0" style="-fx-background-color: #B1DFDB;" text="ลบ">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Button>
-                        <Button layoutX="818.0" layoutY="22.0" mnemonicParsing="false" prefHeight="53.0"
-                                prefWidth="94.0" style="-fx-background-color: #B1DFDB;" text="แก้ไข">
+                        <Button layoutX="818.0" layoutY="22.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="94.0" style="-fx-background-color: #B1DFDB;" text="แก้ไข">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Button>
                     </children>
@@ -45,18 +42,17 @@
                     <children>
                         <Label layoutX="52.0" layoutY="8.0" text="เอกสารการเรียน">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Label>
-                        <Button layoutX="54.0" layoutY="50.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0"
-                                style="-fx-background-color: #0399D8;" text="อัพโหลด" textFill="WHITE">
+                        <Button layoutX="54.0" layoutY="50.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" style="-fx-background-color: #0399D8;" text="อัพโหลด" textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="18.0"/>
+                                <Font name="System Bold" size="18.0" />
                             </font>
                         </Button>
                         <Label layoutX="161.0" layoutY="55.0" prefHeight="35.0" prefWidth="424.0" text="xxxxx.xxx">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Label>
                     </children>
@@ -65,29 +61,28 @@
                     <children>
                         <Label layoutX="53.0" layoutY="16.0" text="วิดีโอ :">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Label>
-                        <Label layoutX="157.0" layoutY="8.0" prefHeight="53.0" prefWidth="736.0" text="www.youtube.com">
-                            <font>
-                                <Font size="24.0"/>
-                            </font>
-                        </Label>
+                  <Hyperlink layoutX="157.0" layoutY="8.0" prefHeight="53.0" prefWidth="736.0" text="www.youtube.com">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Hyperlink>
                     </children>
                 </Pane>
                 <Pane prefHeight="312.0" prefWidth="922.0">
                     <children>
                         <Label layoutX="55.0" layoutY="16.0" text="รายละเอียดเพิ่มเติม :">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Label>
                         <TextFlow layoutX="73.0" layoutY="48.0" prefHeight="233.0" prefWidth="633.0">
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text=" Lorem Lorem Lorem  Lorem Lorem L Lorem Lorem Lorem  Lorem Lorem Lorem orem  L">
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Lorem Lorem Lorem  Lorem Lorem L Lorem Lorem Lorem  Lorem Lorem Lorem orem  L">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Text>
                             </children>
