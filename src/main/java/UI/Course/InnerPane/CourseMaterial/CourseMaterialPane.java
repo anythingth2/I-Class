@@ -1,7 +1,12 @@
 package UI.Course.InnerPane.CourseMaterial;
 
 import Model.TeachingClass;
+import UI.Dialog.CreateMaterialDialog.CreateMaterialDialog;
+import UI.Dialog.comfirmDialog.comfirmDialogController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
@@ -29,4 +34,23 @@ public class CourseMaterialPane extends ScrollPane {
         this();
         this.teachingClass = teachingClass;
     }
+
+    @FXML
+    private Button deleteButton;
+
+    @FXML
+    private Button editButton;
+
+    @FXML
+    void clickDelete(ActionEvent event) {
+        final comfirmDialogController comfirmDialog = new comfirmDialogController();
+        comfirmDialog.show();
+    }
+
+    @FXML
+    void clickEdit(ActionEvent event) {
+        final CreateMaterialDialog materialDialog = new CreateMaterialDialog();
+        materialDialog.show();
+    }
+
 }

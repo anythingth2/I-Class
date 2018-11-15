@@ -26,12 +26,12 @@
                                 <Font size="36.0" />
                             </font>
                         </Label>
-                        <Button layoutX="709.0" layoutY="23.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="95.0" style="-fx-background-color: #B1DFDB;" text="ลบ">
+                        <Button fx:id="deleteButton" layoutX="709.0" layoutY="23.0" mnemonicParsing="false" onAction="#clickDelete" prefHeight="51.0" prefWidth="95.0" style="-fx-background-color: #B1DFDB;" text="ลบ">
                             <font>
                                 <Font size="24.0" />
                             </font>
                         </Button>
-                        <Button layoutX="818.0" layoutY="22.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="94.0" style="-fx-background-color: #B1DFDB;" text="แก้ไข">
+                        <Button fx:id="editButton" layoutX="818.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickEdit" prefHeight="53.0" prefWidth="94.0" style="-fx-background-color: #B1DFDB;" text="แก้ไข">
                             <font>
                                 <Font size="24.0" />
                             </font>
