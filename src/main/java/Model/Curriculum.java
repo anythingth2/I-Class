@@ -5,7 +5,6 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "curriculum")
 public class Curriculum {
     List<Course> courses;
 

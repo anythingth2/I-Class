@@ -69,8 +69,8 @@ public class CourseController extends AnchorPane {
     public CourseController(Course course) {
         this();
         this.course = course;
-        this.teachingClasses = course.getTeachingClasses();
-        this.announcementLabel.setText(course.getAnnouncement());
+//        this.teachingClasses = course.getTeachingClasses();
+//        this.announcementLabel.setText(course.getAnnouncement());
         this.courseNameTextView.setText(this.course.getName());
         this.titleLabel.setText(this.course.getName());
 

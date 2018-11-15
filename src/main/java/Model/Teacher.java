@@ -1,12 +1,15 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 @Entity
-@Table(name = "teachers")
 public class Teacher extends User {
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Course> ownCourses;
+
+    public Teacher() {
+    }
 
     public Teacher(String fullName) {
         super(fullName);
@@ -21,6 +24,7 @@ public class Teacher extends User {
         super(fullName, userid, pin);
         this.ownCourses = ownCourses;
     }
+
 
     @Override
     public List<Course> getUserCourse() {

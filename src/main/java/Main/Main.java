@@ -1,10 +1,17 @@
 package Main;
 
+import Model.Course;
+import Model.Student;
+import Model.User;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Main.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -28,7 +35,14 @@ public class Main extends Application {
     public static void main(String[] args) {
         // Initial and update DB
         session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        Transaction tx = session.beginTransaction();
+        User test = new Student("มยูวววว","00050","0000");
+        List<Course> courses = new ArrayList<Course>();
+        courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!"));
+        ((Student) test).setEnrolledCourses(courses);
+        session.save(test);
+        tx.commit();
+
         launch(args);
     }
 }

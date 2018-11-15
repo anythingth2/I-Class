@@ -5,7 +5,6 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "classes")
 public class TeachingClass {
     private String title;
     private Date date;

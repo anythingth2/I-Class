@@ -6,7 +6,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "material")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Material {
     String title;

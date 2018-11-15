@@ -5,7 +5,6 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 @Entity
-@Table(name = "homeworks")
 public class Homework {
     String title;
     String description;
