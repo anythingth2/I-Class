@@ -11,13 +11,15 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue
-    int id;
-    String name;
-    String alias;
-    String codenumber;
-    String description;
-    String announcement;
-    List<TeachingClass> teachingClasses;
+    private int id;
+    private String name;
+    private String alias;
+    private String codenumber;
+    private String description;
+    private String announcement;
+    private List<TeachingClass> teachingClasses;
+
+    private Chat chat;
 
     public String getName() {
         return this.name;
@@ -65,6 +67,14 @@ public class Course {
 
     public void setAnnouncement(String announcement) {
         this.announcement = announcement;
+    }
+
+    public Chat getChat() {
+        return chat;
+    }
+
+    public void setChat(Chat chat) {
+        this.chat = chat;
     }
 
     public Course(List<TeachingClass> teachingClasses) {

@@ -12,7 +12,7 @@ public class TeachingClass {
 
     private Course course;
     private Material material;
-    private Homework homework;
+
 
     public String getTitle() {
         return this.title;
@@ -46,13 +46,6 @@ public class TeachingClass {
         this.material = material;
     }
 
-    public Homework getHomework() {
-        return this.homework;
-    }
-
-    public void setHomework(Homework homework) {
-        this.homework = homework;
-    }
 
     public TeachingClass() {
     }
@@ -64,11 +57,6 @@ public class TeachingClass {
     public TeachingClass(Date date, Material material) {
         this(date);
         this.material = material;
-    }
-
-    public TeachingClass(Date date, Material material, Homework homework) {
-        this(date, material);
-        this.homework = homework;
     }
 
     @Override

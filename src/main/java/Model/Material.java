@@ -13,12 +13,12 @@ public class Material {
 
     private String description;
     private String fileLink;
-    private String vidLink;
+    private String videoLink;
 
     private TeachingClass teachingClass;
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -26,7 +26,7 @@ public class Material {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -34,23 +34,23 @@ public class Material {
     }
 
     public String getFileLink() {
-        return fileLink;
+        return this.fileLink;
     }
 
     public void setFileLink(String fileLink) {
         this.fileLink = fileLink;
     }
 
-    public String getVidLink() {
-        return vidLink;
+    public String getVideoLink() {
+        return this.videoLink;
     }
 
-    public void setVidLink(String vidLink) {
-        this.vidLink = vidLink;
+    public void setVideoLink(String videoLink) {
+        this.videoLink = videoLink;
     }
 
     public TeachingClass getTeachingClass() {
-        return teachingClass;
+        return this.teachingClass;
     }
 
     public void setTeachingClass(TeachingClass teachingClass) {
@@ -67,5 +67,7 @@ public class Material {
     public Material(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
     }
+
+
 }
 

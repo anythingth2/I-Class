@@ -17,6 +17,6 @@
       <Button fx:id="type" layoutX="190.0" layoutY="283.0" mnemonicParsing="false" onAction="#openType" text="type" />
       <Button fx:id="comfirm" layoutX="300.0" layoutY="283.0" mnemonicParsing="false" onAction="#openComfirm" text="comfirm" />
       <Button fx:id="file" layoutX="395.0" layoutY="283.0" mnemonicParsing="false" onAction="#openFile" text="file" />
-      <Button fx:id="homework" layoutX="486.0" layoutY="283.0" mnemonicParsing="false" onAction="#openHomework" text="HW" />
+      <Button fx:id="assignmentMaterial" layoutX="486.0" layoutY="283.0" mnemonicParsing="false" onAction="#openHomework" text="HW" />
     </children>
 </fx:root>

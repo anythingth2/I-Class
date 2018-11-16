@@ -12,14 +12,14 @@ public class MockData {
     public static List<Course> courses;
 
     public static List<Material> materials;
-    public static List<Homework> homeworks;
+    public static List<AssignmentMaterial> assignmentMaterials;
 
     public static void initialize() {
         courses = new ArrayList<Course>();
         Course mockCourse = new Course("Object Oriented A & D", "OOAD", "0000000000", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1));
 
 
-        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), new Material("Introduction"), new Homework("What is OOAD")));
+        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), new AssignmentMaterial("What is OOAD")));
         mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), new Material("Use case")));
 
         courses.add(mockCourse);

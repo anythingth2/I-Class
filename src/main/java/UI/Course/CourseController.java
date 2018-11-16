@@ -1,12 +1,9 @@
 package UI.Course;
 
 import Main.Main;
-import Model.Course;
-import Model.Student;
-import Model.Teacher;
-import Model.TeachingClass;
+import Model.*;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
-import UI.Course.InnerPane.Homework.HomeworkPane;
+import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
 import UI.Dialog.AnnouncementDialog.announcementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
@@ -118,39 +115,32 @@ public class CourseController extends AnchorPane {
         this.classVBox.getChildren().clear();
         this.classItemPanes.clear();
         for (final TeachingClass teachingClass : this.teachingClasses) {
-
-
             if (teachingClass.getMaterial() != null) {
+
                 ClassItemPane classItemPane = new ClassItemPane(teachingClass,
                         teachingClass.getMaterial());
-                classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        Node pane = new CourseMaterialPane();
-                        setTeachingClassPane(pane);
-                    }
-                });
+                if (teachingClass.getMaterial() instanceof Model.AssignmentMaterial)
+                    classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            Node pane = new AssignmentMaterialPane();
+                            setTeachingClassPane(pane);
+                        }
+                    });
+                else
+                    classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            Node pane = new CourseMaterialPane();
+                            setTeachingClassPane(pane);
+                        }
+                    });
                 this.classItemPanes.add(classItemPane);
             }
-            if (teachingClass.getHomework() != null) {
-                ClassItemPane classItemPane = new ClassItemPane(teachingClass,
-                        teachingClass.getHomework());
-                classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        Node pane = new HomeworkPane();
-                        setTeachingClassPane(pane);
-                    }
-                });
-                this.classItemPanes.add(classItemPane);
-            }
-
         }
-
         for (ClassItemPane classItemPane : this.classItemPanes) {
             this.classVBox.getChildren().add(classItemPane);
         }
-
     }
 
 
