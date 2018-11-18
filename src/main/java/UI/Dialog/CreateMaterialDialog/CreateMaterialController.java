@@ -22,7 +22,7 @@ abstract public class CreateMaterialController implements DialogController {
     public CreateMaterialController() {
         this.root = new CreateMaterialDialog() {
             @Override
-            void onConfirm() {
+            protected void onConfirm() {
                 createTeachingClass();
             }
         };
@@ -31,11 +31,17 @@ abstract public class CreateMaterialController implements DialogController {
     private void createTeachingClass() {
         TeachingClass teachingClass = new TeachingClass();
         Date date = Date.from(this.root.getDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-        date.setHours(this.root.getHourChoiceBox().getValue());
-        date.setMinutes(this.root.getMinuteChoiceBox().getValue());
+        if (this.root.getHourChoiceBox().getValue() != null)
+            date.setHours(this.root.getHourChoiceBox().getValue());
+        if (this.root.getMinuteChoiceBox().getValue() != null)
+            date.setMinutes(this.root.getMinuteChoiceBox().getValue());
         teachingClass.setDate(date);
         teachingClass.setTitle(this.root.getTitleNameTextField().getText());
         Material material = new Material();
+        material.setDescription(this.root.getDescriptionTextArea().getText());
+//todo: file link
+        material.setTeachingClass(teachingClass);
+        material.setVideoLink(this.root.getVideoLinkTextField().getText());
 
         teachingClass.setMaterial(material);
         this.onCreateSuccess(teachingClass);

@@ -1,6 +1,8 @@
 package UI.Course.InnerPane.AssignmentMaterial;
 
 
+import Model.TeachingClass;
+import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
 import UI.Dialog.comfirmDialog.comfirmDialogController;
 import javafx.event.ActionEvent;
@@ -41,7 +43,12 @@ public class AssignmentMaterialPane extends ScrollPane {
 
     @FXML
     void clickEdit(ActionEvent event) {
-        final CreateHomeworkDialog createHomeworkDialog = new CreateHomeworkDialog();
-        createHomeworkDialog.show();
+        final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
+            @Override
+            public void onCreateSuccess(TeachingClass teachingClass) {
+
+            }
+        };
+        createHomeworkController.show();
     }
 }

@@ -104,6 +104,25 @@ public abstract class CreateMaterialDialog extends AnchorPane {
         return timeAlertLabel;
     }
 
+    public CreateMaterialDialog() {
+        this("/UI/Dialog/CreateMaterialDialog/fileDialog.fxml");
+    }
+
+    public CreateMaterialDialog(String path) {
+        super();
+        try {
+            URL url = new File("src/main/java" + path).toURL();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            loader.setRoot(this);
+            loader.setController(this);
+            loader.setLocation(url);
+            loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.initialise();
+    }
+
     protected void initialise() {
         ObservableList<Integer> hourValues = FXCollections.observableArrayList();
         List<Integer> tempHourValues = new ArrayList<Integer>();
@@ -122,7 +141,6 @@ public abstract class CreateMaterialDialog extends AnchorPane {
             @Override
             public void handle(MouseEvent event) {
                 if (validateInput()) {
-//                    createTeachingClass();
                     onConfirm();
                 }
             }
@@ -146,7 +164,7 @@ public abstract class CreateMaterialDialog extends AnchorPane {
         });
     }
 
-    private boolean validateInput() {
+    protected boolean validateInput() {
         this.titleNameAlertLabel.setVisible(this.titleNameTextField.getText() == null || this.titleNameTextField.getText().equals(""));
         if (this.titleNameTextField.getText() == null || this.titleNameTextField.getText().equals("")) {
             return false;
@@ -162,16 +180,13 @@ public abstract class CreateMaterialDialog extends AnchorPane {
             return false;
         }
         this.dateAlertLabel.setVisible(false);
-        if (this.hourChoiceBox.getValue() == null || this.minuteChoiceBox.getValue() == null) {
-            this.timeAlertLabel.setVisible(true);
-            return false;
-        }
+
         this.titleNameAlertLabel.setVisible(false);
         return true;
     }
 
 
-    abstract void onConfirm();
+    abstract protected void onConfirm();
 
 
     private File browseFile() {
@@ -192,18 +207,4 @@ public abstract class CreateMaterialDialog extends AnchorPane {
     }
 
 
-    public CreateMaterialDialog() {
-        super();
-        try {
-            URL url = new File("src/main/java/UI/Dialog/CreateMaterialDialog/fileDialog.fxml").toURL();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("src/main/java/UI/Dialog/CreateMaterialDialog/fileDialog.fxml"));
-            loader.setRoot(this);
-            loader.setController(this);
-            loader.setLocation(url);
-            loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.initialise();
-    }
 }

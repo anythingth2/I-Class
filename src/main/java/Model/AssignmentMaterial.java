@@ -2,6 +2,7 @@ package Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,10 +41,17 @@ public class AssignmentMaterial extends Material {
     }
 
 
-    public AssignmentMaterial(){}
+    public AssignmentMaterial() {
+    }
 
     public AssignmentMaterial(TeachingClass teachingClass) {
         super(teachingClass);
+    }
+
+    public void addHomework(Homework homework) {
+        if (this.homework == null) this.homework = new ArrayList<>();
+        this.homework.add(homework);
+
     }
 
     public boolean isSubmitted(Student student) {

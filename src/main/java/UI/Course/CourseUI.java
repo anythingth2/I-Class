@@ -11,6 +11,7 @@ import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
 
 import UI.Dialog.AnnouncementDialog.announcementDialogController;
+import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.TypeDialog.TypeDialog;
@@ -213,14 +214,20 @@ public class CourseUI extends AnchorPane {
                 refresh();
             }
         };
-        final CreateHomeworkDialog createHomeworkDialog = new CreateHomeworkDialog();
+        final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
+            @Override
+            public void onCreateSuccess(TeachingClass teachingClass) {
+                teachingClasses.add(teachingClass);
+                refresh();
+            }
+        };
         TypeDialog typeDialog = new TypeDialog() {
             @Override
             public void onAccept(TypeRadio typeRadio) {
                 if (typeRadio == TypeRadio.Material)
                     createMaterialController.show();
                 else if (typeRadio == TypeRadio.Homework)
-                    createHomeworkDialog.show();
+                    createHomeworkController.show();
 
             }
         };
