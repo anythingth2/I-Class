@@ -39,12 +39,14 @@ abstract public class CreateMaterialController implements DialogController {
         teachingClass.setTitle(this.root.getTitleNameTextField().getText());
         Material material = new Material();
         material.setDescription(this.root.getDescriptionTextArea().getText());
-//todo: file link
+        //todo: file link
         material.setTeachingClass(teachingClass);
         material.setVideoLink(this.root.getVideoLinkTextField().getText());
 
         teachingClass.setMaterial(material);
         this.onCreateSuccess(teachingClass);
+        this.dismiss();
+
     }
 
     abstract public void onCreateSuccess(TeachingClass teachingClass);
