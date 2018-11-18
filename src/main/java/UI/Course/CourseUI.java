@@ -6,6 +6,7 @@ import Model.Student;
 import Model.Teacher;
 import Model.TeachingClass;
 import UI.Controller;
+import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialController;
 import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialPane;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
@@ -131,8 +132,8 @@ public class CourseUI extends AnchorPane {
                     classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
-                            Node pane = new AssignmentMaterialPane();
-                            setTeachingClassPane(pane);
+                            AssignmentMaterialController  assignmentMaterialController = new AssignmentMaterialController(teachingClass);
+                            setTeachingClassPane(assignmentMaterialController);
                         }
                     });
                 else

@@ -1,7 +1,10 @@
 package UI.Course.InnerPane.AssignmentMaterial;
 
 
+import Model.AssignmentMaterial;
 import Model.TeachingClass;
+import UI.Controller;
+import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
 import UI.Dialog.comfirmDialog.comfirmDialogController;
@@ -9,31 +12,40 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 
 import java.io.File;
 import java.net.URL;
 
-public class AssignmentMaterialPane extends ScrollPane {
+public class AssignmentMaterialPane extends CourseMaterialPane {
+    private AssignmentMaterialController controller;
+    private TeachingClass teachingClass;
+
+    @FXML
+    private Label dueDateLabel;
+    @FXML
+    private Label dueTimeLabel;
+    @FXML
+    private Button submitButton;
+
     public AssignmentMaterialPane() {
-        super();
-        try {
-            URL url = new File("src/main/java/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml").toURL();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml"));
-            loader.setRoot(this);
-            loader.setController(this);
-            loader.setLocation(url);
-            loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
     }
 
-    @FXML
-    private Button deleteButton;
+    public AssignmentMaterialPane(AssignmentMaterialController controller) {
+        super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
+        this.controller = controller;
+        super.initialise();
+    }
 
-    @FXML
-    private Button editButton;
+    public AssignmentMaterialPane(AssignmentMaterialController controller, TeachingClass teachingClass) {
+        super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
+        this.controller = controller;
+        this.teachingClass = teachingClass;
+        super.initialise();
+    }
+
 
     @FXML
     void clickDelete(ActionEvent event) {

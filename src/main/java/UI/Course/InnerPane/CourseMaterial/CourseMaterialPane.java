@@ -34,7 +34,7 @@ public class CourseMaterialPane extends ScrollPane {
     @FXML
     private Button editButton;
 
-    public CourseMaterialPane() {
+    private CourseMaterialPane() {
         super();
         try {
             URL url = new File("src/main/java/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml").toURL();
@@ -48,22 +48,36 @@ public class CourseMaterialPane extends ScrollPane {
         }
     }
 
+    public CourseMaterialPane(String path) {
+        super();
+        try {
+            URL url = new File("src/main/java" + path).toURL();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            loader.setRoot(this);
+            loader.setController(this);
+            loader.setLocation(url);
+            loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public CourseMaterialPane(CourseMaterialController controller) {
-        this();
+        this("/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml");
         this.controller = controller;
         this.initialise();
 
     }
 
     public CourseMaterialPane(CourseMaterialController controller, TeachingClass teachingClass) {
-        this();
+        this("/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml");
         this.controller = controller;
         this.teachingClass = teachingClass;
         this.initialise();
     }
 
 
-    private void initialise() {
+    protected void initialise() {
         this.titleLabel.setText(this.teachingClass.getTitle() != null ? this.teachingClass.getTitle() : "ไม่มีหัวข้อ");
         this.fileNameLabel.setText(this.teachingClass.getMaterial().getFileName() != null ? this.teachingClass.getMaterial().getFileName() : "ไม่มีเอกสาร");
         this.videoHyperlink.setText(this.teachingClass.getMaterial().getFileLink() != null ? this.teachingClass.getMaterial().getFileLink() : "-");
@@ -71,13 +85,14 @@ public class CourseMaterialPane extends ScrollPane {
         this.setUser(Main.getApplicationController().getUser());
     }
 
-    private void setUser(User user){
+    private void setUser(User user) {
         boolean isTeacher = user instanceof Teacher;
         this.editButton.setVisible(isTeacher);
         this.deleteButton.setVisible(isTeacher);
-        this.fileButton.setText(isTeacher?"อัพโหลด": "ดาวน์โหลด");
+        this.fileButton.setText(isTeacher ? "อัพโหลด" : "ดาวน์โหลด");
 
     }
+
     @FXML
     void clickDelete(ActionEvent event) {
         final comfirmDialogController comfirmDialog = new comfirmDialogController();
