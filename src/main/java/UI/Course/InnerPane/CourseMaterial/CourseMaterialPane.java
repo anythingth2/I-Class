@@ -17,7 +17,7 @@ import java.io.File;
 import java.net.URL;
 
 public class CourseMaterialPane extends ScrollPane {
-    private TeachingClass teachingClass;
+
     private CourseMaterialController controller;
     @FXML
     private Label titleLabel;
@@ -65,32 +65,32 @@ public class CourseMaterialPane extends ScrollPane {
     public CourseMaterialPane(CourseMaterialController controller) {
         this("/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml");
         this.controller = controller;
-        this.initialise();
+
 
     }
 
     public CourseMaterialPane(CourseMaterialController controller, TeachingClass teachingClass) {
         this("/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml");
         this.controller = controller;
-        this.teachingClass = teachingClass;
-        this.initialise();
+
+        this.setTeachingClass(teachingClass);
     }
 
 
-    protected void initialise() {
-        this.titleLabel.setText(this.teachingClass.getTitle() != null ? this.teachingClass.getTitle() : "ไม่มีหัวข้อ");
-        this.fileNameLabel.setText(this.teachingClass.getMaterial().getFileName() != null ? this.teachingClass.getMaterial().getFileName() : "ไม่มีเอกสาร");
-        this.videoHyperlink.setText(this.teachingClass.getMaterial().getFileLink() != null ? this.teachingClass.getMaterial().getFileLink() : "-");
-        this.descriptionText.setText(this.teachingClass.getMaterial().getDescription() != null ? this.teachingClass.getMaterial().getDescription() : "-");
+    public void setTeachingClass(TeachingClass teachingClass) {
+        this.titleLabel.setText(teachingClass.getTitle() != null ? teachingClass.getTitle() : "ไม่มีหัวข้อ");
+        this.fileNameLabel.setText(teachingClass.getMaterial().getFileName() != null ? teachingClass.getMaterial().getFileName() : "ไม่มีเอกสาร");
+        this.videoHyperlink.setText(teachingClass.getMaterial().getFileLink() != null ? teachingClass.getMaterial().getFileLink() : "-");
+        this.descriptionText.setText(teachingClass.getMaterial().getDescription() != null ? teachingClass.getMaterial().getDescription() : "-");
         this.setUser(Main.getApplicationController().getUser());
+
     }
 
-    private void setUser(User user) {
+    public void setUser(User user) {
         boolean isTeacher = user instanceof Teacher;
         this.editButton.setVisible(isTeacher);
         this.deleteButton.setVisible(isTeacher);
         this.fileButton.setText(isTeacher ? "อัพโหลด" : "ดาวน์โหลด");
-
     }
 
     @FXML

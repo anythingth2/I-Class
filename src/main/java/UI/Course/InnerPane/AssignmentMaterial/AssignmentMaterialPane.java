@@ -2,7 +2,9 @@ package UI.Course.InnerPane.AssignmentMaterial;
 
 
 import Model.AssignmentMaterial;
+import Model.Teacher;
 import Model.TeachingClass;
+import Model.User;
 import UI.Controller;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
@@ -20,7 +22,6 @@ import java.net.URL;
 
 public class AssignmentMaterialPane extends CourseMaterialPane {
     private AssignmentMaterialController controller;
-    private TeachingClass teachingClass;
 
     @FXML
     private Label dueDateLabel;
@@ -36,14 +37,13 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
     public AssignmentMaterialPane(AssignmentMaterialController controller) {
         super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
         this.controller = controller;
-        super.initialise();
+
     }
 
     public AssignmentMaterialPane(AssignmentMaterialController controller, TeachingClass teachingClass) {
         super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
         this.controller = controller;
-        this.teachingClass = teachingClass;
-        super.initialise();
+        this.setTeachingClass(teachingClass);
     }
 
 
@@ -51,6 +51,19 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
     void clickDelete(ActionEvent event) {
         final comfirmDialogController comfirmDialog = new comfirmDialogController();
         comfirmDialog.show();
+    }
+
+    @Override
+    public void setUser(User user) {
+        super.setUser(user);
+        boolean isTeacher = user instanceof Teacher;
+        this.submitButton.setVisible(!isTeacher);
+    }
+
+    @Override
+    public void setTeachingClass(TeachingClass teachingClass) {
+        super.setTeachingClass(teachingClass);
+
     }
 
     @FXML

@@ -132,7 +132,7 @@ public class CourseUI extends AnchorPane {
                     classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
-                            AssignmentMaterialController  assignmentMaterialController = new AssignmentMaterialController(teachingClass);
+                            AssignmentMaterialController assignmentMaterialController = new AssignmentMaterialController(teachingClass);
                             setTeachingClassPane(assignmentMaterialController);
                         }
                     });
@@ -152,13 +152,14 @@ public class CourseUI extends AnchorPane {
         }
     }
 
-    private void setTeachingClassPane(Node  pane) {
+    private void setTeachingClassPane(Node pane) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, pane);
         } else {
             this.teachingClassPane.getChildren().add(pane);
         }
     }
+
     private void setTeachingClassPane(Controller controller) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, controller.getRoot());

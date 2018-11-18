@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="940.0" type="ScrollPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="940.0" type="ScrollPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <VBox prefHeight="596.0" prefWidth="919.0">
          <children>
@@ -70,7 +70,7 @@
                   </Button>
                </children>
             </Pane>
-            <Pane prefHeight="242.0" prefWidth="919.0">
+            <Pane prefHeight="232.0" prefWidth="919.0">
                <children>
                   <Label layoutX="53.0" layoutY="16.0" text="รายละเอียดเพิ่มเติม">
                      <font>
@@ -87,25 +87,38 @@
                      </children>
                   </TextFlow>
                </children>
-            </Pane>
-            <Pane prefHeight="126.0" prefWidth="919.0">
+            </Pane> <Pane prefHeight="64.0" prefWidth="922.0">
+            <children>
+               <Label layoutX="53.0" layoutY="16.0" text="วิดีโอ :">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Label>
+               <Hyperlink fx:id="videoHyperlink" layoutX="157.0" layoutY="8.0" prefHeight="53.0" prefWidth="736.0" text="www.youtube.com">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Hyperlink>
+            </children>
+         </Pane>
+            <Pane prefHeight="107.0" prefWidth="919.0">
                <children>
-                  <Label layoutX="51.0" layoutY="9.0" text="ส่งภายใน" textFill="RED">
+                  <Label layoutX="51.0" layoutY="5.0" text="ส่งภายใน" textFill="RED">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dueDateLabel" layoutX="121.0" layoutY="55.0" text="18.8.2018" textFill="RED">
+                  <Label fx:id="dueDateLabel" layoutX="123.0" layoutY="35.0" text="18.8.2018" textFill="RED">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="51.0" layoutY="55.0" text="วันที่" textFill="RED">
+                  <Label layoutX="51.0" layoutY="34.0" text="วันที่" textFill="RED">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dueTimeLabel" layoutX="267.0" layoutY="55.0" prefHeight="35.0" prefWidth="82.0" text="00.00" textFill="RED">
+                  <Label fx:id="dueTimeLabel" layoutX="253.0" layoutY="35.0" prefHeight="35.0" prefWidth="82.0" text="00.00" textFill="RED">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>

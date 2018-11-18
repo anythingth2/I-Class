@@ -6,8 +6,8 @@ import UI.Controller;
 import javafx.scene.Node;
 
 public class CourseMaterialController implements Controller {
-    CourseMaterialPane courseMaterialPane;
-    TeachingClass teachingClass;
+   private CourseMaterialPane courseMaterialPane;
+   protected TeachingClass teachingClass;
 
     @Override
     public Node getRoot() {
@@ -16,7 +16,7 @@ public class CourseMaterialController implements Controller {
 
     public CourseMaterialController() {
         super();
-        this.courseMaterialPane = new CourseMaterialPane(this);
+
     }
 
     public CourseMaterialController(TeachingClass teachingClass) {
