@@ -15,6 +15,11 @@
          <children>
             <Pane prefHeight="84.0" prefWidth="919.0">
                <children>
+                  <Button fx:id="uploadHomeworkButton" layoutX="708.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickEdit" prefHeight="53.0" prefWidth="204.0" style="-fx-background-color: #B1DFDB;" text="อัพโหลดไฟล์งาน">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
                   <Button fx:id="deleteButton" layoutX="709.0" layoutY="23.0" mnemonicParsing="false" onAction="#clickDelete" prefHeight="51.0" prefWidth="95.0" style="-fx-background-color: #B1DFDB;" text="ลบ">
                      <font>
                         <Font size="24.0" />
@@ -33,6 +38,11 @@
                   <Label layoutX="162.0" layoutY="21.0" prefHeight="53.0" prefWidth="524.0" text="ชื่อหัวข้อ">
                      <font>
                         <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="filePath" layoutX="756.0" layoutY="76.0" text="xxxxxxxxxxxxxxxxxxxx.xxx">
+                     <font>
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
