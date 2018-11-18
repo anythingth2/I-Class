@@ -21,7 +21,7 @@
                                 <Font size="36.0" />
                             </font>
                         </Label>
-                        <Label layoutX="162.0" layoutY="21.0" prefHeight="53.0" prefWidth="524.0" text="ชื่อหัวข้อ">
+                        <Label fx:id="titleLabel" layoutX="162.0" layoutY="21.0" prefHeight="53.0" prefWidth="524.0" text="ชื่อหัวข้อ">
                             <font>
                                 <Font size="36.0" />
                             </font>
@@ -50,7 +50,7 @@
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Button>
-                        <Label layoutX="161.0" layoutY="55.0" prefHeight="35.0" prefWidth="424.0" text="xxxxx.xxx">
+                        <Label fx:id="fileNameLabel" layoutX="161.0" layoutY="55.0" prefHeight="35.0" prefWidth="424.0" text="xxxxx.xxx">
                             <font>
                                 <Font size="24.0" />
                             </font>

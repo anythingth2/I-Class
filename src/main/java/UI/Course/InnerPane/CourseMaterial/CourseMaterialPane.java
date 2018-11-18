@@ -1,20 +1,34 @@
 package UI.Course.InnerPane.CourseMaterial;
 
+import Model.Material;
 import Model.TeachingClass;
+import UI.Controller;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialDialog;
 import UI.Dialog.comfirmDialog.comfirmDialogController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 
 import java.io.File;
 import java.net.URL;
 
 public class CourseMaterialPane extends ScrollPane {
-    private TeachingClass teachingClass;
+    private Material material;
+    private CourseMaterialController controller;
+    @FXML
+    private Label titleLabel;
+    @FXML
+    private Label fileNameLabel;
+    @FXML
+    private Button deleteButton;
+
+    @FXML
+    private Button editButton;
 
     public CourseMaterialPane() {
         super();
@@ -30,21 +44,28 @@ public class CourseMaterialPane extends ScrollPane {
         }
     }
 
-    public CourseMaterialPane(TeachingClass teachingClass) {
+    public CourseMaterialPane(CourseMaterialController controller) {
         this();
-        this.teachingClass = teachingClass;
+        this.controller = controller;
+
     }
 
-    @FXML
-    private Button deleteButton;
+    public CourseMaterialPane(CourseMaterialController controller, Material material) {
+        this();
+        this.controller = controller;
+        this.material = material;
+    }
 
-    @FXML
-    private Button editButton;
+    private void inilitise() {
+//        this.
+    }
+
 
     @FXML
     void clickDelete(ActionEvent event) {
         final comfirmDialogController comfirmDialog = new comfirmDialogController();
         comfirmDialog.show();
+
     }
 
     @FXML

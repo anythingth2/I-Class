@@ -46,7 +46,6 @@ public class ApplicationController {
     }
 
     public void navigateTo(Controller controller) {
-
         this.navigateTo((Parent) controller.getRoot());
     }
 }

@@ -1,8 +1,10 @@
 package UI.Dialog.CreateMaterialDialog;
 
+import Main.Main;
 import Model.Material;
 import Model.TeachingClass;
 import UI.Controller;
+import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.DialogController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -26,6 +28,12 @@ abstract public class CreateMaterialController implements DialogController {
                 createTeachingClass();
             }
         };
+        Main.getApplicationController().navigateTo(new CreateHomeworkController() {
+            @Override
+            public void onCreateSuccess(TeachingClass teachingClass) {
+
+            }
+        });
     }
 
     private void createTeachingClass() {
