@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import java.io.File;
 
 @Entity
 @Table(name = "material")
@@ -33,6 +34,11 @@ public class Material {
         this.fileLink = fileLink;
     }
 
+    public String getFileName() {
+        if (this.fileLink == null) return null;
+        return new File(this.fileLink).getName();
+    }
+
     public String getVideoLink() {
         return this.videoLink;
     }
@@ -48,6 +54,7 @@ public class Material {
     public void setTeachingClass(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
     }
+
 
     public Material() {
     }

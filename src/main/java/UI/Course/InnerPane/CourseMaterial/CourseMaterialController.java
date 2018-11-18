@@ -7,11 +7,11 @@ import javafx.scene.Node;
 
 public class CourseMaterialController implements Controller {
     CourseMaterialPane courseMaterialPane;
-    Material material;
+    TeachingClass teachingClass;
 
     @Override
     public Node getRoot() {
-        return null;
+        return this.courseMaterialPane;
     }
 
     public CourseMaterialController() {
@@ -19,10 +19,10 @@ public class CourseMaterialController implements Controller {
         this.courseMaterialPane = new CourseMaterialPane(this);
     }
 
-    public CourseMaterialController(Material material) {
+    public CourseMaterialController(TeachingClass teachingClass) {
         super();
-        this.material = material;
-        this.courseMaterialPane = new CourseMaterialPane(this, this.material);
+        this.teachingClass = teachingClass;
+        this.courseMaterialPane = new CourseMaterialPane(this, this.teachingClass);
     }
 
 }

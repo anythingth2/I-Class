@@ -5,8 +5,10 @@ import Model.Course;
 import Model.Student;
 import Model.Teacher;
 import Model.TeachingClass;
+import UI.Controller;
 import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialPane;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
+import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
 
@@ -137,8 +139,8 @@ public class CourseUI extends AnchorPane {
                     classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
-                            Node pane = new CourseMaterialPane();
-                            setTeachingClassPane(pane);
+                            CourseMaterialController courseMaterialController = new CourseMaterialController(teachingClass);
+                            setTeachingClassPane(courseMaterialController);
                         }
                     });
                 this.classItemPanes.add(classItemPane);
@@ -149,12 +151,18 @@ public class CourseUI extends AnchorPane {
         }
     }
 
-
-    private void setTeachingClassPane(Node pane) {
+    private void setTeachingClassPane(Node  pane) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, pane);
         } else {
             this.teachingClassPane.getChildren().add(pane);
+        }
+    }
+    private void setTeachingClassPane(Controller controller) {
+        if (this.teachingClassPane.getChildren().size() > 0) {
+            this.teachingClassPane.getChildren().set(0, controller.getRoot());
+        } else {
+            this.teachingClassPane.getChildren().add(controller.getRoot());
         }
     }
 

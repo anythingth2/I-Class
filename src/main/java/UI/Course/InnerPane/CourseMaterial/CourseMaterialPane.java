@@ -1,32 +1,36 @@
 package UI.Course.InnerPane.CourseMaterial;
 
-import Model.Material;
-import Model.TeachingClass;
-import UI.Controller;
+import Main.Main;
+import Model.*;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
-import UI.Dialog.CreateMaterialDialog.CreateMaterialDialog;
 import UI.Dialog.comfirmDialog.comfirmDialogController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.text.Text;
 
 import java.io.File;
 import java.net.URL;
 
 public class CourseMaterialPane extends ScrollPane {
-    private Material material;
+    private TeachingClass teachingClass;
     private CourseMaterialController controller;
     @FXML
     private Label titleLabel;
     @FXML
     private Label fileNameLabel;
     @FXML
+    private Button fileButton;
+    @FXML
     private Button deleteButton;
-
+    @FXML
+    private Hyperlink videoHyperlink;
+    @FXML
+    private Text descriptionText;
     @FXML
     private Button editButton;
 
@@ -47,20 +51,33 @@ public class CourseMaterialPane extends ScrollPane {
     public CourseMaterialPane(CourseMaterialController controller) {
         this();
         this.controller = controller;
+        this.initialise();
 
     }
 
-    public CourseMaterialPane(CourseMaterialController controller, Material material) {
+    public CourseMaterialPane(CourseMaterialController controller, TeachingClass teachingClass) {
         this();
         this.controller = controller;
-        this.material = material;
-    }
-
-    private void inilitise() {
-//        this.
+        this.teachingClass = teachingClass;
+        this.initialise();
     }
 
 
+    private void initialise() {
+        this.titleLabel.setText(this.teachingClass.getTitle() != null ? this.teachingClass.getTitle() : "ไม่มีหัวข้อ");
+        this.fileNameLabel.setText(this.teachingClass.getMaterial().getFileName() != null ? this.teachingClass.getMaterial().getFileName() : "ไม่มีเอกสาร");
+        this.videoHyperlink.setText(this.teachingClass.getMaterial().getFileLink() != null ? this.teachingClass.getMaterial().getFileLink() : "-");
+        this.descriptionText.setText(this.teachingClass.getMaterial().getDescription() != null ? this.teachingClass.getMaterial().getDescription() : "-");
+        this.setUser(Main.getApplicationController().getUser());
+    }
+
+    private void setUser(User user){
+        boolean isTeacher = user instanceof Teacher;
+        this.editButton.setVisible(isTeacher);
+        this.deleteButton.setVisible(isTeacher);
+        this.fileButton.setText(isTeacher?"อัพโหลด": "ดาวน์โหลด");
+
+    }
     @FXML
     void clickDelete(ActionEvent event) {
         final comfirmDialogController comfirmDialog = new comfirmDialogController();
