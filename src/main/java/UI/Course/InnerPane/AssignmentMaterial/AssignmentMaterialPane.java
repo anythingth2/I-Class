@@ -19,6 +19,7 @@ import javafx.scene.control.ScrollPane;
 
 import java.io.File;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 
 public class AssignmentMaterialPane extends CourseMaterialPane {
     private AssignmentMaterialController controller;
@@ -63,7 +64,10 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
     @Override
     public void setTeachingClass(TeachingClass teachingClass) {
         super.setTeachingClass(teachingClass);
-
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        this.dueDateLabel.setText(dateFormat.format(teachingClass.getDate()));
+        this.dueTimeLabel.setText(timeFormat.format(teachingClass.getDate()) + " น.");
     }
 
     @FXML

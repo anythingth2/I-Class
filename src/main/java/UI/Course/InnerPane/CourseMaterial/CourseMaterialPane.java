@@ -65,8 +65,6 @@ public class CourseMaterialPane extends ScrollPane {
     public CourseMaterialPane(CourseMaterialController controller) {
         this("/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml");
         this.controller = controller;
-
-
     }
 
     public CourseMaterialPane(CourseMaterialController controller, TeachingClass teachingClass) {
