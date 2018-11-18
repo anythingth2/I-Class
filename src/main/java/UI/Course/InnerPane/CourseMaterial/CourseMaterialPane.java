@@ -1,6 +1,7 @@
 package UI.Course.InnerPane.CourseMaterial;
 
 import Model.TeachingClass;
+import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialDialog;
 import UI.Dialog.comfirmDialog.comfirmDialogController;
 import javafx.event.ActionEvent;
@@ -8,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Pane;
 
 import java.io.File;
 import java.net.URL;
@@ -49,13 +49,13 @@ public class CourseMaterialPane extends ScrollPane {
 
     @FXML
     void clickEdit(ActionEvent event) {
-        final CreateMaterialDialog materialDialog = new CreateMaterialDialog() {
+        final CreateMaterialController createMaterialController = new CreateMaterialController() {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
 
             }
         };
-        materialDialog.show();
+        createMaterialController.show();
     }
 
 }

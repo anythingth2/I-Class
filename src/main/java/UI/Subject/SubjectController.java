@@ -4,6 +4,7 @@ import Model.Course;
 import Model.TeachingClass;
 import UI.Course.CourseController;
 import Main.Main;
+import UI.Course.CourseUI;
 import UI.Login.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -164,9 +165,9 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject1Clicked() throws IOException {
-        CourseController courseController = new CourseController(this.course1);
+//        CourseController courseController = new CourseController(this.course1);
 
-        Main.getApplicationController().navigateTo(courseController);
+        Main.getApplicationController().navigateTo(new CourseUI(this.course1));
     }
 
     @FXML
@@ -181,8 +182,8 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject2Clicked() throws IOException {
-        CourseController courseController = new CourseController(this.course2);
-        Main.getApplicationController().navigateTo(courseController);
+//        CourseController courseController = new CourseController(this.course2);
+        Main.getApplicationController().navigateTo(new CourseUI(this.course2));
     }
 
     @FXML
@@ -197,8 +198,8 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onSubject3Clicked() throws IOException {
-        CourseController courseController = new CourseController(this.course3);
-        Main.getApplicationController().navigateTo(courseController);
+//        CourseController courseController = new CourseController(this.course3);
+        Main.getApplicationController().navigateTo(new CourseUI(this.course3));
     }
 
     @FXML
