@@ -34,10 +34,9 @@ abstract public class CreateMaterialController implements DialogController {
         date.setHours(this.root.getHourChoiceBox().getValue());
         date.setMinutes(this.root.getMinuteChoiceBox().getValue());
         teachingClass.setDate(date);
-        teachingClass.setTitle("FIX ME!");
+        teachingClass.setTitle(this.root.getTitleNameTextField().getText());
         Material material = new Material();
-        //todo: set Material
-        //todo: set teaching class name
+
         teachingClass.setMaterial(material);
         this.onCreateSuccess(teachingClass);
     }

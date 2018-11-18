@@ -40,9 +40,7 @@ public class AssignmentMaterial extends Material {
     }
 
 
-    public AssignmentMaterial(String title) {
-        super(title);
-    }
+    public AssignmentMaterial(){}
 
     public AssignmentMaterial(TeachingClass teachingClass) {
         super(teachingClass);

@@ -23,7 +23,8 @@ import java.util.Date;
 import java.util.List;
 
 public abstract class CreateMaterialDialog extends AnchorPane {
-
+    @FXML
+    protected TextField titleNameTextField;
     @FXML
     protected DatePicker datePicker;
     @FXML
@@ -45,10 +46,19 @@ public abstract class CreateMaterialDialog extends AnchorPane {
     protected Label pathLabel;
 
     @FXML
+    protected Label titleNameAlertLabel;
+    @FXML
     protected Label dateAlertLabel;
     @FXML
     protected Label timeAlertLabel;
 
+    public TextField getTitleNameTextField() {
+        return titleNameTextField;
+    }
+
+    public Label getTitleNameAlertLabel() {
+        return titleNameAlertLabel;
+    }
 
     public DatePicker getDatePicker() {
         return datePicker;
@@ -137,6 +147,10 @@ public abstract class CreateMaterialDialog extends AnchorPane {
     }
 
     private boolean validateInput() {
+        this.titleNameAlertLabel.setVisible(this.titleNameTextField.getText() == null || this.titleNameTextField.getText().equals(""));
+        if (this.titleNameTextField.getText() == null || this.titleNameTextField.getText().equals("")) {
+            return false;
+        }
         if (this.datePicker.getValue() == null) {
             this.dateAlertLabel.setText("กรุณาเเลือกวัน");
             this.dateAlertLabel.setVisible(true);
@@ -147,10 +161,12 @@ public abstract class CreateMaterialDialog extends AnchorPane {
             this.dateAlertLabel.setVisible(true);
             return false;
         }
+        this.dateAlertLabel.setVisible(false);
         if (this.hourChoiceBox.getValue() == null || this.minuteChoiceBox.getValue() == null) {
             this.timeAlertLabel.setVisible(true);
             return false;
         }
+        this.titleNameAlertLabel.setVisible(false);
         return true;
     }
 

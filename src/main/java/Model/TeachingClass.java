@@ -54,11 +54,19 @@ public class TeachingClass {
         this.date = date;
     }
 
+    public TeachingClass(Date date, String title) {
+        this(date);
+        this.title = title;
+    }
+
     public TeachingClass(Date date, Material material) {
         this(date);
         this.material = material;
     }
-
+public TeachingClass(Date date,String title,Material material){
+        this(date,title);
+        this.material = material;
+}
     @Override
     public String toString() {
         return super.toString();

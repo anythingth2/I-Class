@@ -28,6 +28,8 @@ public class ClassItemPane extends Pane {
 
     private void setTeachingClass(TeachingClass teachingClass) {
         this.teachingClass = teachingClass;
+        this.chapterTextView.setText(this.teachingClass.getTitle());
+        System.out.println(this.teachingClass.getTitle());
         this.dateTextView.setText(new SimpleDateFormat("dd/MM/yyyy")
                 .format(teachingClass.getDate()));
         this.timeTextView.setText(new SimpleDateFormat("HH:mm")
@@ -51,12 +53,12 @@ public class ClassItemPane extends Pane {
     public ClassItemPane(TeachingClass teachingClass, Material material) {
         this();
         this.setTeachingClass(teachingClass);
-        this.chapterTextView.setText(material.getTitle());
+//        this.chapterTextView.setText(material.getTitle());
     }
 
     public ClassItemPane(TeachingClass teachingClass, AssignmentMaterial assignmentMaterial) {
         this();
         this.setTeachingClass(teachingClass);
-        this.chapterTextView.setText(assignmentMaterial.getTitle());
+//        this.chapterTextView.setText(assignmentMaterial.getTitle());
     }
 }

@@ -19,8 +19,8 @@ public class MockData {
         Course mockCourse = new Course("Object Oriented A & D", "OOAD", "0000000000", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1));
 
 
-        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), new AssignmentMaterial("What is OOAD")));
-        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), new Material("Use case")));
+        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), "What is OOAD", new Material()));
+        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), "Use case", new AssignmentMaterial()));
 
         courses.add(mockCourse);
         courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
