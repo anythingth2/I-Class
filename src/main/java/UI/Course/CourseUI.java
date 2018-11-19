@@ -4,6 +4,7 @@ import Main.Main;
 import Model.*;
 import UI.Controller;
 import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialController;
+import UI.Course.InnerPane.CourseInfo.CourseInfoController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
@@ -100,7 +101,7 @@ public class CourseUI extends AnchorPane {
         this.courseInfoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                displayContent(new CourseInfoPane(course));
+                displayContent(new CourseInfoController(course));
             }
         });
         this.todoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -112,7 +113,7 @@ public class CourseUI extends AnchorPane {
         });
 
 
-        this.displayContent(new CourseInfoPane(course));
+        this.displayContent(new CourseInfoController(course));
         this.setTeachingClasses(course.getTeachingClasses());
     }
 
@@ -120,7 +121,7 @@ public class CourseUI extends AnchorPane {
         boolean isTeacher = user instanceof Teacher;
         this.editAnnouncementButton.setVisible(isTeacher);
         this.todoButton.setVisible(!isTeacher);
-        this.courseInfoButton.setVisible(!isTeacher);
+//        this.courseInfoButton.setVisible(!isTeacher);
         this.addTeachingClassImageView.setVisible(isTeacher);
         this.assignmentImageView.setVisible(isTeacher);
     }

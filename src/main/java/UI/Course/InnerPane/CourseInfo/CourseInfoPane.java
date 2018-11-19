@@ -2,15 +2,33 @@ package UI.Course.InnerPane.CourseInfo;
 
 import Model.Course;
 import Model.TeachingClass;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.io.File;
 import java.net.URL;
 
 public class CourseInfoPane extends Pane {
-    private Course course;
+    @FXML
+    private TextFlow filename;
 
+    @FXML
+    private Label idLabel;
+
+    @FXML
+    private Label englishNameLabel;
+
+    @FXML
+    private Label thaiNameLabel;
+
+    @FXML
+    private Text descriptionText;
+
+    private CourseInfoController controller;
 
     public CourseInfoPane() {
         super();
@@ -26,8 +44,16 @@ public class CourseInfoPane extends Pane {
         }
     }
 
-    public CourseInfoPane(Course course) {
+    public CourseInfoPane(CourseInfoController controller, Course course) {
         this();
-        this.course = course;
+        this.controller = controller;
+        this.setCourse(course);
+    }
+
+    void setCourse(Course course) {
+        this.idLabel.setText(course.getCodenumber() != null ? course.getCodenumber() : "-");
+        this.thaiNameLabel.setText(course.getName() != null ? course.getName() : "-");
+        this.englishNameLabel.setText(course.getName() != null ? course.getName() : "-");
+        this.descriptionText.setText(course.getName() != null ? course.getDescription() : "-");
     }
 }
