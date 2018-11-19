@@ -100,13 +100,8 @@ public class CourseMaterialPane extends ScrollPane {
 
     @FXML
     void clickEdit(ActionEvent event) {
-        final CreateMaterialController createMaterialController = new CreateMaterialController() {
-            @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
+        controller.onEditCourseMaterial();
 
-            }
-        };
-        createMaterialController.show();
     }
 
 }

@@ -121,7 +121,6 @@ public class CourseUI extends AnchorPane {
         boolean isTeacher = user instanceof Teacher;
         this.editAnnouncementButton.setVisible(isTeacher);
         this.todoButton.setVisible(!isTeacher);
-//        this.courseInfoButton.setVisible(!isTeacher);
         this.addTeachingClassImageView.setVisible(isTeacher);
         this.assignmentImageView.setVisible(isTeacher);
     }
@@ -209,6 +208,7 @@ public class CourseUI extends AnchorPane {
 
     @FXML
     void openEditAnnouncement(ActionEvent event) {
+
         final announcementDialogController announcementDialog = new announcementDialogController();
         announcementDialog.show();
     }

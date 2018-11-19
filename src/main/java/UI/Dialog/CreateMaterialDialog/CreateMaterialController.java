@@ -28,7 +28,14 @@ abstract public class CreateMaterialController implements DialogController {
                 createTeachingClass();
             }
         };
-
+    }
+    public CreateMaterialController(TeachingClass teachingClass){
+        this.root = new CreateMaterialDialog(teachingClass) {
+            @Override
+            protected void onConfirm() {
+                createTeachingClass();
+            }
+        };
     }
 
     private void createTeachingClass() {

@@ -108,7 +108,7 @@ public abstract class CreateMaterialDialog extends AnchorPane {
         this("/UI/Dialog/CreateMaterialDialog/fileDialog.fxml");
     }
 
-    public CreateMaterialDialog(String path) {
+    protected CreateMaterialDialog(String path) {
         super();
         try {
             URL url = new File("src/main/java" + path).toURL();
@@ -121,6 +121,11 @@ public abstract class CreateMaterialDialog extends AnchorPane {
             e.printStackTrace();
         }
         this.initialise();
+    }
+
+    public CreateMaterialDialog(TeachingClass teachingClass) {
+        this();
+        this.fillInput(teachingClass);
     }
 
     protected void initialise() {
@@ -162,6 +167,21 @@ public abstract class CreateMaterialDialog extends AnchorPane {
                 pathLabel.setVisible(true);
             }
         });
+    }
+
+    protected void fillInput(TeachingClass teachingClass) {
+        this.titleNameTextField.setText(teachingClass.getTitle());
+        this.datePicker.setValue(teachingClass.getDate() != null ?
+                teachingClass.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                : null);
+        this.hourChoiceBox.setValue(teachingClass.getDate().getHours());
+        this.minuteChoiceBox.setValue(teachingClass.getDate().getMinutes());
+        this.descriptionTextArea.setText(teachingClass.getMaterial().getDescription());
+        this.pathLabel.setText(teachingClass.getMaterial().getFileName());
+        this.pathLabel.setVisible(true);
+        this.videoLinkTextField.setText(teachingClass.getMaterial().getVideoLink());
+
+
     }
 
     protected boolean validateInput() {
