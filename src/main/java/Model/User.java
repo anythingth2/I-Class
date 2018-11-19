@@ -60,10 +60,6 @@ public class User {
     public List<Course> getUserCourse(){
         return null;
     }
-//    // Authenticate method
-//    public boolean validatePin(String pin){
-//        return this.pin.equals(pin);
-//    }
 
     // Begin ORM methods
     public static User findByUserID(String userid){
