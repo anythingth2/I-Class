@@ -1,20 +1,17 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "assignmentMaterials")
 public class AssignmentMaterial extends Material {
-
-
 
     private Date startDate;
     private Date dueDate;
 
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Homework> homework;
 
     public Date getStartDate() {
@@ -66,4 +63,10 @@ public class AssignmentMaterial extends Material {
         }
         return false;
     }
+
+
+
+
+
+
 }

@@ -6,7 +6,7 @@ import java.util.List;
 @Entity
 public class Student extends User {
     @OneToMany(cascade = CascadeType.ALL)
-    @Column(nullable = true)
+//    @Column(nullable = true)
     private List<Course> enrolledCourses;
 
     public Student() {

@@ -15,10 +15,17 @@
         <property name="hibernate.connection.autocommit">true</property>
         <!--<mapping resource="com/mkyong/common/Stock.hbm.xml"></mapping>-->
         <!--<mapping resource="User.hbm.xml"/>-->
-        <mapping class="Model.User"/>
+        <mapping class="Model.AssignmentMaterial"/>
+        <mapping class="Model.Chat"/>
+        <mapping class="Model.Course"/>
+        <mapping class="Model.Homework"/>
+        <mapping class="Model.Material"/>
+        <mapping class="Model.Message"/>
         <mapping class="Model.Student"/>
         <mapping class="Model.Teacher"/>
-        <mapping class="Model.Course"/>
+        <mapping class="Model.TeachingClass"/>
+        <mapping class="Model.User"/>
+
 
     </session-factory>
 </hibernate-configuration>

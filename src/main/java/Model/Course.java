@@ -1,9 +1,6 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +14,19 @@ public class Course {
     private String codenumber;
     private String description;
     private String announcement;
+
+    @ManyToOne
+    @JoinColumn(columnDefinition="integer",nullable = true)
+    private Teacher user;
+
+    @ManyToOne
+    @JoinColumn(columnDefinition="integer",nullable = true)
+    private Student student;
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<TeachingClass> teachingClasses;
 
+    @OneToOne
     private Chat chat;
 
     public Course() {

@@ -62,10 +62,10 @@ public class LoginController extends GridPane {
 //        courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
 //        courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
 
-        User login_user = User.findByUsername(this.userid.getText());
+        User login_user = User.findByUserID(this.userid.getText());
         try {
             System.out.println(login_user.getFullName());
-            if(login_user.validatePin(this.pin.getText())){
+            if(login_user.getPin().equals(this.pin.getText())){
                 Main.getApplicationController().setUser(login_user);
                 Parent root = new SubjectController(courses); // Change page
                 Main.getApplicationController().navigateTo(root);

@@ -1,20 +1,23 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.File;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Material {
+    @Id
+    @GeneratedValue
+    private int id;
 
     private String description;
     private String fileLink;
     private String videoLink;
-
+    @OneToOne
     private TeachingClass teachingClass;
+
+
+
 
 
     public String getDescription() {

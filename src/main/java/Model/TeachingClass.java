@@ -1,15 +1,20 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class TeachingClass {
+    @Id
+    @GeneratedValue
+    private int id;
+
     private String title;
     private Date date;
 
+    @OneToOne
     private Course course;
+    @OneToOne
     private Material material;
 
 

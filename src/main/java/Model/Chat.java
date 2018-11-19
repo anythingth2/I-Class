@@ -1,9 +1,18 @@
 package Model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Chat {
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Message> messages;
+
+    @OneToOne
     private Course course;
 
     public List<Message> getMessages() {
