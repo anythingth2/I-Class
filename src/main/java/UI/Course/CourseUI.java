@@ -146,7 +146,7 @@ public class CourseUI extends AnchorPane {
     }
 
 
-    void displayContent(Node pane) {
+   public void displayContent(Node pane) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, pane);
         } else {
@@ -154,7 +154,7 @@ public class CourseUI extends AnchorPane {
         }
     }
 
-    void displayContent(Controller controller) {
+   public void displayContent(Controller controller) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, controller.getRoot());
         } else {

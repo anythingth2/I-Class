@@ -1,20 +1,16 @@
 package UI.Dialog.CreateMaterialDialog;
 
-import Main.Main;
 import Model.Material;
 import Model.TeachingClass;
-import UI.Controller;
-import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.DialogController;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane;
 
 import java.time.ZoneId;
 import java.util.Date;
 
 abstract public class CreateMaterialController implements DialogController {
     protected CreateMaterialDialog root;
+    protected TeachingClass teachingClass;
 
     @Override
     public Node getRoot() {
@@ -26,11 +22,14 @@ abstract public class CreateMaterialController implements DialogController {
     }
 
     public CreateMaterialController(TeachingClass teachingClass) {
-        this.root = new CreateMaterialDialog(this, teachingClass) ;
+        this.teachingClass = teachingClass;
+        this.root = new CreateMaterialDialog(this, teachingClass);
     }
 
     private void createTeachingClass() {
-        TeachingClass teachingClass = new TeachingClass();
+//        TeachingClass teachingClass = new TeachingClass();
+        if (this.teachingClass == null)
+            this.teachingClass = new TeachingClass();
         Date date = Date.from(this.root.getDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         if (this.root.getHourChoiceBox().getValue() != null)
             date.setHours(this.root.getHourChoiceBox().getValue());
@@ -45,15 +44,18 @@ abstract public class CreateMaterialController implements DialogController {
         material.setVideoLink(this.root.getVideoLinkTextField().getText());
 
         teachingClass.setMaterial(material);
-        this.onCreateSuccess(teachingClass);
+        this.onSuccess(teachingClass);
         this.dismiss();
 
     }
 
-    void onConfirm(){
+    void onConfirm() {
+
         createTeachingClass();
+
     }
-    abstract public void onCreateSuccess(TeachingClass teachingClass);
+
+    abstract public void onSuccess(TeachingClass teachingClass);
 
     @Override
     public void show() {

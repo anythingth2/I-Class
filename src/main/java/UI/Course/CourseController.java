@@ -8,6 +8,7 @@ import Model.Material;
 import Model.TeachingClass;
 import UI.Controller;
 import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialController;
+import UI.Course.InnerPane.CourseInfo.CourseInfoController;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
 import UI.Dialog.AnnouncementDialog.AnnouncementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
@@ -36,7 +37,7 @@ public class CourseController implements Controller {
     public void onClickAddTeachingClass() {
         final CreateMaterialController createMaterialController = new CreateMaterialController() {
             @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
+            public void onSuccess(TeachingClass teachingClass) {
                 course.getTeachingClasses().add(teachingClass);
                 courseUI.setTeachingClasses(course.getTeachingClasses());
             }
@@ -65,11 +66,11 @@ public class CourseController implements Controller {
         Material material = teachingClass.getMaterial();
         Controller controller = material instanceof AssignmentMaterial ?
                 new AssignmentMaterialController(teachingClass)
-                : new CourseMaterialController(teachingClass);
+                : new CourseMaterialController(this, course, teachingClass);
         this.courseUI.displayContent(controller);
     }
 
-    void  onClickAnnouncementEdit(){
+    void onClickAnnouncementEdit() {
         AnnouncementDialogController announcementDialog = new AnnouncementDialogController(course) {
             @Override
             protected void onEditSucess(String text) {
@@ -79,4 +80,9 @@ public class CourseController implements Controller {
         announcementDialog.show();
     }
 
+    public void refresh() {
+        this.courseUI.setUser(Main.getApplicationController().getUser());
+        this.courseUI.setTeachingClasses(this.course.getTeachingClasses());
+        this.courseUI.displayContent(new CourseInfoController(this.course));
+    }
 }
