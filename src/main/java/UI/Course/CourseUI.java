@@ -207,16 +207,8 @@ public class CourseUI extends AnchorPane {
 
     @FXML
     void openTypeDialog(MouseEvent event) {
-//        try {
-//            URL url = new File("src/main/java/UI/Dialog/TypeDialog/typeDialog.fxml").toURL();
-//            Parent root1 = FXMLLoader.load(url);
-//            Stage stage = new Stage();
-//            stage.setScene(new Scene(root1));
-//            stage.show();
-//        } catch (Exception e) {
-//            System.out.println("Can't load");
-//            e.printStackTrace();
-//        }
+
+
         final CreateMaterialController createMaterialController = new CreateMaterialController() {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {

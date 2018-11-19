@@ -10,6 +10,8 @@ import java.util.List;
 @Table(name = "assignmentMaterials")
 public class AssignmentMaterial extends Material {
 
+
+
     private Date startDate;
     private Date dueDate;
 
@@ -43,7 +45,10 @@ public class AssignmentMaterial extends Material {
 
     public AssignmentMaterial() {
     }
-
+    public AssignmentMaterial(Date startDate, Date dueDate) {
+        this.startDate = startDate;
+        this.dueDate = dueDate;
+    }
     public AssignmentMaterial(TeachingClass teachingClass) {
         super(teachingClass);
     }

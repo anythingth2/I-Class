@@ -28,12 +28,7 @@ abstract public class CreateMaterialController implements DialogController {
                 createTeachingClass();
             }
         };
-        Main.getApplicationController().navigateTo(new CreateHomeworkController() {
-            @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
 
-            }
-        });
     }
 
     private void createTeachingClass() {

@@ -20,7 +20,7 @@ public class MockData {
 
 
         mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), "What is OOAD", new Material()));
-        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), "Use case", new AssignmentMaterial()));
+        mockCourse.getTeachingClasses().add(new TeachingClass(new Date(System.currentTimeMillis()), "Use case", new AssignmentMaterial(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis() + 100 * 60 * 60 * 23 * 30))));
 
         courses.add(mockCourse);
         courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
