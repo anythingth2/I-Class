@@ -65,7 +65,7 @@ public class CourseController implements Controller {
     void onClickTeachingClassTab(TeachingClass teachingClass) {
         Material material = teachingClass.getMaterial();
         Controller controller = material instanceof AssignmentMaterial ?
-                new AssignmentMaterialController(teachingClass)
+                new AssignmentMaterialController(course,teachingClass)
                 : new CourseMaterialController(this, course, teachingClass);
         this.courseUI.displayContent(controller);
     }
