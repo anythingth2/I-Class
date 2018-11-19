@@ -20,22 +20,14 @@ abstract public class CreateHomeworkController implements DialogController {
 
     public CreateHomeworkController() {
         super();
-        this.homeworkDialog = new CreateHomeworkDialog() {
-            @Override
-            protected void onConfirm() {
-                createTeachingClass();
-            }
-        };
+        this.homeworkDialog = new CreateHomeworkDialog(this);
     }
+
     public CreateHomeworkController(TeachingClass teachingClass) {
         super();
-        this.homeworkDialog = new CreateHomeworkDialog(teachingClass) {
-            @Override
-            protected void onConfirm() {
-                createTeachingClass();
-            }
-        };
+        this.homeworkDialog = new CreateHomeworkDialog(this, teachingClass);
     }
+
     private void createTeachingClass() {
         TeachingClass teachingClass = new TeachingClass();
         AssignmentMaterial assignmentMaterial = new AssignmentMaterial();
@@ -63,6 +55,11 @@ abstract public class CreateHomeworkController implements DialogController {
         teachingClass.setDate(startDate);
         teachingClass.setMaterial(assignmentMaterial);
         this.onCreateSuccess(teachingClass);
+    }
+
+    void onConfirm() {
+        createTeachingClass();
+        this.dismiss();
     }
 
     abstract public void onCreateSuccess(TeachingClass teachingClass);

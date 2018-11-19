@@ -22,20 +22,11 @@ abstract public class CreateMaterialController implements DialogController {
     }
 
     public CreateMaterialController() {
-        this.root = new CreateMaterialDialog() {
-            @Override
-            protected void onConfirm() {
-                createTeachingClass();
-            }
-        };
+        this.root = new CreateMaterialDialog(this);
     }
-    public CreateMaterialController(TeachingClass teachingClass){
-        this.root = new CreateMaterialDialog(teachingClass) {
-            @Override
-            protected void onConfirm() {
-                createTeachingClass();
-            }
-        };
+
+    public CreateMaterialController(TeachingClass teachingClass) {
+        this.root = new CreateMaterialDialog(this, teachingClass) ;
     }
 
     private void createTeachingClass() {
@@ -59,6 +50,9 @@ abstract public class CreateMaterialController implements DialogController {
 
     }
 
+    void onConfirm(){
+        createTeachingClass();
+    }
     abstract public void onCreateSuccess(TeachingClass teachingClass);
 
     @Override

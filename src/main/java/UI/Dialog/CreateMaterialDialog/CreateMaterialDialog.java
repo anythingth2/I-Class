@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public abstract class CreateMaterialDialog extends AnchorPane {
+public  class CreateMaterialDialog extends AnchorPane {
     @FXML
     protected TextField titleNameTextField;
     @FXML
@@ -104,6 +104,8 @@ public abstract class CreateMaterialDialog extends AnchorPane {
         return timeAlertLabel;
     }
 
+    CreateMaterialController controller;
+
     public CreateMaterialDialog() {
         this("/UI/Dialog/CreateMaterialDialog/fileDialog.fxml");
     }
@@ -122,9 +124,14 @@ public abstract class CreateMaterialDialog extends AnchorPane {
         }
         this.initialise();
     }
-
-    public CreateMaterialDialog(TeachingClass teachingClass) {
+    public CreateMaterialDialog(CreateMaterialController controller) {
         this();
+        this.controller = controller;
+    }
+
+    public CreateMaterialDialog(CreateMaterialController controller, TeachingClass teachingClass) {
+        this(controller);
+
         this.fillInput(teachingClass);
     }
 
@@ -206,7 +213,10 @@ public abstract class CreateMaterialDialog extends AnchorPane {
     }
 
 
-    abstract protected void onConfirm();
+   private void onConfirm() {
+        controller.onConfirm();
+
+    }
 
 
     private File browseFile() {
