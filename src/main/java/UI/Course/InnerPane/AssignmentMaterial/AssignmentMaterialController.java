@@ -10,6 +10,7 @@ import javafx.scene.Node;
 
 public class AssignmentMaterialController extends CourseMaterialController {
     CourseController parentController;
+    Course course;
     AssignmentMaterialPane assignmentMaterialPane;
 
     @Override
@@ -24,12 +25,19 @@ public class AssignmentMaterialController extends CourseMaterialController {
     public AssignmentMaterialController(CourseController parentController, Course course, TeachingClass teachingClass) {
         super();
         this.parentController = parentController;
+        this.course = course;
         this.teachingClass = teachingClass;
         this.assignmentMaterialPane = new AssignmentMaterialPane(this, this.teachingClass);
     }
 
-    void onClickDelete() {
-        final ConfirmDialogController confirmDialog = new ConfirmDialogController(course);
+    public void onClickDelete() {
+        final ConfirmDialogController confirmDialog = new ConfirmDialogController(course) {
+            @Override
+            public void onConfirm() {
+                course.getTeachingClasses().remove(teachingClass);
+                parentController.refresh();
+            }
+        };
         confirmDialog.show();
     }
 

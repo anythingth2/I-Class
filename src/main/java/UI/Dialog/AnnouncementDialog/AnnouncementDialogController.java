@@ -6,12 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 abstract public class AnnouncementDialogController implements DialogController {
 
     AnnouncementDialog announcementDialog;
     Course course;
+
     @Override
     public Node getRoot() {
         return this.announcementDialog;
@@ -42,9 +42,11 @@ abstract public class AnnouncementDialogController implements DialogController {
         this.announcementDialog.dismiss();
     }
 
-    void editAnnouncement(String text){
-        course.setAnnouncement(text);this.onEditSucess(text);
+    void editAnnouncement(String text) {
+        course.setAnnouncement(text);
+        this.onEditSuccess(text);
     }
-   protected abstract void onEditSucess(String text);
+
+    protected abstract void onEditSuccess(String text);
 
 }

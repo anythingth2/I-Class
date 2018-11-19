@@ -16,7 +16,7 @@ import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.TypeDialog.TypeDialog;
 import javafx.scene.Node;
 
-import java.util.List;
+
 
 public class CourseController implements Controller {
     private Course course;
@@ -65,7 +65,7 @@ public class CourseController implements Controller {
     void onClickTeachingClassTab(TeachingClass teachingClass) {
         Material material = teachingClass.getMaterial();
         Controller controller = material instanceof AssignmentMaterial ?
-                new AssignmentMaterialController(this,course,teachingClass)
+                new AssignmentMaterialController(this, course, teachingClass)
                 : new CourseMaterialController(this, course, teachingClass);
         this.courseUI.displayContent(controller);
     }
@@ -73,7 +73,7 @@ public class CourseController implements Controller {
     void onClickAnnouncementEdit() {
         AnnouncementDialogController announcementDialog = new AnnouncementDialogController(course) {
             @Override
-            protected void onEditSucess(String text) {
+            protected void onEditSuccess(String text) {
                 courseUI.getAnnouncementLabel().setText(text);
             }
         };

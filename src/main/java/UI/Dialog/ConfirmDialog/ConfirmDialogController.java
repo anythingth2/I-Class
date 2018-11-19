@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 
-public class ConfirmDialogController implements DialogController {
+abstract public class ConfirmDialogController implements DialogController {
 
     ConfirmDialog confirmDialog;
     Course course;
@@ -17,10 +17,10 @@ public class ConfirmDialogController implements DialogController {
     @FXML
     private Label yesButton;
 
-    public ConfirmDialogController(Course course){
+    public ConfirmDialogController(Course course) {
         super();
         this.confirmDialog = new ConfirmDialog(this);
-        this.course=course;
+        this.course = course;
     }
 
 
@@ -39,8 +39,6 @@ public class ConfirmDialogController implements DialogController {
         return this.confirmDialog;
     }
 
-    void clickOK(){
-        
-    }
+   public abstract void onConfirm();
 }
 

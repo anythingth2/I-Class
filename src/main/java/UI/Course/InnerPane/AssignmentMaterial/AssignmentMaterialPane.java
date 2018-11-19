@@ -47,7 +47,7 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
 
     @FXML
     private void clickDelete(ActionEvent event) {
-        controller.onClickDelete();
+        this.controller.onClickDelete();
     }
 
     @Override

@@ -91,7 +91,7 @@ public class CourseMaterialPane extends ScrollPane {
 
     @FXML
     private void clickDelete(ActionEvent event) {
-        controller.onClickDelete();
+        this.controller.onClickDelete();
     }
 
     @FXML

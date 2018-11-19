@@ -54,6 +54,7 @@ public class ConfirmDialog extends AnchorPane {
 
     @FXML
     void clickYes(MouseEvent event) {
+        this.confirmDialogController.onConfirm();
         this.dismiss();
     }
 }

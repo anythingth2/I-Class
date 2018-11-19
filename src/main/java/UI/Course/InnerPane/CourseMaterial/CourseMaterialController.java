@@ -34,8 +34,14 @@ public class CourseMaterialController implements Controller {
 
     }
 
-    void onClickDelete() {
-        final ConfirmDialogController confirmDialog = new ConfirmDialogController(course);
+   public void onClickDelete() {
+        final ConfirmDialogController confirmDialog = new ConfirmDialogController(course) {
+            @Override
+            public void onConfirm() {
+                course.getTeachingClasses().remove(teachingClass);
+                parentController.refresh();
+            }
+        };
         confirmDialog.show();
     }
 
