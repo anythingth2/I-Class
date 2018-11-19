@@ -27,7 +27,15 @@ abstract public class CreateHomeworkController implements DialogController {
             }
         };
     }
-
+    public CreateHomeworkController(TeachingClass teachingClass) {
+        super();
+        this.homeworkDialog = new CreateHomeworkDialog(teachingClass) {
+            @Override
+            protected void onConfirm() {
+                createTeachingClass();
+            }
+        };
+    }
     private void createTeachingClass() {
         TeachingClass teachingClass = new TeachingClass();
         AssignmentMaterial assignmentMaterial = new AssignmentMaterial();
@@ -58,6 +66,7 @@ abstract public class CreateHomeworkController implements DialogController {
     }
 
     abstract public void onCreateSuccess(TeachingClass teachingClass);
+
 
     @Override
     public void show() {

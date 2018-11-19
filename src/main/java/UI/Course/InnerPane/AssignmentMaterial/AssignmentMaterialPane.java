@@ -77,12 +77,6 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
 
     @FXML
     void clickEdit(ActionEvent event) {
-        final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
-            @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
-
-            }
-        };
-        createHomeworkController.show();
+        controller.onEditAssignmentMaterial();
     }
 }

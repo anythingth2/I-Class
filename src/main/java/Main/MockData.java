@@ -21,8 +21,10 @@ public class MockData {
         Date mockDate = new Date(System.currentTimeMillis());
         mockDate.setHours(13);
         mockDate.setMinutes(30);
+        Date mockDueDate = Date.from(mockDate.toInstant());
+        mockDueDate.setHours(16);
         mockCourse.getTeachingClasses().add(new TeachingClass(mockDate, "What is OOAD", new Material()));
-        mockCourse.getTeachingClasses().add(new TeachingClass(mockDate, "Use case", new AssignmentMaterial(new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis() + 100 * 60 * 60 * 23 * 30))));
+        mockCourse.getTeachingClasses().add(new TeachingClass(mockDate, "Use case", new AssignmentMaterial(mockDate, mockDueDate)));
 
         courses.add(mockCourse);
         courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));

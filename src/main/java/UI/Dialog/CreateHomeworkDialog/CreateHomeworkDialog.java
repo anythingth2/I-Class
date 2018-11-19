@@ -1,5 +1,7 @@
 package UI.Dialog.CreateHomeworkDialog;
 
+import Model.AssignmentMaterial;
+import Model.TeachingClass;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialDialog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -51,6 +54,11 @@ public abstract class CreateHomeworkDialog extends CreateMaterialDialog {
         super("/UI/Dialog/CreateHomeworkDialog/homeworkDialog.fxml");
     }
 
+    public CreateHomeworkDialog(TeachingClass teachingClass) {
+        this();
+        this.fillInput(teachingClass);
+    }
+
     @Override
     protected void initialise() {
         super.initialise();
@@ -60,14 +68,11 @@ public abstract class CreateHomeworkDialog extends CreateMaterialDialog {
         hourValues.addAll(tempHourValues);
         this.hourDueChoiceBox.setItems(hourValues);
 
-
         ObservableList<Integer> minuteValues = FXCollections.observableArrayList();
         List<Integer> tempMinuteValues = new ArrayList<Integer>();
         for (int i = 0; i < 60; tempMinuteValues.add(i), i += 30) ;
         minuteValues.addAll(tempMinuteValues);
         this.minuteDueChoiceBox.setItems(minuteValues);
-
-
     }
 
     public void show() {
@@ -95,6 +100,16 @@ public abstract class CreateHomeworkDialog extends CreateMaterialDialog {
         this.dueDateAlertLabel.setVisible(false);
 
         return true;
+    }
+
+    @Override
+    protected void fillInput(TeachingClass teachingClass) {
+        super.fillInput(teachingClass);
+        AssignmentMaterial assignmentMaterial = (AssignmentMaterial) teachingClass.getMaterial();
+        this.dueDatePicker.setValue(assignmentMaterial.getDueDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        this.hourDueChoiceBox.setValue(assignmentMaterial.getDueDate().getHours());
+        this.minuteDueChoiceBox.setValue(assignmentMaterial.getDueDate().getMinutes());
+
     }
 
     public void dismiss() {
