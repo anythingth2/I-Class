@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Course {
+public class Course extends Model{
     @Id
     @GeneratedValue
     private int id;
@@ -71,35 +71,7 @@ public class Course {
     public void setDescription(String description) {
         this.description = description;
     }
-//
-//    public List<TeachingClass> getTeachingClasses() {
-//        return this.teachingClasses;
-//    }
-//
-//    public void setTeachingClasses(List<TeachingClass> teachingClasses) {
-//        this.teachingClasses = teachingClasses;
-//    }
-//
-//    public String getAnnouncement() {
-//        return this.announcement;
-//    }
-//
-//    public void setAnnouncement(String announcement) {
-//        this.announcement = announcement;
-//    }
-//
-//    public Course(List<TeachingClass> teachingClasses) {
-//        this.teachingClasses = teachingClasses;
-//    }
-//
-//    public Course(String name, String alias, String codenumber, String description, String announcement, List<TeachingClass> teachingClasses) {
-//        this.name = name;
-//        this.alias = alias;
-//        this.codenumber = codenumber;
-//        this.description = description;
-//        this.announcement = announcement;
-//        this.teachingClasses = teachingClasses;
-//    }
+
 
     public List<TeachingClass> getTeachingClasses() {
         return this.teachingClasses;

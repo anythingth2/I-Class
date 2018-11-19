@@ -5,7 +5,7 @@ import java.io.File;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Material {
+public class Material extends Model {
     @Id
     @GeneratedValue
     private int id;

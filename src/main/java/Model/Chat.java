@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Chat {
+public class Chat extends Model{
     @Id
     @GeneratedValue
     private int id;

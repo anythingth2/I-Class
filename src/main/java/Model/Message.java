@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import java.util.Date;
 
 @Entity
-public class Message {
+public class Message extends Model {
     @Id
     @GeneratedValue
     private int id;

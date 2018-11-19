@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Homework {
+public class Homework extends Model{
     @Id
     @GeneratedValue
     private int id;

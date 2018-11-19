@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class User {
+public class User extends Model {
     @Id
     @GeneratedValue
     private int id;
@@ -61,40 +61,19 @@ public class User {
         return null;
     }
 
-    // Begin ORM methods
+
     public static User findByUserID(String userid){
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             Criteria criteria = session.createCriteria(User.class);
             User user = (User) criteria.add(Restrictions.eq("userid", userid)).uniqueResult();
             return user;
-
         } catch (Exception e) {
             return null;
         }
     }
 
-    public static void save(User user){
-        try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Transaction tx = session.beginTransaction();
-            session.save(user);
-            tx.commit();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
-    public static void SaveOrUpdate(User user){
-        try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Transaction tx = session.beginTransaction();
-            session.saveOrUpdate(user);
-            tx.commit();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
 
