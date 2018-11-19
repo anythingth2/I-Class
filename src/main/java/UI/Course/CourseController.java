@@ -9,6 +9,7 @@ import Model.TeachingClass;
 import UI.Controller;
 import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialController;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
+import UI.Dialog.AnnouncementDialog.AnnouncementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.TypeDialog.TypeDialog;
@@ -66,6 +67,16 @@ public class CourseController implements Controller {
                 new AssignmentMaterialController(teachingClass)
                 : new CourseMaterialController(teachingClass);
         this.courseUI.displayContent(controller);
+    }
+
+    void  onClickAnnouncementEdit(){
+        AnnouncementDialogController announcementDialog = new AnnouncementDialogController(course) {
+            @Override
+            protected void onEditSucess(String text) {
+                courseUI.getAnnouncementLabel().setText(text);
+            }
+        };
+        announcementDialog.show();
     }
 
 }
