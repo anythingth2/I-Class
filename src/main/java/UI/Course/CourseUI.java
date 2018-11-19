@@ -1,21 +1,15 @@
 package UI.Course;
 
 import Main.Main;
-import Model.Course;
-import Model.Student;
-import Model.Teacher;
-import Model.TeachingClass;
+import Model.*;
 import UI.Controller;
 import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialController;
-import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialPane;
 import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
-import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
 
 import UI.Dialog.AnnouncementDialog.announcementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
-import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.TypeDialog.TypeDialog;
 import UI.Login.LoginController;
@@ -29,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -64,10 +59,16 @@ public class CourseUI extends AnchorPane {
     private Button logout1;
 
     @FXML
+    private ImageView addTeachingClassImageView;
+    @FXML
+    private ImageView chatImageView;
+    @FXML
+    private ImageView assignmentImageView;
+
+    @FXML
     private Pane teachingClassPane;
 
-    private Course course;
-    private List<TeachingClass> teachingClasses;
+    CourseController controller;
 
 
     public CourseUI() {
@@ -82,68 +83,59 @@ public class CourseUI extends AnchorPane {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
-    public CourseUI(Course course) {
+    public CourseUI(CourseController controller, Course course, User user) {
         this();
 
-        this.course = course;
-        this.teachingClasses = course.getTeachingClasses();
-        this.initialise();
+        this.controller = controller;
+        this.setCourse(course);
+        this.setUser(user);
     }
 
-    private void initialise() {
-        this.announcementLabel.setText(this.course.getAnnouncement());
+    private void setCourse(Course course) {
+        this.announcementLabel.setText(course.getAnnouncement());
         this.accountIdTextView.setText(Main.getApplicationController().getUser().getUserid());
-        this.titleLabel.setText(this.course.getName());
+        this.titleLabel.setText(course.getName());
         this.courseInfoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                setTeachingClassPane(new CourseInfoPane(course));
+                displayContent(new CourseInfoPane(course));
             }
         });
         this.todoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Pane pane = new StudentTodoPane();
-                setTeachingClassPane(pane);
+                displayContent(pane);
             }
         });
 
 
-        boolean isTeacher = Main.getApplicationController().getUser() instanceof Teacher;
-        this.editAnnouncementButton.setVisible(isTeacher);
-
-        this.setTeachingClassPane(new CourseInfoPane(this.course));
-        this.refresh();
+        this.displayContent(new CourseInfoPane(course));
+        this.setTeachingClasses(course.getTeachingClasses());
     }
 
-    private void refresh() {
+    public void setUser(User user) {
+        boolean isTeacher = user instanceof Teacher;
+        this.editAnnouncementButton.setVisible(isTeacher);
+        this.todoButton.setVisible(!isTeacher);
+        this.courseInfoButton.setVisible(!isTeacher);
+        this.addTeachingClassImageView.setVisible(isTeacher);
+        this.assignmentImageView.setVisible(isTeacher);
+    }
+
+    public void setTeachingClasses(List<TeachingClass> teachingClasses) {
         this.classVBox.getChildren().clear();
         this.classItemPanes.clear();
-        for (final TeachingClass teachingClass : this.teachingClasses) {
+        for (final TeachingClass teachingClass : teachingClasses) {
             if (teachingClass.getMaterial() != null) {
 
                 ClassItemPane classItemPane = new ClassItemPane(teachingClass,
                         teachingClass.getMaterial());
-                if (teachingClass.getMaterial() instanceof Model.AssignmentMaterial)
-                    classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent event) {
-                            AssignmentMaterialController assignmentMaterialController = new AssignmentMaterialController(teachingClass);
-                            setTeachingClassPane(assignmentMaterialController);
-                        }
-                    });
-                else
-                    classItemPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent event) {
-                            CourseMaterialController courseMaterialController = new CourseMaterialController(teachingClass);
-                            setTeachingClassPane(courseMaterialController);
-                        }
-                    });
+
+                classItemPane.setOnMouseClicked(event -> controller.onClickTeachingClassTab(teachingClass));
+
                 this.classItemPanes.add(classItemPane);
             }
         }
@@ -152,7 +144,8 @@ public class CourseUI extends AnchorPane {
         }
     }
 
-    private void setTeachingClassPane(Node pane) {
+
+    void displayContent(Node pane) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, pane);
         } else {
@@ -160,7 +153,7 @@ public class CourseUI extends AnchorPane {
         }
     }
 
-    private void setTeachingClassPane(Controller controller) {
+    void displayContent(Controller controller) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, controller.getRoot());
         } else {
@@ -205,43 +198,18 @@ public class CourseUI extends AnchorPane {
         logout1.setStyle("-fx-background-color:#171C1D");
     }
 
+
     @FXML
-    void openTypeDialog(MouseEvent event) {
+    void onClickAddTeachingClass(MouseEvent event) {
 
+        controller.onClickAddTeachingClass();
 
-        final CreateMaterialController createMaterialController = new CreateMaterialController() {
-            @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
-                teachingClasses.add(teachingClass);
-                refresh();
-            }
-        };
-        final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
-            @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
-                teachingClasses.add(teachingClass);
-                refresh();
-            }
-        };
-        TypeDialog typeDialog = new TypeDialog() {
-            @Override
-            public void onAccept(TypeRadio typeRadio) {
-                if (typeRadio == TypeRadio.Material)
-                    createMaterialController.show();
-                else if (typeRadio == TypeRadio.Homework)
-                    createHomeworkController.show();
-
-            }
-        };
-        typeDialog.show();
     }
 
     @FXML
     void openEditAnnouncement(ActionEvent event) {
-
         final announcementDialogController announcementDialog = new announcementDialogController();
         announcementDialog.show();
-
     }
 
 }

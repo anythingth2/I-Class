@@ -84,17 +84,17 @@
             </children>
         </VBox>
               <Pane fx:id="teachingClassPane" layoutX="340.0" layoutY="178.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="938.0" />
-        <ImageView fx:id="addCourse" fitHeight="68.0" fitWidth="68.0" layoutX="241.0" layoutY="631.0" onMouseClicked="#openTypeDialog" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="addTeachingClassImageView" fitHeight="68.0" fitWidth="68.0" layoutX="241.0" layoutY="631.0" onMouseClicked="#onClickAddTeachingClass" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../resources/Assets/plus.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="chatIcon" fitHeight="68.0" fitWidth="68.0" layoutX="1188.0" layoutY="631.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="chatImageView" fitHeight="68.0" fitWidth="68.0" layoutX="1188.0" layoutY="631.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../resources/Assets/chat.png" />
             </image>
         </ImageView>
-      <ImageView fitHeight="68.0" fitWidth="68.0" layoutX="1099.0" layoutY="631.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="assignmentImageView" fitHeight="68.0" fitWidth="68.0" layoutX="1099.0" layoutY="631.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../resources/Assets/inbox.png" />
          </image>

@@ -125,22 +125,19 @@ public class SubjectController extends GridPane {
         try {
             setCourse1Detail(this.courses.get(this.index).getAlias(), this.courses.get(this.index).getName(), this.courses.get(this.index));
             setCourse1Visible(true);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             setCourse1Visible(false);
         }
         try {
-            setCourse2Detail(this.courses.get(this.index+1).getAlias(), this.courses.get(this.index+1).getName(), this.courses.get(this.index+1));
+            setCourse2Detail(this.courses.get(this.index + 1).getAlias(), this.courses.get(this.index + 1).getName(), this.courses.get(this.index + 1));
             setCourse2Visible(true);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             setCourse2Visible(false);
         }
         try {
-            setCourse3Detail(this.courses.get(this.index+2).getAlias(), this.courses.get(this.index+2).getName(), this.courses.get(this.index+2));
+            setCourse3Detail(this.courses.get(this.index + 2).getAlias(), this.courses.get(this.index + 2).getName(), this.courses.get(this.index + 2));
             setCourse3Visible(true);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             setCourse3Visible(false);
         }
     }
@@ -167,7 +164,7 @@ public class SubjectController extends GridPane {
     private void onSubject1Clicked() throws IOException {
 //        CourseController courseController = new CourseController(this.course1);
 
-        Main.getApplicationController().navigateTo(new CourseUI(this.course1));
+        Main.getApplicationController().navigateTo(new CourseController(this.course1));
     }
 
     @FXML
@@ -183,7 +180,7 @@ public class SubjectController extends GridPane {
     @FXML
     private void onSubject2Clicked() throws IOException {
 //        CourseController courseController = new CourseController(this.course2);
-        Main.getApplicationController().navigateTo(new CourseUI(this.course2));
+        Main.getApplicationController().navigateTo(new CourseController(this.course2));
     }
 
     @FXML
@@ -199,13 +196,13 @@ public class SubjectController extends GridPane {
     @FXML
     private void onSubject3Clicked() throws IOException {
 //        CourseController courseController = new CourseController(this.course3);
-        Main.getApplicationController().navigateTo(new CourseUI(this.course3));
+        Main.getApplicationController().navigateTo(new CourseController(this.course3));
     }
 
     @FXML
     private void onLeftAction() throws IOException {
-        if(this.index > 0) {
-            if(this.index-3 == 0) {
+        if (this.index > 0) {
+            if (this.index - 3 == 0) {
                 this.arwl.setVisible(false);
             }
             this.arwr.setVisible(true);
@@ -228,8 +225,8 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onRightAction() throws IOException {
-        if(this.index < this.courses.size()) {
-            if(this.index+6 >= this.courses.size()) {
+        if (this.index < this.courses.size()) {
+            if (this.index + 6 >= this.courses.size()) {
                 this.arwr.setVisible(false);
             }
             this.arwl.setVisible(true);
