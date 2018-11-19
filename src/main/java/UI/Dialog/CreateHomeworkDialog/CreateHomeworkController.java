@@ -10,7 +10,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 abstract public class CreateHomeworkController implements DialogController {
-
+    TeachingClass teachingClass;
     CreateHomeworkDialog homeworkDialog;
 
     @Override
@@ -25,12 +25,14 @@ abstract public class CreateHomeworkController implements DialogController {
 
     public CreateHomeworkController(TeachingClass teachingClass) {
         super();
+        this.teachingClass = teachingClass;
         this.homeworkDialog = new CreateHomeworkDialog(this, teachingClass);
     }
 
     private void createTeachingClass() {
-        TeachingClass teachingClass = new TeachingClass();
-        AssignmentMaterial assignmentMaterial = new AssignmentMaterial();
+        AssignmentMaterial assignmentMaterial = (AssignmentMaterial) teachingClass.getMaterial();
+        if (assignmentMaterial == null)
+            assignmentMaterial =new AssignmentMaterial();
 
         Date startDate = Date.from(this.homeworkDialog.getDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         if (this.homeworkDialog.getHourChoiceBox().getValue() != null)
@@ -51,10 +53,10 @@ abstract public class CreateHomeworkController implements DialogController {
         assignmentMaterial.setDescription(this.homeworkDialog.getDescriptionTextArea().getText());
         //todo: file link
 
-        teachingClass.setTitle(this.homeworkDialog.getTitleNameTextField().getText());
-        teachingClass.setDate(startDate);
-        teachingClass.setMaterial(assignmentMaterial);
-        this.onCreateSuccess(teachingClass);
+        this.teachingClass.setTitle(this.homeworkDialog.getTitleNameTextField().getText());
+        this.teachingClass.setDate(startDate);
+        this.teachingClass.setMaterial(assignmentMaterial);
+        this.onCreateSuccess(this.teachingClass);
     }
 
     void onConfirm() {

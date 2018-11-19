@@ -2,8 +2,6 @@ package UI.Course.InnerPane.CourseMaterial;
 
 import Main.Main;
 import Model.*;
-import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
-import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,7 +96,7 @@ public class CourseMaterialPane extends ScrollPane {
 
     @FXML
     void clickEdit(ActionEvent event) {
-        controller.onEditCourseMaterial();
+        controller.onEditMaterial();
 
     }
 

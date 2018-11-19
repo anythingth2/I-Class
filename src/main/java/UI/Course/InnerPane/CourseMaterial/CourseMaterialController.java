@@ -25,7 +25,7 @@ public class CourseMaterialController implements Controller {
 
     }
 
-    public CourseMaterialController(CourseController parentController,Course course, TeachingClass teachingClass) {
+    public CourseMaterialController(CourseController parentController, Course course, TeachingClass teachingClass) {
         super();
         this.parentController = parentController;
         this.course = course;
@@ -34,19 +34,16 @@ public class CourseMaterialController implements Controller {
 
     }
 
-    void onClickDelete(){
+    void onClickDelete() {
         final ConfirmDialogController confirmDialog = new ConfirmDialogController(course);
         confirmDialog.show();
     }
 
-    public void onEditCourseMaterial() {
+    public void onEditMaterial() {
         CreateMaterialController createMaterialController = new CreateMaterialController(teachingClass) {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
-//                int index = course.getTeachingClasses().indexOf(teachingClass);
-//                course.getTeachingClasses().set(index,teachingClass);
-                System.out.println(teachingClass.getTitle());
-parentController.refresh();
+                parentController.refresh();
             }
         };
         createMaterialController.show();
