@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="940.0" type="ScrollPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <VBox prefHeight="596.0" prefWidth="919.0">
+         <children>
+            <Pane prefHeight="84.0" prefWidth="919.0">
+               <children>
+                  <Button fx:id="submitButton" layoutX="708.0" layoutY="22.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="204.0" style="-fx-background-color: #B1DFDB;" text="อัพโหลดไฟล์งาน">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="deleteButton" layoutX="709.0" layoutY="23.0" mnemonicParsing="false" onAction="#clickDelete" prefHeight="51.0" prefWidth="95.0" style="-fx-background-color: #B1DFDB;" text="ลบ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="editButton" layoutX="818.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickEdit" prefHeight="53.0" prefWidth="94.0" style="-fx-background-color: #B1DFDB;" text="แก้ไข">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="51.0" layoutY="20.0" text="หัวข้อ :">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="titleLabel" layoutX="162.0" layoutY="21.0" prefHeight="53.0" prefWidth="524.0" text="ชื่อหัวข้อ">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="submitFileNameLabel" layoutX="756.0" layoutY="76.0" text="xxxxxxxxxxxxxxxxxxxx.xxx">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="114.0" prefWidth="919.0">
+               <children>
+                  <Label layoutX="52.0" layoutY="8.0" text="เอกสาร">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="fileNameLabel" layoutX="161.0" layoutY="55.0" prefHeight="35.0" prefWidth="397.0" text="xxxxxx.xxx">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="fileButton" layoutX="54.0" layoutY="50.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" style="-fx-background-color: #0399D8;" text="อัพโหลด" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane prefHeight="232.0" prefWidth="919.0">
+               <children>
+                  <Label layoutX="53.0" layoutY="16.0" text="รายละเอียดเพิ่มเติม">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextFlow layoutX="73.0" layoutY="60.0" prefHeight="177.0" prefWidth="633.0">
+                     <children>
+                        <Text fx:id="descriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lor">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+               </children>
+            </Pane> <Pane prefHeight="64.0" prefWidth="922.0">
+            <children>
+               <Label layoutX="53.0" layoutY="16.0" text="วิดีโอ :">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Label>
+               <Hyperlink fx:id="videoHyperlink" layoutX="157.0" layoutY="8.0" prefHeight="53.0" prefWidth="736.0" text="www.youtube.com">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Hyperlink>
+            </children>
+         </Pane>
+            <Pane prefHeight="107.0" prefWidth="919.0">
+               <children>
+                  <Label layoutX="51.0" layoutY="5.0" text="ส่งภายใน" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dueDateLabel" layoutX="123.0" layoutY="35.0" text="18.8.2018" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="51.0" layoutY="34.0" text="วันที่" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dueTimeLabel" layoutX="304.0" layoutY="35.0" prefHeight="35.0" prefWidth="117.0" text="00.00" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </content>
+</fx:root>

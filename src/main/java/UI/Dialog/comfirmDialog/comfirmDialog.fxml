@@ -4,22 +4,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="222.55" prefWidth="731.91" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dialog.comfirmDialog.comfirmDialogController">
+<fx:root prefHeight="196.0" prefWidth="546.0" style="-fx-background-color: #424242;" type="AnchorPane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="110.0" layoutY="48.0" text="คุณต้องการจะลบเนื้อหานี้ใช่หรือไม่" textFill="WHITE">
+      <Label layoutX="36.0" layoutY="30.0" text="คุณต้องการจะลบเนื้อหานี้ใช่หรือไม่" textFill="WHITE">
          <font>
-            <Font name="Segoe UI" size="40.0" />
+            <Font name="Segoe UI" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="217.0" layoutY="128.0" prefHeight="45.0" prefWidth="97.0" text="ไม่ใช่" textFill="#80cbc4">
+      <Label fx:id="noButton" alignment="CENTER" layoutX="140.0" layoutY="106.0" onMouseClicked="#clickNo" prefHeight="45.0" prefWidth="97.0" text="ไม่ใช่" textFill="#80cbc4">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="408.0" layoutY="128.0" prefHeight="45.0" prefWidth="97.0" text="ใช่" textFill="#80cbc4">
+      <Label fx:id="yesButton" alignment="CENTER" layoutX="328.0" layoutY="106.0" onMouseClicked="#clickYes" prefHeight="45.0" prefWidth="97.0" text="ใช่" textFill="#80cbc4">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
    </children>
-</AnchorPane>
+</fx:root>

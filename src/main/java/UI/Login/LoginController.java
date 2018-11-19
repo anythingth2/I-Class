@@ -1,6 +1,8 @@
 package UI.Login;
 
+
 import Main.Main;
+import Main.MockData;
 import Model.*;
 import UI.Subject.SubjectController;
 import javafx.fxml.FXML;
@@ -11,10 +13,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LoginController extends GridPane {
@@ -45,7 +49,7 @@ public class LoginController extends GridPane {
         }
     }
 
-    private void validateUserLogin(){
+    private void validateUserLogin() {
 //--------------------------------------------- Moc data for test ---------------------------------------------
         List<Course> courses = new ArrayList<Course>();
 //        courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));

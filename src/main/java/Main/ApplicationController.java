@@ -1,6 +1,7 @@
 package Main;
 
 import Model.User;
+import UI.Controller;
 import UI.Login.LoginController;
 import UI.Subject.SubjectController;
 import javafx.scene.Parent;
@@ -42,5 +43,9 @@ public class ApplicationController {
             scene = new Scene(root);
         else
             scene.setRoot(root);
+    }
+
+    public void navigateTo(Controller controller) {
+        this.navigateTo((Parent) controller.getRoot());
     }
 }
