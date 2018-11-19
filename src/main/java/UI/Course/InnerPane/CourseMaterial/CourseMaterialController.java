@@ -5,6 +5,7 @@ import Model.Material;
 import Model.TeachingClass;
 import UI.Controller;
 import UI.Course.CourseController;
+import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import javafx.scene.Node;
 
@@ -30,6 +31,12 @@ public class CourseMaterialController implements Controller {
         this.course = course;
         this.teachingClass = teachingClass;
         this.courseMaterialPane = new CourseMaterialPane(this, this.teachingClass);
+
+    }
+
+    void onClickDelete(){
+        final ConfirmDialogController confirmDialog = new ConfirmDialogController(course);
+        confirmDialog.show();
     }
 
     public void onEditCourseMaterial() {

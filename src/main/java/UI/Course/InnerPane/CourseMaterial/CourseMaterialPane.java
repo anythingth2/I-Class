@@ -3,7 +3,7 @@ package UI.Course.InnerPane.CourseMaterial;
 import Main.Main;
 import Model.*;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
-import UI.Dialog.comfirmDialog.comfirmDialogController;
+import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -92,10 +92,8 @@ public class CourseMaterialPane extends ScrollPane {
     }
 
     @FXML
-    void clickDelete(ActionEvent event) {
-        final comfirmDialogController comfirmDialog = new comfirmDialogController();
-        comfirmDialog.show();
-
+    private void clickDelete(ActionEvent event) {
+        controller.onClickDelete();
     }
 
     @FXML
