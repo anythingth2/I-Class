@@ -1,27 +1,21 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
+
 @Entity
-@Table(name = "students")
 public class Student extends User {
+    @OneToMany(cascade = CascadeType.ALL)
+    @Column(nullable = true)
     private List<Course> enrolledCourses;
 
-    public Student(String fullName) {
-        super(fullName);
+    public Student() {
     }
 
-
-    public Student(String fullName, List<Course> enrolledCourses) {
-        super(fullName);
-        this.enrolledCourses = enrolledCourses;
-    }
-
-    public Student(String fullName, String userid, String pin, List<Course> enrolledCourses) {
+    public Student(String fullName, String userid, String pin) {
         super(fullName, userid, pin);
-        this.enrolledCourses = enrolledCourses;
     }
+
 
     @Override
     public List<Course> getUserCourse() {

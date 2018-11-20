@@ -1,12 +1,21 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import Main.HibernateUtil;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
+import javax.persistence.*;
 import java.util.List;
 @Entity
-@Table(name = "teachers")
 public class Teacher extends User {
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @Column(nullable = true)
     private List<Course> ownCourses;
+
+    public Teacher() {
+    }
 
     public Teacher(String fullName) {
         super(fullName);
@@ -22,6 +31,7 @@ public class Teacher extends User {
         this.ownCourses = ownCourses;
     }
 
+
     @Override
     public List<Course> getUserCourse() {
         return this.ownCourses;
@@ -33,5 +43,20 @@ public class Teacher extends User {
 
     public void setOwnCourses(List<Course> ownCourses) {
         this.ownCourses = ownCourses;
+    }
+
+
+    // Begin ORM methods
+    public static User findByUserID(String userid){
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Criteria criteria = session.createCriteria(Teacher.class);
+            User user = (Teacher) criteria.add(Restrictions.eq("userid", userid)).uniqueResult();
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return null;
     }
 }

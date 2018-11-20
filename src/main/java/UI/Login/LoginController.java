@@ -50,17 +50,27 @@ public class LoginController extends GridPane {
     }
 
     private void validateUserLogin() {
-//--------------------------------------------- Moc data for test ---------------------------------------------
-        List<User> users = MockData.users;
-//-------------------------------------------------------------------------------------------------------------
-        for (int i = 0; i < users.size(); i++) {
-            if (this.userid.getText().equals(users.get(i).getUserid()) && this.pin.getText().equals(users.get(i).getPin())) {
-                Main.getApplicationController().setUser(users.get(i)); // Set user in applicationController
-                Parent root = new SubjectController(users.get(i).getUserCourse()); // Change page
+        User login_user = User.findByUserID(this.userid.getText());
+        try {
+            System.out.println(login_user.getFullName()+" isTeacher: "+ (login_user instanceof Teacher));
+            if(login_user.getPin().equals(this.pin.getText())){
+                Main.getApplicationController().setUser(login_user);
+                System.out.println(login_user.getId());
+                System.out.println(login_user.getUserCourse());
+                Parent root = new SubjectController(login_user.getUserCourse()); // Change page
                 Main.getApplicationController().navigateTo(root);
-            } else {
+            }else {
                 this.inc_data.setVisible(true);
             }
+
+        }
+        catch (Exception e){
+            if(e instanceof NullPointerException){
+                //Show user not found msg
+                System.out.println("User not found!");
+                this.inc_data.setVisible(true);
+            }
+//            e.printStackTrace();
         }
     }
 

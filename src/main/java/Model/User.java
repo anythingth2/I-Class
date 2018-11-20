@@ -1,18 +1,24 @@
 package Model;
 
 
+import Main.HibernateUtil;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class User {
-
+public class User extends Model {
     @Id
     @GeneratedValue
     private int id;
     private String fullName;
+    @Column(unique = true)
     private String userid;
     private String pin;
 
@@ -26,6 +32,10 @@ public class User {
         this.fullName = fullName;
         this.userid = userid;
         this.pin = pin;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFullName() {
@@ -55,6 +65,23 @@ public class User {
     public List<Course> getUserCourse(){
         return null;
     }
+
+
+    public static User findByUserID(String userid){
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Criteria criteria = session.createCriteria(User.class);
+            User user = (User) criteria.add(Restrictions.eq("userid", userid)).uniqueResult();
+            return user;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+
+
+
+
 
 
 }

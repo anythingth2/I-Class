@@ -1,21 +1,23 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.File;
 
 @Entity
-@Table(name = "material")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Material {
+public class Material extends Model {
+    @Id
+    @GeneratedValue
+    private int id;
 
     private String description;
     private String fileLink;
     private String videoLink;
-
+    @OneToOne
     private TeachingClass teachingClass;
+
+
+
 
 
     public String getDescription() {

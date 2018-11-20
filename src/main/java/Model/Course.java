@@ -1,14 +1,11 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "courses")
-public class Course {
+public class Course extends Model{
     @Id
     @GeneratedValue
     private int id;
@@ -17,9 +14,31 @@ public class Course {
     private String codenumber;
     private String description;
     private String announcement;
+
+//    @ManyToOne
+//    @JoinColumn(columnDefinition="integer",nullable = true)
+//    private Teacher user;
+//
+//    @ManyToOne
+//    @JoinColumn(columnDefinition="integer",nullable = true)
+//    private Student student;
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<TeachingClass> teachingClasses;
 
+    @OneToOne
     private Chat chat;
+
+    public Course() {
+    }
+
+    public Course(String name, String alias, String codenumber, String description, String announcement) {
+        this.name = name;
+        this.alias = alias;
+        this.codenumber = codenumber;
+        this.description = description;
+        this.announcement = announcement;
+    }
 
     public String getName() {
         return this.name;
@@ -52,6 +71,7 @@ public class Course {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     public List<TeachingClass> getTeachingClasses() {
         return this.teachingClasses;
