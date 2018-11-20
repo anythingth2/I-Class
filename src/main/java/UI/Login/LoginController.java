@@ -50,27 +50,15 @@ public class LoginController extends GridPane {
     }
 
     private void validateUserLogin() {
-//--------------------------------------------- Moc data for test ---------------------------------------------
-        List<Course> courses = new ArrayList<Course>();
-//        courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Comp Arch", "CA", "0000000001", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Software End", "SE", "0000000002", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Comp Net", "CN", "0000000003", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Foundation Eng", "FE", "0000000004", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Infomation Retrieval", "IR", "0000000005", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Micro Robot", "MR", "0000000006", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Operation System", "OS", "0000000007", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-//        courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
-
         User login_user = User.findByUserID(this.userid.getText());
         try {
-            System.out.println(login_user.getFullName());
+            System.out.println(login_user.getFullName()+" isTeacher: "+ (login_user instanceof Teacher));
             if(login_user.getPin().equals(this.pin.getText())){
                 Main.getApplicationController().setUser(login_user);
-                Parent root = new SubjectController(courses); // Change page
+                System.out.println(login_user.getId());
+                System.out.println(login_user.getUserCourse());
+                Parent root = new SubjectController(login_user.getUserCourse()); // Change page
                 Main.getApplicationController().navigateTo(root);
-
-
             }else {
                 this.inc_data.setVisible(true);
             }
@@ -80,8 +68,9 @@ public class LoginController extends GridPane {
             if(e instanceof NullPointerException){
                 //Show user not found msg
                 System.out.println("User not found!");
+                this.inc_data.setVisible(true);
             }
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 
