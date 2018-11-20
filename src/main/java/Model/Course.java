@@ -15,13 +15,13 @@ public class Course extends Model{
     private String description;
     private String announcement;
 
-    @ManyToOne
-    @JoinColumn(columnDefinition="integer",nullable = true)
-    private Teacher user;
-
-    @ManyToOne
-    @JoinColumn(columnDefinition="integer",nullable = true)
-    private Student student;
+//    @ManyToOne
+//    @JoinColumn(columnDefinition="integer",nullable = true)
+//    private Teacher user;
+//
+//    @ManyToOne
+//    @JoinColumn(columnDefinition="integer",nullable = true)
+//    private Student student;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<TeachingClass> teachingClasses;

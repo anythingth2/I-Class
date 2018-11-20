@@ -34,12 +34,12 @@ public class Main extends Application {
         // Initial and update DB
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        User test = new Student("มยูวววว","00050","0000");
-        List<Course> courses = new ArrayList<Course>();
-        courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!"));
-        ((Student) test).setEnrolledCourses(courses);
-        session.save(test);
-        tx.commit();
+//        User test = new Student("มยูวววว","1234","1234");
+//        List<Course> courses = new ArrayList<Course>();
+//        courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!"));
+//        ((Student) test).setEnrolledCourses(courses);
+//        session.saveOrUpdate(test);
+//        tx.commit();
 
         launch(args);
     }

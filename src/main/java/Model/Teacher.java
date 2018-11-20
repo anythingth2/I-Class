@@ -11,7 +11,7 @@ import java.util.List;
 public class Teacher extends User {
 
     @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(columnDefinition="integer",nullable = true)
+    @Column(nullable = true)
     private List<Course> ownCourses;
 
     public Teacher() {

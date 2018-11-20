@@ -6,6 +6,17 @@ import org.hibernate.Transaction;
 
 public class Model {
     // Begin generally ORM methods
+    public void save(){
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = session.beginTransaction();
+            session.saveOrUpdate(this);
+            tx.commit();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void save(Model obj){
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();

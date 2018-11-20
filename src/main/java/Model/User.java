@@ -18,6 +18,7 @@ public class User extends Model {
     @GeneratedValue
     private int id;
     private String fullName;
+    @Column(unique = true)
     private String userid;
     private String pin;
 
@@ -31,6 +32,10 @@ public class User extends Model {
         this.fullName = fullName;
         this.userid = userid;
         this.pin = pin;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFullName() {
