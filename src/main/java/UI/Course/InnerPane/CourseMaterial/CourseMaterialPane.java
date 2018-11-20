@@ -2,8 +2,6 @@ package UI.Course.InnerPane.CourseMaterial;
 
 import Main.Main;
 import Model.*;
-import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
-import UI.Dialog.comfirmDialog.comfirmDialogController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,7 +76,7 @@ public class CourseMaterialPane extends ScrollPane {
     public void setTeachingClass(TeachingClass teachingClass) {
         this.titleLabel.setText(teachingClass.getTitle() != null ? teachingClass.getTitle() : "ไม่มีหัวข้อ");
         this.fileNameLabel.setText(teachingClass.getMaterial().getFileName() != null ? teachingClass.getMaterial().getFileName() : "ไม่มีเอกสาร");
-        this.videoHyperlink.setText(teachingClass.getMaterial().getFileLink() != null ? teachingClass.getMaterial().getFileLink() : "-");
+        this.videoHyperlink.setText(teachingClass.getMaterial().getVideoLink() != null ? teachingClass.getMaterial().getVideoLink() : "-");
         this.descriptionText.setText(teachingClass.getMaterial().getDescription() != null ? teachingClass.getMaterial().getDescription() : "-");
         this.setUser(Main.getApplicationController().getUser());
 
@@ -92,21 +90,14 @@ public class CourseMaterialPane extends ScrollPane {
     }
 
     @FXML
-    void clickDelete(ActionEvent event) {
-        final comfirmDialogController comfirmDialog = new comfirmDialogController();
-        comfirmDialog.show();
-
+    private void clickDelete(ActionEvent event) {
+        this.controller.onClickDelete();
     }
 
     @FXML
     void clickEdit(ActionEvent event) {
-        final CreateMaterialController createMaterialController = new CreateMaterialController() {
-            @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
+        controller.onEditMaterial();
 
-            }
-        };
-        createMaterialController.show();
     }
 
 }

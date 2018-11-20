@@ -5,20 +5,14 @@ import Model.AssignmentMaterial;
 import Model.Teacher;
 import Model.TeachingClass;
 import Model.User;
-import UI.Controller;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
-import UI.Dialog.CreateHomeworkDialog.CreateHomeworkDialog;
-import UI.Dialog.comfirmDialog.comfirmDialogController;
+import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 
-import java.io.File;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -52,9 +46,8 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
 
 
     @FXML
-    void clickDelete(ActionEvent event) {
-        final comfirmDialogController comfirmDialog = new comfirmDialogController();
-        comfirmDialog.show();
+    private void clickDelete(ActionEvent event) {
+        this.controller.onClickDelete();
     }
 
     @Override
@@ -77,12 +70,6 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
 
     @FXML
     void clickEdit(ActionEvent event) {
-        final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
-            @Override
-            public void onCreateSuccess(TeachingClass teachingClass) {
-
-            }
-        };
-        createHomeworkController.show();
+        controller.onEditAssignmentMaterial();
     }
 }

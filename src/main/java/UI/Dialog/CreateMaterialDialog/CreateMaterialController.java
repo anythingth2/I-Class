@@ -1,20 +1,16 @@
 package UI.Dialog.CreateMaterialDialog;
 
-import Main.Main;
 import Model.Material;
 import Model.TeachingClass;
-import UI.Controller;
-import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.DialogController;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.layout.AnchorPane;
 
 import java.time.ZoneId;
 import java.util.Date;
 
 abstract public class CreateMaterialController implements DialogController {
     protected CreateMaterialDialog root;
+    protected TeachingClass teachingClass;
 
     @Override
     public Node getRoot() {
@@ -22,17 +18,18 @@ abstract public class CreateMaterialController implements DialogController {
     }
 
     public CreateMaterialController() {
-        this.root = new CreateMaterialDialog() {
-            @Override
-            protected void onConfirm() {
-                createTeachingClass();
-            }
-        };
+        this.root = new CreateMaterialDialog(this);
+    }
 
+    public CreateMaterialController(TeachingClass teachingClass) {
+        this.teachingClass = teachingClass;
+        this.root = new CreateMaterialDialog(this, teachingClass);
     }
 
     private void createTeachingClass() {
-        TeachingClass teachingClass = new TeachingClass();
+//        TeachingClass teachingClass = new TeachingClass();
+        if (this.teachingClass == null)
+            this.teachingClass = new TeachingClass();
         Date date = Date.from(this.root.getDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         if (this.root.getHourChoiceBox().getValue() != null)
             date.setHours(this.root.getHourChoiceBox().getValue());
@@ -40,19 +37,27 @@ abstract public class CreateMaterialController implements DialogController {
             date.setMinutes(this.root.getMinuteChoiceBox().getValue());
         teachingClass.setDate(date);
         teachingClass.setTitle(this.root.getTitleNameTextField().getText());
-        Material material = new Material();
+        Material material = this.teachingClass.getMaterial();
+        if (material == null)
+            material = new Material();
         material.setDescription(this.root.getDescriptionTextArea().getText());
         //todo: file link
         material.setTeachingClass(teachingClass);
         material.setVideoLink(this.root.getVideoLinkTextField().getText());
 
         teachingClass.setMaterial(material);
-        this.onCreateSuccess(teachingClass);
+        this.onSuccess(teachingClass);
         this.dismiss();
 
     }
 
-    abstract public void onCreateSuccess(TeachingClass teachingClass);
+    void onConfirm() {
+
+        createTeachingClass();
+
+    }
+
+    abstract public void onSuccess(TeachingClass teachingClass);
 
     @Override
     public void show() {

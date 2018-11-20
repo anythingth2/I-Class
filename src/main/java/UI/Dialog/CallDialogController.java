@@ -67,7 +67,7 @@ public class CallDialogController extends AnchorPane {
     @FXML
     void openComfirm(ActionEvent event) {
         try{
-            URL url = new File("src/main/java/UI/Dialog/ComfirmDialog/comfirmDialog.fxml").toURL();
+            URL url = new File("src/main/java/UI/Dialog/ConfirmDialog/ConfirmDialog.fxml").toURL();
             Parent root1 = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -82,7 +82,7 @@ public class CallDialogController extends AnchorPane {
     @FXML
     void openAnnouncement(ActionEvent event) {
         try{
-            URL url = new File("src/main/java/UI/Dialog/AnnouncementDialog/announcementDialog.fxml").toURL();
+            URL url = new File("src/main/java/UI/Dialog/AnnouncementDialog/AnnouncementDialog.fxml").toURL();
             Parent root1 = FXMLLoader.load(url);
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

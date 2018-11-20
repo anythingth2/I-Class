@@ -1,4 +1,4 @@
-package UI.Dialog.comfirmDialog;
+package UI.Dialog.ConfirmDialog;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,28 +11,28 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 
-public class comfirmDialogController extends AnchorPane {
-
+public class ConfirmDialog extends AnchorPane {
     @FXML
     private Label noButton;
 
     @FXML
     private Label yesButton;
 
-    public comfirmDialogController() {
+    ConfirmDialogController confirmDialogController;
+
+    public ConfirmDialog(ConfirmDialogController confirmDialogController) {
         super();
         try {
-            URL url = new File("src/main/java/UI/Dialog/comfirmDialog/comfirmDialog.fxml").toURL();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("src/main/java/UI/Dialog/comfirmDialog/comfirmDialog.fxml"));
+            URL url = new File("src/main/java/UI/Dialog/ConfirmDialog/ConfirmDialog.fxml").toURL();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("src/main/java/UI/Dialog/ConfirmDialog/ConfirmDialog.fxml"));
             loader.setRoot(this);
             loader.setController(this);
             loader.setLocation(url);
             loader.load();
         } catch (Exception e) {
             e.printStackTrace();
-
-
         }
+        this.confirmDialogController = confirmDialogController;
     }
 
     public void show() {
@@ -54,8 +54,7 @@ public class comfirmDialogController extends AnchorPane {
 
     @FXML
     void clickYes(MouseEvent event) {
+        this.confirmDialogController.onConfirm();
         this.dismiss();
     }
-
 }
-

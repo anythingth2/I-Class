@@ -1,13 +1,19 @@
 package UI.Course.InnerPane.CourseMaterial;
 
+import Model.Course;
 import Model.Material;
 import Model.TeachingClass;
 import UI.Controller;
+import UI.Course.CourseController;
+import UI.Dialog.ConfirmDialog.ConfirmDialogController;
+import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import javafx.scene.Node;
 
 public class CourseMaterialController implements Controller {
-   private CourseMaterialPane courseMaterialPane;
-   protected TeachingClass teachingClass;
+    private CourseController parentController;
+    private CourseMaterialPane courseMaterialPane;
+    protected Course course;
+    protected TeachingClass teachingClass;
 
     @Override
     public Node getRoot() {
@@ -19,10 +25,33 @@ public class CourseMaterialController implements Controller {
 
     }
 
-    public CourseMaterialController(TeachingClass teachingClass) {
+    public CourseMaterialController(CourseController parentController, Course course, TeachingClass teachingClass) {
         super();
+        this.parentController = parentController;
+        this.course = course;
         this.teachingClass = teachingClass;
         this.courseMaterialPane = new CourseMaterialPane(this, this.teachingClass);
+
     }
 
+   public void onClickDelete() {
+        final ConfirmDialogController confirmDialog = new ConfirmDialogController(course) {
+            @Override
+            public void onConfirm() {
+                course.getTeachingClasses().remove(teachingClass);
+                parentController.refresh();
+            }
+        };
+        confirmDialog.show();
+    }
+
+    public void onEditMaterial() {
+        CreateMaterialController createMaterialController = new CreateMaterialController(teachingClass) {
+            @Override
+            public void onSuccess(TeachingClass teachingClass) {
+                parentController.refresh();
+            }
+        };
+        createMaterialController.show();
+    }
 }
