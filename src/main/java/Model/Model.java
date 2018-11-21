@@ -5,24 +5,35 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class Model {
+    private static Session session;
+    private static Transaction transaction;
+    // Open session
+    public static void createSession(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+    }
+
+
     // Begin generally ORM methods
     public void save(){
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Transaction tx = session.beginTransaction();
+//            Session session = HibernateUtil.getSessionFactory().openSession();
+//            Transaction tx = session.beginTransaction();
             session.saveOrUpdate(this);
-            tx.commit();
+            transaction.commit();
         } catch (Exception e){
             e.printStackTrace();
         }
     }
 
+
+
     public static void save(Model obj){
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Transaction tx = session.beginTransaction();
+//            Session session = HibernateUtil.getSessionFactory().openSession();
+//            Transaction tx = session.beginTransaction();
             session.save(obj);
-            tx.commit();
+            transaction.commit();
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -30,10 +41,10 @@ public class Model {
 
     public static void saveOrUpdate(Model obj){
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Transaction tx = session.beginTransaction();
+//            Session session = HibernateUtil.getSessionFactory().openSession();
+//            Transaction tx = session.beginTransaction();
             session.saveOrUpdate(obj);
-            tx.commit();
+            transaction.commit();
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -41,10 +52,10 @@ public class Model {
 
     public static void delete(Model obj){
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Transaction tx = session.beginTransaction();
+//            Session session = HibernateUtil.getSessionFactory().openSession();
+//            Transaction tx = session.beginTransaction();
             session.delete(obj);
-            tx.commit();
+            transaction.commit();
         } catch (Exception e){
             e.printStackTrace();
         }
