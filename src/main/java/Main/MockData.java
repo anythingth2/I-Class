@@ -37,11 +37,11 @@ public class MockData {
         courses.add(new Course("Compiler Comp", "CC", "0000000008", "-", "annaaaaa!!!", new ArrayList<TeachingClass>(1)));
 
         users = new ArrayList<User>(10);
-        User mockStudent = new Student("Example Student1", "001", "001", courses);
+//        User mockStudent = new Student("Example Student1", "001", "001", courses);
         User mockTeacher = new Teacher("Example Teacher1", "002", "002", courses);
-        users.add(mockStudent);
+//        users.add(mockStudent);
         users.add(mockTeacher);
-        users.add(new Student("Example Student3", "003", "003", courses));
+//        users.add(new Student("Example Student3", "003", "003", courses));
         users.add(new Teacher("Example Teacher1", "004", "004", courses));
         users.add(new Teacher("Example Teacher2", "005", "005", courses));
     }

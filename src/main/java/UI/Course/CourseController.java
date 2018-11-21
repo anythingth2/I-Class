@@ -71,9 +71,11 @@ public class CourseController implements Controller {
     }
 
     void onClickAnnouncementEdit() {
-        AnnouncementDialogController announcementDialog = new AnnouncementDialogController(course) {
+        AnnouncementDialogController announcementDialog = new AnnouncementDialogController() {
             @Override
             protected void onEditSuccess(String text) {
+                course.setAnnouncement(text);
+                course.save();
                 courseUI.getAnnouncementLabel().setText(text);
             }
         };
