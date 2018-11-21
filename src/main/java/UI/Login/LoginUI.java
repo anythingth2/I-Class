@@ -1,26 +1,16 @@
 package UI.Login;
 
 
-import Main.Main;
-import Main.MockData;
-import Model.*;
-import UI.Controller;
-import UI.Subject.SubjectController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class LoginUI extends GridPane {
 

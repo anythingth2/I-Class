@@ -7,8 +7,8 @@ import UI.Course.InnerPane.CourseInfo.CourseInfoController;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
 
 import UI.Login.LoginController;
-import UI.Login.LoginUI;
 import UI.Subject.SubjectController;
+import UI.Subject.SubjectUI;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -144,7 +144,7 @@ public class CourseUI extends AnchorPane {
     }
 
 
-   public void displayContent(Node pane) {
+    public void displayContent(Node pane) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, pane);
         } else {
@@ -152,7 +152,7 @@ public class CourseUI extends AnchorPane {
         }
     }
 
-   public void displayContent(Controller controller) {
+    public void displayContent(Controller controller) {
         if (this.teachingClassPane.getChildren().size() > 0) {
             this.teachingClassPane.getChildren().set(0, controller.getRoot());
         } else {
@@ -163,14 +163,12 @@ public class CourseUI extends AnchorPane {
 
     @FXML
     private void onLogoutAction() {
-//        Parent root = new LoginUI();
-        Main.getApplicationController().navigateTo(new LoginController());
+        this.controller.logout();
     }
 
     @FXML
     private void gotoSubject() throws IOException {
-        Parent root = new SubjectController(((Student) Main.getApplicationController().getUser()).getEnrolledCourses());
-        Main.getApplicationController().navigateTo(root);
+        this.controller.goToSubject();
     }
 
     @FXML

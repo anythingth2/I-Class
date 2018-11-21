@@ -2,10 +2,7 @@ package UI.Course;
 
 
 import Main.Main;
-import Model.AssignmentMaterial;
-import Model.Course;
-import Model.Material;
-import Model.TeachingClass;
+import Model.*;
 import UI.Controller;
 import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoController;
@@ -14,8 +11,11 @@ import UI.Dialog.AnnouncementDialog.AnnouncementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.TypeDialog.TypeDialog;
+import UI.Login.LoginController;
+import UI.Subject.SubjectController;
 import javafx.scene.Node;
 
+import java.util.List;
 
 
 public class CourseController implements Controller {
@@ -86,5 +86,21 @@ public class CourseController implements Controller {
         this.courseUI.setUser(Main.getApplicationController().getUser());
         this.courseUI.setTeachingClasses(this.course.getTeachingClasses());
         this.courseUI.displayContent(new CourseInfoController(this.course));
+    }
+
+    public void logout() {
+        Main.getApplicationController().navigateTo(new LoginController());
+    }
+
+    public void goToSubject() {
+        User user = Main.getApplicationController().getUser();
+        List<Course> courses = null;
+        if (user instanceof Student)
+            courses = ((Student) user).getEnrolledCourses();
+        else if (user instanceof Teacher)
+            courses = ((Teacher) user).getOwnCourses();
+
+        Main.getApplicationController().navigateTo(new SubjectController(courses));
+
     }
 }

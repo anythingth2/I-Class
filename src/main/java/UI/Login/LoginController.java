@@ -5,6 +5,7 @@ import Model.Teacher;
 import Model.User;
 import UI.Controller;
 import UI.Subject.SubjectController;
+import UI.Subject.SubjectUI;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 
@@ -32,8 +33,9 @@ public class LoginController implements Controller {
                 Main.getApplicationController().setUser(login_user);
                 System.out.println(login_user.getId());
                 System.out.println(login_user.getUserCourse());
-                Parent root = new SubjectController(login_user.getUserCourse()); // Change page
-                Main.getApplicationController().navigateTo(root);
+//                Parent root = new SubjectUI(login_user.getUserCourse()); // Change page
+
+                Main.getApplicationController().navigateTo(new SubjectController(login_user.getUserCourse()));
                 result = true;
             } else {
 
