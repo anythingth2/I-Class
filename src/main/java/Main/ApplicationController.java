@@ -3,10 +3,12 @@ package Main;
 import Model.User;
 import UI.Controller;
 import UI.Login.LoginController;
-import UI.Subject.SubjectController;
+import UI.Login.LoginUI;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import javax.naming.ldap.Control;
 
 public class ApplicationController {
 
@@ -30,8 +32,10 @@ public class ApplicationController {
     }
 
     private void initialize() {
-        Parent root = new LoginController();
-        this.scene = new Scene(root);
+//        Parent root = new LoginUI();
+        Controller homeController = new LoginController();
+
+        this.scene = new Scene((Parent) homeController.getRoot());
         this.stage.setScene(scene);
 //        this.stage.setFullScreen(true);
         this.stage.setResizable(false);

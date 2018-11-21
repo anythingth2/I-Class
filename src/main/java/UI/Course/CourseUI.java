@@ -3,13 +3,11 @@ package UI.Course;
 import Main.Main;
 import Model.*;
 import UI.Controller;
-import UI.Course.InnerPane.AssignmentMaterial.AssignmentMaterialController;
 import UI.Course.InnerPane.CourseInfo.CourseInfoController;
-import UI.Course.InnerPane.CourseInfo.CourseInfoPane;
 import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
 
-import UI.Dialog.AnnouncementDialog.AnnouncementDialogController;
 import UI.Login.LoginController;
+import UI.Login.LoginUI;
 import UI.Subject.SubjectController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -165,8 +163,8 @@ public class CourseUI extends AnchorPane {
 
     @FXML
     private void onLogoutAction() {
-        Parent root = new LoginController();
-        Main.getApplicationController().navigateTo(root);
+//        Parent root = new LoginUI();
+        Main.getApplicationController().navigateTo(new LoginController());
     }
 
     @FXML

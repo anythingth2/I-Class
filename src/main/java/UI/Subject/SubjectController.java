@@ -1,14 +1,12 @@
 package UI.Subject;
 
 import Model.Course;
-import Model.TeachingClass;
 import UI.Course.CourseController;
 import Main.Main;
-import UI.Course.CourseUI;
 import UI.Login.LoginController;
+import UI.Login.LoginUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,15 +14,10 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.ImageView;
-import javassist.bytecode.stackmap.TypeData;
 
-import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.List;
 
 public class SubjectController extends GridPane {
@@ -249,8 +242,8 @@ public class SubjectController extends GridPane {
 
     @FXML
     private void onLogoutAction() throws IOException {
-        Parent root = new LoginController();
-        Main.getApplicationController().navigateTo(root);
+
+        Main.getApplicationController().navigateTo(new LoginController());
     }
 
     @FXML
