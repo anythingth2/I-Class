@@ -1,6 +1,7 @@
 package Main;
 
 import Model.Course;
+import Model.Model;
 import Model.Student;
 import Model.User;
 import javafx.application.Application;
@@ -32,9 +33,11 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         // Initial and update DB
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-//        User test = new Student("มยูวววว","1234","1234");
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        Transaction tx = session.beginTransaction();
+        Model.createSession();
+//        User test = new Student("มยูวววว","3333","1234");
+//        test.save();
 //        List<Course> courses = new ArrayList<Course>();
 //        courses.add(new Course("Object Oriented A & D", "OOAD", "0000000000", "This subject ...", "annaaaaa!!!"));
 //        ((Student) test).setEnrolledCourses(courses);
