@@ -4,17 +4,13 @@ import Main.Main;
 import Model.*;
 import UI.Controller;
 import UI.Course.InnerPane.CourseInfo.CourseInfoController;
-import UI.Course.InnerPane.StudentTodoPane.StudentTodoPane;
+import UI.Course.InnerPane.StudentTodoPane.StudentTodoPage;
 
-import UI.Login.LoginController;
-import UI.Subject.SubjectController;
-import UI.Subject.SubjectUI;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -30,7 +26,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseUI extends AnchorPane {
+public class CoursePage extends AnchorPane {
     @FXML
     private Label accountIdTextView;
     @FXML
@@ -70,7 +66,7 @@ public class CourseUI extends AnchorPane {
     CourseController controller;
 
 
-    public CourseUI() {
+    public CoursePage() {
         super();
         try {
             URL url = new File("src/main/java/UI/Course/Course.fxml").toURL();
@@ -84,7 +80,7 @@ public class CourseUI extends AnchorPane {
         }
     }
 
-    public CourseUI(CourseController controller, Course course, User user) {
+    public CoursePage(CourseController controller, Course course, User user) {
         this();
 
         this.controller = controller;
@@ -105,7 +101,7 @@ public class CourseUI extends AnchorPane {
         this.todoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Pane pane = new StudentTodoPane();
+                Pane pane = new StudentTodoPage();
                 displayContent(pane);
             }
         });

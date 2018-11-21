@@ -1,9 +1,6 @@
 package UI.Subject;
 
 import Model.Course;
-import UI.Course.CourseController;
-import Main.Main;
-import UI.Login.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -18,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-public class SubjectUI extends GridPane {
+public class SubjectPage extends GridPane {
 
     @FXML
     private Pane sbj1;
@@ -57,7 +54,7 @@ public class SubjectUI extends GridPane {
     private int index = 0;
 
 
-    private SubjectUI() {
+    private SubjectPage() {
         super();
         try {
             URL url = new File("src/main/java/UI/Subject/subject.fxml").toURL();
@@ -71,7 +68,7 @@ public class SubjectUI extends GridPane {
         }
     }
 
-    public SubjectUI(SubjectController controller, List<Course> courses) {
+    public SubjectPage(SubjectController controller, List<Course> courses) {
         this();
         this.subjectController = controller;
         this.courses = courses;

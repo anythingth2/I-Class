@@ -11,19 +11,19 @@ import java.util.List;
 
 public class SubjectController implements Controller {
 
-    SubjectUI subjectUI;
+    SubjectPage subjectPage;
     List<Course> courses;
 
     @Override
     public Node getRoot() {
-        return this.subjectUI;
+        return this.subjectPage;
     }
 
     public SubjectController(List<Course> courses) {
         super();
         this.courses = courses;
 
-        this.subjectUI = new SubjectUI(this, this.courses);
+        this.subjectPage = new SubjectPage(this, this.courses);
     }
 
     public void selectCourse(Course course) {

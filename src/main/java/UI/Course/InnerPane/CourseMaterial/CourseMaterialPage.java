@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 import java.io.File;
 import java.net.URL;
 
-public class CourseMaterialPane extends ScrollPane {
+public class CourseMaterialPage extends ScrollPane {
 
     private CourseMaterialController controller;
     @FXML
@@ -32,7 +32,7 @@ public class CourseMaterialPane extends ScrollPane {
     @FXML
     private Button editButton;
 
-    private CourseMaterialPane() {
+    private CourseMaterialPage() {
         super();
         try {
             URL url = new File("src/main/java/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml").toURL();
@@ -46,7 +46,7 @@ public class CourseMaterialPane extends ScrollPane {
         }
     }
 
-    public CourseMaterialPane(String path) {
+    public CourseMaterialPage(String path) {
         super();
         try {
             URL url = new File("src/main/java" + path).toURL();
@@ -60,12 +60,12 @@ public class CourseMaterialPane extends ScrollPane {
         }
     }
 
-    public CourseMaterialPane(CourseMaterialController controller) {
+    public CourseMaterialPage(CourseMaterialController controller) {
         this("/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml");
         this.controller = controller;
     }
 
-    public CourseMaterialPane(CourseMaterialController controller, TeachingClass teachingClass) {
+    public CourseMaterialPage(CourseMaterialController controller, TeachingClass teachingClass) {
         this("/UI/Course/InnerPane/CourseMaterial/CourseMaterial.fxml");
         this.controller = controller;
 

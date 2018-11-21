@@ -11,6 +11,7 @@ import UI.Dialog.AnnouncementDialog.AnnouncementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import UI.Dialog.TypeDialog.TypeDialog;
+import UI.Dialog.TypeDialog.TypeDialogController;
 import UI.Login.LoginController;
 import UI.Subject.SubjectController;
 import javafx.scene.Node;
@@ -21,17 +22,17 @@ import java.util.List;
 public class CourseController implements Controller {
     private Course course;
     //    private List<TeachingClass> teachingClasses;
-    private CourseUI courseUI;
+    private CoursePage coursePage;
 
     @Override
     public Node getRoot() {
-        return this.courseUI;
+        return this.coursePage;
     }
 
     public CourseController(Course course) {
         super();
         this.course = course;
-        this.courseUI = new CourseUI(this, course, Main.getApplicationController().getUser());
+        this.coursePage = new CoursePage(this, course, Main.getApplicationController().getUser());
     }
 
     public void onClickAddTeachingClass() {
@@ -39,27 +40,26 @@ public class CourseController implements Controller {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
                 course.getTeachingClasses().add(teachingClass);
-                courseUI.setTeachingClasses(course.getTeachingClasses());
+                coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };
         final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
                 course.getTeachingClasses().add(teachingClass);
-                courseUI.setTeachingClasses(course.getTeachingClasses());
+                coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };
-        TypeDialog typeDialog = new TypeDialog() {
+        TypeDialogController typeDialogController = new TypeDialogController() {
             @Override
             public void onAccept(TypeRadio typeRadio) {
                 if (typeRadio == TypeRadio.Material)
                     createMaterialController.show();
                 else if (typeRadio == TypeRadio.Homework)
                     createHomeworkController.show();
-
             }
         };
-        typeDialog.show();
+        typeDialogController.show();
     }
 
     void onClickTeachingClassTab(TeachingClass teachingClass) {
@@ -67,7 +67,7 @@ public class CourseController implements Controller {
         Controller controller = material instanceof AssignmentMaterial ?
                 new AssignmentMaterialController(this, course, teachingClass)
                 : new CourseMaterialController(this, course, teachingClass);
-        this.courseUI.displayContent(controller);
+        this.coursePage.displayContent(controller);
     }
 
     void onClickAnnouncementEdit() {
@@ -76,16 +76,16 @@ public class CourseController implements Controller {
             protected void onEditSuccess(String text) {
                 course.setAnnouncement(text);
                 course.save();
-                courseUI.getAnnouncementLabel().setText(text);
+                coursePage.getAnnouncementLabel().setText(text);
             }
         };
         announcementDialog.show();
     }
 
     public void refresh() {
-        this.courseUI.setUser(Main.getApplicationController().getUser());
-        this.courseUI.setTeachingClasses(this.course.getTeachingClasses());
-        this.courseUI.displayContent(new CourseInfoController(this.course));
+        this.coursePage.setUser(Main.getApplicationController().getUser());
+        this.coursePage.setTeachingClasses(this.course.getTeachingClasses());
+        this.coursePage.displayContent(new CourseInfoController(this.course));
     }
 
     public void logout() {

@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class LoginUI extends GridPane {
+public class LoginPage extends GridPane {
 
     LoginController controller;
     @FXML
@@ -28,7 +28,7 @@ public class LoginUI extends GridPane {
     @FXML
     private Label inc_data;
 
-    private LoginUI() {
+    private LoginPage() {
         super();
         try {
             URL url = new File("src/main/java/UI/Login/login.fxml").toURL();
@@ -42,7 +42,7 @@ public class LoginUI extends GridPane {
         }
     }
 
-    public LoginUI(LoginController controller) {
+    public LoginPage(LoginController controller) {
         this();
         this.controller = controller;
     }

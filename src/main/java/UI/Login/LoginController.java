@@ -5,23 +5,21 @@ import Model.Teacher;
 import Model.User;
 import UI.Controller;
 import UI.Subject.SubjectController;
-import UI.Subject.SubjectUI;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 
 public class LoginController implements Controller {
 
-    LoginUI loginUI;
+    LoginPage loginPage;
 
     @Override
     public Node getRoot() {
-        return this.loginUI;
+        return this.loginPage;
 
     }
 
     public LoginController() {
         super();
-        this.loginUI = new LoginUI(this);
+        this.loginPage = new LoginPage(this);
     }
 
     public boolean validateUserLogin(String userIdText, String pin) {
@@ -33,7 +31,7 @@ public class LoginController implements Controller {
                 Main.getApplicationController().setUser(login_user);
                 System.out.println(login_user.getId());
                 System.out.println(login_user.getUserCourse());
-//                Parent root = new SubjectUI(login_user.getUserCourse()); // Change page
+//                Parent root = new SubjectPage(login_user.getUserCourse()); // Change page
 
                 Main.getApplicationController().navigateTo(new SubjectController(login_user.getUserCourse()));
                 result = true;
