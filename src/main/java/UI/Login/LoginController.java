@@ -28,12 +28,12 @@ public class LoginController implements Controller {
         try {
             System.out.println(login_user.getFullName() + " isTeacher: " + (login_user instanceof Teacher));
             if (login_user.getPin().equals(pin)) {
-                Main.getApplicationController().setUser(login_user);
+                Main.getApplication().setUser(login_user);
                 System.out.println(login_user.getId());
                 System.out.println(login_user.getUserCourse());
 //                Parent root = new SubjectPage(login_user.getUserCourse()); // Change page
 
-                Main.getApplicationController().navigateTo(new SubjectController(login_user.getUserCourse()));
+                Main.getApplication().navigateTo(new SubjectController(login_user.getUserCourse()));
                 result = true;
             } else {
 

@@ -78,7 +78,7 @@ public class CourseMaterialPage extends ScrollPane {
         this.fileNameLabel.setText(teachingClass.getMaterial().getFileName() != null ? teachingClass.getMaterial().getFileName() : "ไม่มีเอกสาร");
         this.videoHyperlink.setText(teachingClass.getMaterial().getVideoLink() != null ? teachingClass.getMaterial().getVideoLink() : "-");
         this.descriptionText.setText(teachingClass.getMaterial().getDescription() != null ? teachingClass.getMaterial().getDescription() : "-");
-        this.setUser(Main.getApplicationController().getUser());
+        this.setUser(Main.getApplication().getUser());
 
     }
 

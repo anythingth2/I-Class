@@ -90,7 +90,7 @@ public class CoursePage extends AnchorPane {
 
     private void setCourse(Course course) {
         this.announcementLabel.setText(course.getAnnouncement());
-        this.accountIdTextView.setText(Main.getApplicationController().getUser().getUserid());
+        this.accountIdTextView.setText(Main.getApplication().getUser().getUserid());
         this.titleLabel.setText(course.getName());
         this.courseInfoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

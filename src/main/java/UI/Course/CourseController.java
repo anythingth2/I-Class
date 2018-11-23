@@ -10,7 +10,6 @@ import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
 import UI.Dialog.AnnouncementDialog.AnnouncementDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
-import UI.Dialog.TypeDialog.TypeDialog;
 import UI.Dialog.TypeDialog.TypeDialogController;
 import UI.Login.LoginController;
 import UI.Subject.SubjectController;
@@ -32,7 +31,7 @@ public class CourseController implements Controller {
     public CourseController(Course course) {
         super();
         this.course = course;
-        this.coursePage = new CoursePage(this, course, Main.getApplicationController().getUser());
+        this.coursePage = new CoursePage(this, course, Main.getApplication().getUser());
     }
 
     public void onClickAddTeachingClass() {
@@ -83,24 +82,24 @@ public class CourseController implements Controller {
     }
 
     public void refresh() {
-        this.coursePage.setUser(Main.getApplicationController().getUser());
+        this.coursePage.setUser(Main.getApplication().getUser());
         this.coursePage.setTeachingClasses(this.course.getTeachingClasses());
         this.coursePage.displayContent(new CourseInfoController(this.course));
     }
 
     public void logout() {
-        Main.getApplicationController().navigateTo(new LoginController());
+        Main.getApplication().navigateTo(new LoginController());
     }
 
     public void goToSubject() {
-        User user = Main.getApplicationController().getUser();
+        User user = Main.getApplication().getUser();
         List<Course> courses = null;
         if (user instanceof Student)
             courses = ((Student) user).getEnrolledCourses();
         else if (user instanceof Teacher)
             courses = ((Teacher) user).getOwnCourses();
 
-        Main.getApplicationController().navigateTo(new SubjectController(courses));
+        Main.getApplication().navigateTo(new SubjectController(courses));
 
     }
 }

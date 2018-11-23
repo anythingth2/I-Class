@@ -27,10 +27,10 @@ public class SubjectController implements Controller {
     }
 
     public void selectCourse(Course course) {
-        Main.getApplicationController().navigateTo(new CourseController(course));
+        Main.getApplication().navigateTo(new CourseController(course));
     }
 
     public void logout() {
-        Main.getApplicationController().navigateTo(new LoginController());
+        Main.getApplication().navigateTo(new LoginController());
     }
 }

@@ -1,34 +1,25 @@
 package Main;
 
-import Model.Course;
 import Model.Model;
-import Model.Student;
-import Model.User;
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Main.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Main extends javafx.application.Application {
 
-public class Main extends Application {
-
-    private static ApplicationController applicationController;
+    private static Application application;
     private static Stage globalStage;
     private static Scene scene;
     private static Session session;
 
-    public static ApplicationController getApplicationController() {
-        return applicationController;
+    public static Application getApplication() {
+        return application;
     }
 
     @Override
     public void start(Stage primaryStage) {
         globalStage = primaryStage;
-        applicationController = new ApplicationController(primaryStage);
+        application = new Application(primaryStage);
     }
 
     public static void main(String[] args) {

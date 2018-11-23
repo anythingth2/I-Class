@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class LoginPage extends GridPane {
 
-    LoginController controller;
+    private LoginController controller;
     @FXML
     private TextField userid;
     @FXML
