@@ -10,15 +10,15 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class CoursePage extends AnchorPane {
     @FXML
     private Button logout;
     @FXML
-    private Button logout1;
+    private Button subject;
 
     @FXML
     private ImageView addTeachingClassImageView;
@@ -129,7 +129,7 @@ public class CoursePage extends AnchorPane {
                 ClassItemPane classItemPane = new ClassItemPane(teachingClass,
                         teachingClass.getMaterial());
 
-                classItemPane.setOnMouseClicked(event -> controller.onClickTeachingClassTab(teachingClass));
+                classItemPane.setOnMouseClicked(event -> this.controller.onClickTeachingClassTab(teachingClass));
 
                 this.classItemPanes.add(classItemPane);
             }
@@ -163,45 +163,69 @@ public class CoursePage extends AnchorPane {
     }
 
     @FXML
-    private void gotoSubject() throws IOException {
+    private void onSubjectAction() throws IOException {
         this.controller.goToSubject();
     }
 
     @FXML
     private void onLogoutEntered() throws IOException {
-        logout.setStyle("-fx-text-fill: #71f2e5;");
-        logout.setStyle("-fx-background-color: #171C1D");
+        this.logout.setTextFill(Color.valueOf("#f50b0b"));
     }
 
     @FXML
     private void onLogoutExited() throws IOException {
-        logout.setStyle("-fx-text-fill: white;");
-        logout.setStyle("-fx-background-color: #171C1D");
+        this.logout.setTextFill(Color.WHITE);
     }
 
     @FXML
-    private void onLogout1Entered() throws IOException {
-        logout1.setStyle("-fx-text-fill: #71f2e5;");
-        logout1.setStyle("-fx-background-color: #171C1D");
+    private void onSubjectEntered() throws IOException {
+        this.subject.setTextFill(Color.valueOf("#16eedb"));
     }
 
     @FXML
-    private void onLogout1Exited() throws IOException {
-        logout1.setStyle("-fx-text-fill: white;");
-        logout1.setStyle("-fx-background-color:#171C1D");
+    private void onSubjectExited() throws IOException {
+        this.subject.setTextFill(Color.WHITE);
     }
 
 
     @FXML
-    void onClickAddTeachingClass(MouseEvent event) {
-
-        controller.onClickAddTeachingClass();
-
+    void onAddTeachingClassClick(MouseEvent event) {
+        this.controller.onClickAddTeachingClass();
     }
 
     @FXML
-    void openEditAnnouncement(ActionEvent event) {
-        controller.onClickAnnouncementEdit();
+    void onEditAnnouncementAction(ActionEvent event) {
+        this.controller.onClickAnnouncementEdit();
+    }
+
+    @FXML
+    private void onEditAnnouncementEntered() throws IOException {
+        this.editAnnouncementButton.setStyle("-fx-background-color : #6aede1");
+    }
+
+    @FXML
+    private void onEditAnnouncementExited() throws IOException {
+        this.editAnnouncementButton.setStyle("-fx-background-color : #B1DFDB");
+    }
+
+    @FXML
+    private void onTodoEntered() throws IOException {
+        this.todoButton.setStyle("-fx-background-color : #6aede1");
+    }
+
+    @FXML
+    private void onTodoExited() throws IOException {
+        this.todoButton.setStyle("-fx-background-color : #B1DFDB");
+    }
+
+    @FXML
+    private void onCourseInfoEntered() throws IOException {
+        this.courseInfoButton.setStyle("-fx-background-color : white");
+    }
+
+    @FXML
+    private void onCourseInfoExited() throws IOException {
+        this.courseInfoButton.setStyle("-fx-background-color : #d6d3d3");
     }
 
 }

@@ -17,7 +17,7 @@ public class Main extends javafx.application.Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
         globalStage = primaryStage;
         application = new Application(primaryStage);
     }
