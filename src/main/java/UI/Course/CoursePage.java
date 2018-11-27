@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -58,6 +59,10 @@ public class CoursePage extends AnchorPane {
 
     @FXML
     private Pane teachingClassPane;
+
+    private ColorAdjust color1 = new ColorAdjust();
+    private ColorAdjust color2 = new ColorAdjust();
+    private ColorAdjust color3 = new ColorAdjust();
 
     public Label getAnnouncementLabel() {
         return announcementLabel;
@@ -226,6 +231,41 @@ public class CoursePage extends AnchorPane {
     @FXML
     private void onCourseInfoExited() throws IOException {
         this.courseInfoButton.setStyle("-fx-background-color : #d6d3d3");
+    }
+
+    @FXML
+    private void onAddTeachingClassEntered() throws IOException {
+        this.color1.setBrightness(0.7);
+        this.addTeachingClassImageView.setEffect(this.color1);
+    }
+
+    @FXML
+    private void onAddTeachingClassExited() throws IOException {
+        this.color1.setBrightness(0.0);
+        this.addTeachingClassImageView.setEffect(this.color1);
+    }
+
+    @FXML
+    private void onAssignmentEntered() throws IOException {
+        this.color2.setBrightness(-0.5);
+        this.assignmentImageView.setEffect(this.color2);
+    }
+
+    @FXML
+    private void onAssignmentExited() throws IOException {
+        this.color2.setBrightness(0.0);
+        this.assignmentImageView.setEffect(this.color2);
+    }
+    @FXML
+    private void onChatEntered() throws IOException {
+        this.color3.setBrightness(-0.5);
+        this.chatImageView.setEffect(this.color3);
+    }
+
+    @FXML
+    private void onChatExited() throws IOException {
+        this.color3.setBrightness(0.0);
+        this.chatImageView  .setEffect(this.color3);
     }
 
 }
