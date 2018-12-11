@@ -94,6 +94,9 @@ public class SubjectPage extends GridPane {
         } catch (Exception e) {
             setCourse3Visible(false);
         }
+        if(courses.size() < 3){
+            arwr.setVisible(false);
+        }
     }
 
     private void setCourse1Detail(String alias, String name, Course course) {
