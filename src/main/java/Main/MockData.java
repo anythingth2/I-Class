@@ -54,7 +54,7 @@ public class MockData {
         List<AssignmentMaterial> assignmentMaterials = new ArrayList<AssignmentMaterial>();
 
         AssignmentMaterial tmpAssigmentMaterial = new AssignmentMaterial();
-        tmpAssigmentMaterial.addHomework(new Homework("1234567", student));
+        tmpAssigmentMaterial.addHomework(new Homework("https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java", student));
         tmpAssigmentMaterial.addHomework(new Homework("1sadsd4567", student));
         tmpAssigmentMaterial.addHomework(new Homework("1dsadsadsa67", student));
         tmpAssigmentMaterial.addHomework(new Homework("1dsadsa67", student));
