@@ -8,9 +8,9 @@ import org.hibernate.Session;
 public class Main extends javafx.application.Application {
 
     private static Application application;
-    private static Stage globalStage;
-    private static Scene scene;
-    private static Session session;
+//    private static Stage globalStage;
+//    private static Scene scene;
+//    private static Session session;
 
     public static Application getApplication() {
         return application;
@@ -18,7 +18,7 @@ public class Main extends javafx.application.Application {
 
     @Override
     public void start(Stage primaryStage) {
-        globalStage = primaryStage;
+//        globalStage = primaryStage;
         application = new Application(primaryStage);
     }
 

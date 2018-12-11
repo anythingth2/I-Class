@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ApplicationController {
+public class Application {
 
     private Stage stage;
     private Scene scene;
@@ -22,14 +22,14 @@ public class ApplicationController {
         this.user = user;
     }
 
-    public ApplicationController(Stage stage) {
+    public Application(Stage stage) {
         this.stage = stage;
 
         initialize();
     }
 
     private void initialize() {
-//        Parent root = new LoginPage();
+//        Parent createMaterialDialog = new LoginPage();
         Controller homeController = new LoginController();
 
         this.scene = new Scene((Parent) homeController.getRoot());

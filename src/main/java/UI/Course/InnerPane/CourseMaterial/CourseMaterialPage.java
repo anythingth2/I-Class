@@ -97,7 +97,6 @@ public class CourseMaterialPage extends ScrollPane {
     @FXML
     void clickEdit(ActionEvent event) {
         controller.onEditMaterial();
-
     }
 
 }

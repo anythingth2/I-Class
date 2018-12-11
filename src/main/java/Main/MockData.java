@@ -46,4 +46,36 @@ public class MockData {
         users.add(new Teacher("Example Teacher2", "005", "005", courses));
     }
 
+    public static List<AssignmentMaterial> mockAssignment() {
+        Student student = new Student();
+        student.setId(1234);
+        student.setFullName("TestStudent");
+
+        List<AssignmentMaterial> assignmentMaterials = new ArrayList<AssignmentMaterial>();
+
+        AssignmentMaterial tmpAssigmentMaterial = new AssignmentMaterial();
+        tmpAssigmentMaterial.addHomework(new Homework("1234567", student));
+        tmpAssigmentMaterial.addHomework(new Homework("1sadsd4567", student));
+        tmpAssigmentMaterial.addHomework(new Homework("1dsadsadsa67", student));
+        tmpAssigmentMaterial.addHomework(new Homework("1dsadsa67", student));
+        tmpAssigmentMaterial.addHomework(new Homework("12zzz7", student));
+        tmpAssigmentMaterial.addHomework(new Homework("12345sssss67", student));
+        tmpAssigmentMaterial.addHomework(new Homework("123zzz7", student));
+
+        assignmentMaterials.add(tmpAssigmentMaterial);
+
+        AssignmentMaterial tmpAssignmentMaterial2 = new AssignmentMaterial();
+        tmpAssignmentMaterial2.addHomework(new Homework("asdfghjk", student));
+        tmpAssignmentMaterial2.addHomework(new Homework("adsajk", student));
+        tmpAssignmentMaterial2.addHomework(new Homework("bxdfghjk", student));
+        tmpAssignmentMaterial2.addHomework(new Homework("bxxsdfghjk", student));
+        tmpAssignmentMaterial2.addHomework(new Homework("aasdsadafghjk", student));
+        tmpAssignmentMaterial2.addHomework(new Homework("dsadsadfghjk", student));
+        tmpAssignmentMaterial2.addHomework(new Homework("czccfghjk", student));
+        tmpAssignmentMaterial2.addHomework(new Homework("czcazzzfghjk", student));
+
+
+        assignmentMaterials.add(tmpAssignmentMaterial2);
+        return assignmentMaterials;
+    }
 }

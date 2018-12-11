@@ -16,7 +16,6 @@ import java.util.Date;
 
 public class AssignmentMaterialPage extends CourseMaterialPage {
     private AssignmentMaterialController controller;
-
     @FXML
     private Label dueDateLabel;
     @FXML

@@ -9,7 +9,7 @@ import javafx.scene.Node;
 
 public class LoginController implements Controller {
 
-    LoginPage loginPage;
+    private LoginPage loginPage;
 
     @Override
     public Node getRoot() {
@@ -31,7 +31,7 @@ public class LoginController implements Controller {
                 Main.getApplication().setUser(login_user);
                 System.out.println(login_user.getId());
                 System.out.println(login_user.getUserCourse());
-//                Parent root = new SubjectPage(login_user.getUserCourse()); // Change page
+//                Parent createMaterialDialog = new SubjectPage(login_user.getUserCourse()); // Change page
 
                 Main.getApplication().navigateTo(new SubjectController(login_user.getUserCourse()));
                 result = true;

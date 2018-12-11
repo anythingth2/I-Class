@@ -63,10 +63,10 @@ public class CoursePage extends AnchorPane {
         return announcementLabel;
     }
 
-    CourseController controller;
+    private CourseController controller;
 
 
-    public CoursePage() {
+    private CoursePage() {
         super();
         try {
             URL url = new File("src/main/java/UI/Course/Course.fxml").toURL();
@@ -88,7 +88,7 @@ public class CoursePage extends AnchorPane {
         this.setUser(user);
     }
 
-    private void setCourse(Course course) {
+    public void setCourse(Course course) {
         this.announcementLabel.setText(course.getAnnouncement());
         this.accountIdTextView.setText(Main.getApplication().getUser().getUserid());
         this.titleLabel.setText(course.getName());
@@ -106,7 +106,6 @@ public class CoursePage extends AnchorPane {
             }
         });
 
-
         this.displayContent(new CourseInfoController(course));
         this.setTeachingClasses(course.getTeachingClasses());
     }
@@ -115,7 +114,6 @@ public class CoursePage extends AnchorPane {
         boolean isTeacher = user instanceof Teacher;
         this.editAnnouncementButton.setVisible(isTeacher);
         this.todoButton.setVisible(!isTeacher);
-//        this.courseInfoButton.setVisible(!isTeacher);
         this.addTeachingClassImageView.setVisible(isTeacher);
         this.assignmentImageView.setVisible(isTeacher);
     }
@@ -191,12 +189,9 @@ public class CoursePage extends AnchorPane {
         logout1.setStyle("-fx-background-color:#171C1D");
     }
 
-
     @FXML
     void onClickAddTeachingClass(MouseEvent event) {
-
         controller.onClickAddTeachingClass();
-
     }
 
     @FXML
@@ -204,4 +199,6 @@ public class CoursePage extends AnchorPane {
         controller.onClickAnnouncementEdit();
     }
 
+    @FXML
+    void onClickAssignmentInbox(MouseEvent event){this.controller.onClickAssignmentInbox();}
 }

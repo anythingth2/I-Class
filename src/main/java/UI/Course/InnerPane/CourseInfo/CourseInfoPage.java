@@ -12,6 +12,7 @@ import java.io.File;
 import java.net.URL;
 
 public class CourseInfoPage extends Pane {
+
     @FXML
     private TextFlow filename;
 

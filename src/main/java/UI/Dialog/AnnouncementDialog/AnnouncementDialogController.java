@@ -22,14 +22,6 @@ abstract public class AnnouncementDialogController implements DialogController {
         this.announcementDialog = new AnnouncementDialog(this);
     }
 
-    @FXML
-    private Label cancelButton;
-
-    @FXML
-    private Label editButton;
-
-    @FXML
-    private TextField dataField;
 
     @Override
     public void show() {

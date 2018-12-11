@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public  class CreateMaterialDialog extends AnchorPane {
+public class CreateMaterialDialog extends AnchorPane {
     @FXML
     protected TextField titleNameTextField;
     @FXML
@@ -124,6 +124,7 @@ public  class CreateMaterialDialog extends AnchorPane {
         }
         this.initialise();
     }
+
     public CreateMaterialDialog(CreateMaterialController controller) {
         this();
         this.controller = controller;
@@ -213,7 +214,7 @@ public  class CreateMaterialDialog extends AnchorPane {
     }
 
 
-   private void onConfirm() {
+    private void onConfirm() {
         controller.onConfirm();
 
     }
