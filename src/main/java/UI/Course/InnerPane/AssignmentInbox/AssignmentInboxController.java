@@ -21,7 +21,7 @@ public class AssignmentInboxController implements Controller {
 
     public AssignmentInboxController(List<AssignmentMaterial> assignmentMaterials) {
         this.assignmentMaterials = assignmentMaterials;
-        this.root = new AssignmentInboxPage(this);
+        this.root = new AssignmentInboxPage(this, this.assignmentMaterials);
         this.root.displayHomeworkTable(assignmentMaterials.get(0).getHomework());
     }
 }

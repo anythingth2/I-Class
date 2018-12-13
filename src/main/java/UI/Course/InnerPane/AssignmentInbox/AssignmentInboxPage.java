@@ -1,13 +1,18 @@
 package UI.Course.InnerPane.AssignmentInbox;
 
+import Model.AssignmentMaterial;
 import Model.Homework;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableStringValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -40,6 +45,9 @@ public class AssignmentInboxPage extends Pane {
     @FXML
     private TableColumn<Homework, String> fileNameColumn;
 
+    @FXML
+    private ChoiceBox<String> selectAssignmentChoiceBox;
+
 
     private AssignmentInboxPage() {
         super();
@@ -55,13 +63,13 @@ public class AssignmentInboxPage extends Pane {
         }
     }
 
-    public AssignmentInboxPage(AssignmentInboxController controller) {
+    public AssignmentInboxPage(AssignmentInboxController controller, List<AssignmentMaterial> assignmentMaterials) {
         this();
         this.controller = controller;
-        this.initialise();
+        this.initialise(assignmentMaterials);
     }
 
-    private void initialise() {
+    private void initialise(List<AssignmentMaterial> assignmentMaterials) {
         this.idColumn.setCellValueFactory(param -> new SimpleStringProperty("" + param.getValue().getOwner().getId()));
         this.nameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getOwner().getFullName()));
         this.dateColumn.setCellValueFactory(param -> {
@@ -74,13 +82,30 @@ public class AssignmentInboxPage extends Pane {
 
         this.tableView.setRowFactory(param -> {
             TableRow<Homework> row = new TableRow<>();
-            row.setOnMouseClicked(event -> this.download(row.getItem().getFilePath()));
+            row.setOnMouseClicked(event -> {
+                if (row.getItem() != null)
+                    this.download(row.getItem().getFilePath());
+            });
             return row;
         });
+
+        for (AssignmentMaterial assigmentMaterial : assignmentMaterials) {
+            if (assigmentMaterial.getTeachingClass() != null)
+                this.selectAssignmentChoiceBox.getItems().add(assigmentMaterial.getTeachingClass().getTitle());
+            else this.selectAssignmentChoiceBox.getItems().add("-");
+        }
+        this.selectAssignmentChoiceBox.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue) -> {
+            this.displayHomeworkTable(assignmentMaterials.get(newValue.intValue()).getHomework());
+        });
+//        this.selectAssignmentChoiceBox.setOnAction(event -> {
+//            System.out.println("select");
+//        });
+
+        this.selectAssignmentChoiceBox.getSelectionModel().select(0);
     }
 
     public void displayHomeworkTable(List<Homework> homeworks) {
-        System.out.println(homeworks);
+        this.tableView.getItems().clear();
         for (Homework homework : homeworks) {
             this.tableView.getItems().add(homework);
         }

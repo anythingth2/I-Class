@@ -54,8 +54,9 @@ public class MockData {
         List<AssignmentMaterial> assignmentMaterials = new ArrayList<AssignmentMaterial>();
 
         AssignmentMaterial tmpAssigmentMaterial = new AssignmentMaterial();
+        tmpAssigmentMaterial.setTeachingClass(new TeachingClass(new Date(System.currentTimeMillis()),"งาน A"));
         tmpAssigmentMaterial.addHomework(new Homework("https://stackoverflow.com/questions/5226212/how-to-open-the-default-webbrowser-using-java", student));
-        tmpAssigmentMaterial.addHomework(new Homework("1sadsd4567", student));
+        tmpAssigmentMaterial.addHomework(new Homework("http://ipv4.download.thinkbroadband.com/20MB.zip", student));
         tmpAssigmentMaterial.addHomework(new Homework("1dsadsadsa67", student));
         tmpAssigmentMaterial.addHomework(new Homework("1dsadsa67", student));
         tmpAssigmentMaterial.addHomework(new Homework("12zzz7", student));
@@ -65,6 +66,7 @@ public class MockData {
         assignmentMaterials.add(tmpAssigmentMaterial);
 
         AssignmentMaterial tmpAssignmentMaterial2 = new AssignmentMaterial();
+        tmpAssignmentMaterial2.setTeachingClass(new TeachingClass(new Date(System.currentTimeMillis()),"งาน B"));
         tmpAssignmentMaterial2.addHomework(new Homework("asdfghjk", student));
         tmpAssignmentMaterial2.addHomework(new Homework("adsajk", student));
         tmpAssignmentMaterial2.addHomework(new Homework("bxdfghjk", student));
