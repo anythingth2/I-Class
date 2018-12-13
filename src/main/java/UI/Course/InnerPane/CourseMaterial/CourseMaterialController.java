@@ -1,7 +1,6 @@
 package UI.Course.InnerPane.CourseMaterial;
 
 import Model.Course;
-import Model.Material;
 import Model.TeachingClass;
 import UI.Controller;
 import UI.Course.CourseController;
@@ -11,13 +10,13 @@ import javafx.scene.Node;
 
 public class CourseMaterialController implements Controller {
     private CourseController parentController;
-    private CourseMaterialPane courseMaterialPane;
+    private CourseMaterialPage courseMaterialPage;
     protected Course course;
     protected TeachingClass teachingClass;
 
     @Override
     public Node getRoot() {
-        return this.courseMaterialPane;
+        return this.courseMaterialPage;
     }
 
     public CourseMaterialController() {
@@ -30,7 +29,7 @@ public class CourseMaterialController implements Controller {
         this.parentController = parentController;
         this.course = course;
         this.teachingClass = teachingClass;
-        this.courseMaterialPane = new CourseMaterialPane(this, this.teachingClass);
+        this.courseMaterialPage = new CourseMaterialPage(this, this.teachingClass);
 
     }
 

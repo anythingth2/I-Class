@@ -18,9 +18,9 @@ public class ConfirmDialog extends AnchorPane {
     @FXML
     private Label yesButton;
 
-    ConfirmDialogController confirmDialogController;
+    ConfirmDialogController controller;
 
-    public ConfirmDialog(ConfirmDialogController confirmDialogController) {
+    public ConfirmDialog(ConfirmDialogController controller) {
         super();
         try {
             URL url = new File("src/main/java/UI/Dialog/ConfirmDialog/ConfirmDialog.fxml").toURL();
@@ -32,7 +32,7 @@ public class ConfirmDialog extends AnchorPane {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.confirmDialogController = confirmDialogController;
+        this.controller = controller;
     }
 
     public void show() {
@@ -54,7 +54,7 @@ public class ConfirmDialog extends AnchorPane {
 
     @FXML
     void clickYes(MouseEvent event) {
-        this.confirmDialogController.onConfirm();
+        this.controller.onConfirm();
         this.dismiss();
     }
 }

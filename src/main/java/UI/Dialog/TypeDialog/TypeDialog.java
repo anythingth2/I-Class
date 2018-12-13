@@ -14,11 +14,10 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.net.URL;
 
-abstract public class TypeDialog extends AnchorPane {
-    public enum TypeRadio {
-        Material, Homework
-    }
+public class TypeDialog extends AnchorPane {
 
+
+    private TypeDialogController controller;
     @FXML
     private RadioButton slideRadio;
 
@@ -48,7 +47,11 @@ abstract public class TypeDialog extends AnchorPane {
         }
     }
 
-    abstract public void onAccept(TypeRadio typeRadio);
+    public TypeDialog(TypeDialogController controller) {
+        this();
+        this.controller = controller;
+    }
+
 
     public void show() {
         Stage stage = new Stage();
@@ -68,9 +71,9 @@ abstract public class TypeDialog extends AnchorPane {
 
     @FXML
     void clickOk(MouseEvent event) {
-        TypeRadio typeRadio = this.typeRadioGroup.getSelectedToggle() == this.slideRadio ?
-                TypeRadio.Material : TypeRadio.Homework;
-        this.onAccept(typeRadio);
+        TypeDialogController.TypeRadio typeRadio = this.typeRadioGroup.getSelectedToggle() == this.slideRadio ?
+                TypeDialogController.TypeRadio.Material : TypeDialogController.TypeRadio.Homework;
+        this.controller.onAccept(typeRadio);
         this.dismiss();
 
     }

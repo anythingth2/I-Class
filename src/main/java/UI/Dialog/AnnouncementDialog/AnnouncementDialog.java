@@ -41,10 +41,10 @@ public class AnnouncementDialog extends AnchorPane {
             e.printStackTrace();
         }
         limitCharacterTextField();
-        this.announcementDialogController=announcementDialogController;
+        this.announcementDialogController = announcementDialogController;
     }
 
-    void limitCharacterTextField(){
+    void limitCharacterTextField() {
         dataField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -75,7 +75,7 @@ public class AnnouncementDialog extends AnchorPane {
 
     @FXML
     void clickEdit(MouseEvent event) {
-        String text=dataField.getText();
+        String text = dataField.getText();
         announcementDialogController.editAnnouncement(text);
         this.dismiss();
     }

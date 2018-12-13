@@ -19,7 +19,7 @@ public class Model {
         try {
 //            Session session = HibernateUtil.getSessionFactory().openSession();
 //            Transaction tx = session.beginTransaction();
-            session.saveOrUpdate(this);
+            session.update(this);
             transaction.commit();
         } catch (Exception e){
             e.printStackTrace();

@@ -5,9 +5,7 @@ import Model.AssignmentMaterial;
 import Model.Teacher;
 import Model.TeachingClass;
 import Model.User;
-import UI.Course.InnerPane.CourseMaterial.CourseMaterialPane;
-import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
-import UI.Dialog.ConfirmDialog.ConfirmDialogController;
+import UI.Course.InnerPane.CourseMaterial.CourseMaterialPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,9 +14,8 @@ import javafx.scene.control.Label;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AssignmentMaterialPane extends CourseMaterialPane {
+public class AssignmentMaterialPage extends CourseMaterialPage {
     private AssignmentMaterialController controller;
-
     @FXML
     private Label dueDateLabel;
     @FXML
@@ -28,17 +25,17 @@ public class AssignmentMaterialPane extends CourseMaterialPane {
     @FXML
     private Label submitFileNameLabel;
 
-    public AssignmentMaterialPane() {
+    public AssignmentMaterialPage() {
         super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
     }
 
-    public AssignmentMaterialPane(AssignmentMaterialController controller) {
+    public AssignmentMaterialPage(AssignmentMaterialController controller) {
         super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
         this.controller = controller;
 
     }
 
-    public AssignmentMaterialPane(AssignmentMaterialController controller, TeachingClass teachingClass) {
+    public AssignmentMaterialPage(AssignmentMaterialController controller, TeachingClass teachingClass) {
         super("/UI/Course/InnerPane/AssignmentMaterial/AssignmentMaterial.fxml");
         this.controller = controller;
         this.setTeachingClass(teachingClass);
