@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class TeachingClass extends Model{
+public class TeachingClass extends Model {
     @Id
     @GeneratedValue
     private int id;
@@ -67,10 +67,12 @@ public class TeachingClass extends Model{
         this(date);
         this.material = material;
     }
-public TeachingClass(Date date,String title,Material material){
-        this(date,title);
+
+    public TeachingClass(Date date, String title, Material material) {
+        this(date, title);
         this.material = material;
-}
+    }
+
     @Override
     public String toString() {
         return super.toString();

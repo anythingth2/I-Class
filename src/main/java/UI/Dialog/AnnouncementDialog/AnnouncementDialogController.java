@@ -10,27 +10,18 @@ import javafx.scene.control.TextField;
 abstract public class AnnouncementDialogController implements DialogController {
 
     AnnouncementDialog announcementDialog;
-    Course course;
 
     @Override
     public Node getRoot() {
         return this.announcementDialog;
     }
 
-    public AnnouncementDialogController(Course course) {
+    public AnnouncementDialogController() {
         super();
-        this.course = course;
+
         this.announcementDialog = new AnnouncementDialog(this);
     }
 
-    @FXML
-    private Label cancelButton;
-
-    @FXML
-    private Label editButton;
-
-    @FXML
-    private TextField dataField;
 
     @Override
     public void show() {
@@ -43,7 +34,7 @@ abstract public class AnnouncementDialogController implements DialogController {
     }
 
     void editAnnouncement(String text) {
-        course.setAnnouncement(text);
+
         this.onEditSuccess(text);
     }
 

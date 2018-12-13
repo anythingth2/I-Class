@@ -1,7 +1,6 @@
 package UI.Course.InnerPane.CourseInfo;
 
 import Model.Course;
-import Model.TeachingClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -12,7 +11,8 @@ import javafx.scene.text.TextFlow;
 import java.io.File;
 import java.net.URL;
 
-public class CourseInfoPane extends Pane {
+public class CourseInfoPage extends Pane {
+
     @FXML
     private TextFlow filename;
 
@@ -30,7 +30,7 @@ public class CourseInfoPane extends Pane {
 
     private CourseInfoController controller;
 
-    public CourseInfoPane() {
+    public CourseInfoPage() {
         super();
         try {
             URL url = new File("src/main/java/UI/Course/InnerPane/CourseInfo/CourseInfo.fxml").toURL();
@@ -44,7 +44,7 @@ public class CourseInfoPane extends Pane {
         }
     }
 
-    public CourseInfoPane(CourseInfoController controller, Course course) {
+    public CourseInfoPage(CourseInfoController controller, Course course) {
         this();
         this.controller = controller;
         this.setCourse(course);

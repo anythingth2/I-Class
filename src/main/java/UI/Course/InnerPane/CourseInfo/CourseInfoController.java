@@ -5,17 +5,17 @@ import UI.Controller;
 import javafx.scene.Node;
 
 public class CourseInfoController implements Controller {
-    CourseInfoPane courseInfoPane;
+    CourseInfoPage courseInfoPage;
     Course course;
 
     @Override
     public Node getRoot() {
-        return courseInfoPane;
+        return courseInfoPage;
     }
 
     public CourseInfoController(Course course) {
         super();
         this.course = course;
-        this.courseInfoPane = new CourseInfoPane(this, course);
+        this.courseInfoPage = new CourseInfoPage(this, course);
     }
 }

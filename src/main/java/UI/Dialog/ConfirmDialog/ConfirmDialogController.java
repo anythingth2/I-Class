@@ -11,11 +11,6 @@ abstract public class ConfirmDialogController implements DialogController {
     ConfirmDialog confirmDialog;
     Course course;
 
-    @FXML
-    private Label noButton;
-
-    @FXML
-    private Label yesButton;
 
     public ConfirmDialogController(Course course) {
         super();

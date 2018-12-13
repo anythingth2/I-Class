@@ -11,11 +11,11 @@ import javafx.scene.Node;
 public class AssignmentMaterialController extends CourseMaterialController {
     CourseController parentController;
     Course course;
-    AssignmentMaterialPane assignmentMaterialPane;
+    AssignmentMaterialPage assignmentMaterialPage;
 
     @Override
     public Node getRoot() {
-        return this.assignmentMaterialPane;
+        return this.assignmentMaterialPage;
     }
 
     public AssignmentMaterialController() {
@@ -27,7 +27,7 @@ public class AssignmentMaterialController extends CourseMaterialController {
         this.parentController = parentController;
         this.course = course;
         this.teachingClass = teachingClass;
-        this.assignmentMaterialPane = new AssignmentMaterialPane(this, this.teachingClass);
+        this.assignmentMaterialPage = new AssignmentMaterialPage(this, this.teachingClass);
     }
 
     public void onClickDelete() {
