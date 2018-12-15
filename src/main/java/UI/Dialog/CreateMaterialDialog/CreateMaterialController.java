@@ -43,8 +43,11 @@ abstract public class CreateMaterialController implements DialogController {
         //todo: file link
         material.setTeachingClass(teachingClass);
         material.setVideoLink(this.createMaterialDialog.getVideoLinkTextField().getText());
+        material.save();
 
         teachingClass.setMaterial(material);
+        teachingClass.save();
+
         this.onSuccess(teachingClass);
         this.dismiss();
     }

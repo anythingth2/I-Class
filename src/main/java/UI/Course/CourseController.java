@@ -42,6 +42,7 @@ public class CourseController implements Controller {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
                 course.getTeachingClasses().add(teachingClass);
+                course.save();
                 coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };
@@ -49,6 +50,7 @@ public class CourseController implements Controller {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
                 course.getTeachingClasses().add(teachingClass);
+                course.save();
                 coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };
