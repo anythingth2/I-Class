@@ -5,8 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class Model {
-    private static Session session;
-    private static Transaction transaction;
+    public static Session session;
+    public static Transaction transaction;
     // Open session
     public static void createSession(){
         session = HibernateUtil.getSessionFactory().openSession();
@@ -17,10 +17,11 @@ public class Model {
     // Begin generally ORM methods
     public void save(){
         try {
-//            Session session = HibernateUtil.getSessionFactory().openSession();
-//            Transaction tx = session.beginTransaction();
+//            Session session555 = HibernateUtil.getSessionFactory().getCurrentSession();
+//            Transaction tx = session555.beginTransaction();
             session.update(this);
             transaction.commit();
+
         } catch (Exception e){
             e.printStackTrace();
         }

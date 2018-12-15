@@ -47,16 +47,16 @@ public class Teacher extends User {
 
 
     // Begin ORM methods
-    public static User findByUserID(String userid){
-        try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            Criteria criteria = session.createCriteria(Teacher.class);
-            User user = (Teacher) criteria.add(Restrictions.eq("userid", userid)).uniqueResult();
-
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
+//    public static User findByUserID(String userid){
+////        try {
+////            Session session = HibernateUtil.getSessionFactory().openSession();
+////            Criteria criteria = session.createCriteria(Teacher.class);
+////            User user = (Teacher) criteria.add(Restrictions.eq("userid", userid)).uniqueResult();
+////
+////        } catch (Exception e) {
+////            return null;
+////        }
+////
+////        return null;
+////    }
 }
