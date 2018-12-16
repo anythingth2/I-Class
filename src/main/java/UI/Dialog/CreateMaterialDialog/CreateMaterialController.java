@@ -27,8 +27,10 @@ abstract public class CreateMaterialController implements DialogController {
     }
 
     private void createTeachingClass() {
-        if (this.teachingClass == null)
+        if (this.teachingClass == null){
             this.teachingClass = new TeachingClass();
+        }
+
         Date date = Date.from(this.createMaterialDialog.getDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         if (this.createMaterialDialog.getHourChoiceBox().getValue() != null)
             date.setHours(this.createMaterialDialog.getHourChoiceBox().getValue());
@@ -36,6 +38,7 @@ abstract public class CreateMaterialController implements DialogController {
             date.setMinutes(this.createMaterialDialog.getMinuteChoiceBox().getValue());
         teachingClass.setDate(date);
         teachingClass.setTitle(this.createMaterialDialog.getTitleNameTextField().getText());
+
         Material material = this.teachingClass.getMaterial();
         if (material == null)
             material = new Material();
@@ -43,7 +46,7 @@ abstract public class CreateMaterialController implements DialogController {
         //todo: file link
         material.setTeachingClass(teachingClass);
         material.setVideoLink(this.createMaterialDialog.getVideoLinkTextField().getText());
-        material.save();
+//        material.save();
 
         teachingClass.setMaterial(material);
         teachingClass.save();
