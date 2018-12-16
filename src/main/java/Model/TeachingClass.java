@@ -12,9 +12,9 @@ public class TeachingClass extends Model {
     private String title;
     private Date date;
 
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Course course;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Material material;
 
 
