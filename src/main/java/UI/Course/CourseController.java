@@ -79,7 +79,7 @@ public class CourseController implements Controller {
             @Override
             protected void onEditSuccess(String text) {
                 course.setAnnouncement(text);
-                course.save();
+                course.update();
                 coursePage.getAnnouncementLabel().setText(text);
             }
         };

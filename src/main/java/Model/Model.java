@@ -19,6 +19,19 @@ public class Model {
         try {
 //            Session session555 = HibernateUtil.getSessionFactory().getCurrentSession();
 //            Transaction tx = session555.beginTransaction();
+            session.save(this);
+            if (!transaction.wasCommitted())
+                transaction.commit();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void update(){
+        try {
+//            Session session555 = HibernateUtil.getSessionFactory().getCurrentSession();
+//            Transaction tx = session555.beginTransaction();
             session.update(this);
             transaction.commit();
 
@@ -34,7 +47,9 @@ public class Model {
 //            Session session = HibernateUtil.getSessionFactory().openSession();
 //            Transaction tx = session.beginTransaction();
             session.save(obj);
-            transaction.commit();
+//            transaction.commit();
+            if (!transaction.wasCommitted())
+                transaction.commit();
         } catch (Exception e){
             e.printStackTrace();
         }
