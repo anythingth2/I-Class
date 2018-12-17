@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
 public class ConfirmDialog extends AnchorPane {
@@ -56,5 +57,25 @@ public class ConfirmDialog extends AnchorPane {
     void clickYes(MouseEvent event) {
         this.controller.onConfirm();
         this.dismiss();
+    }
+
+    @FXML
+    private void onYesEntered() throws IOException {
+        this.yesButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onYesExited() throws IOException {
+        this.yesButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onNoEntered() throws IOException {
+        this.noButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onNoExited() throws IOException {
+        this.noButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
     }
 }

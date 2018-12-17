@@ -25,7 +25,7 @@
                         <Image url="@../../../resources/Assets/Annoucement.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="announcementLabel" layoutX="90.0" layoutY="3.0" prefHeight="104.0" prefWidth="680.0" text="Lorem Lorem" textFill="WHITE">
+                <Label fx:id="announcementLabel" layoutX="101.0" layoutY="29.0" prefHeight="56.0" prefWidth="680.0" style="-fx-background-color: white; -fx-background-radius: 7; -fx-padding: 5 10 5 10; -fx-text-fill: black;" text="Lorem Lorem">
                     <font>
                         <Font name="Segoe UI" size="35.0" />
                     </font>
@@ -58,17 +58,17 @@
             <children>
                 <Pane prefHeight="130.0" prefWidth="540.0" style="-fx-background-color: #171C1D;">
                     <children>
-                        <Label fx:id="accountIdTextView" alignment="CENTER" layoutX="4.0" prefHeight="110.0" prefWidth="178.0" text="59011300" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="accountIdTextView" alignment="CENTER" layoutX="20.0" layoutY="-3.0" prefHeight="110.0" prefWidth="178.0" text="59011300" textAlignment="CENTER" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI Semibold" size="43.0" />
                             </font>
                         </Label>
-                        <Button fx:id="logout" layoutX="216.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogoutAction" onKeyPressed="#onLogoutExited" onKeyReleased="#onLogoutEntered" onMouseEntered="#onLogoutEntered" onMouseExited="#onLogoutExited" prefHeight="0.0" prefWidth="121.0" style="-fx-background-color: #171C1D;" styleClass="btn-logout" text="ออกจากระบบ" textFill="WHITE">
+                        <Button fx:id="logout" layoutX="221.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogoutAction" onKeyPressed="#onLogoutExited" onKeyReleased="#onLogoutEntered" onMouseEntered="#onLogoutEntered" onMouseExited="#onLogoutExited" prefHeight="0.0" prefWidth="121.0" style="-fx-background-color: #171C1D;" styleClass="btn-logout" text="ออกจากระบบ" textFill="WHITE">
                             <font>
                                 <Font name="System Bold Italic" size="16.0" />
                             </font>
                         </Button>
-                        <Button fx:id="subject" layoutX="193.0" layoutY="72.0" mnemonicParsing="false" onAction="#onSubjectAction" onKeyPressed="#onSubjectExited" onKeyReleased="#onSubjectEntered" onMouseEntered="#onSubjectEntered" onMouseExited="#onSubjectExited" prefHeight="37.0" prefWidth="149.0" style="-fx-background-color: #171C1D;" styleClass="btn-logout" text="กลับสู่หน้ารายวิชา" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="subject" layoutX="191.0" layoutY="72.0" mnemonicParsing="false" onAction="#onSubjectAction" onKeyPressed="#onSubjectExited" onKeyReleased="#onSubjectEntered" onMouseEntered="#onSubjectEntered" onMouseExited="#onSubjectExited" prefHeight="37.0" prefWidth="149.0" style="-fx-background-color: #171C1D;" styleClass="btn-logout" text="กลับสู่หน้ารายวิชา" textAlignment="CENTER" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>
@@ -94,8 +94,7 @@
                 <Image url="@../../../resources/Assets/chat.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="assignmentImageView" onMouseClicked="#onClickAssignmentInbox"  onKeyPressed="#onAssignmentExited" onKeyReleased="#onAssignmentEntered" onMouseEntered="#onAssignmentEntered" onMouseExited="#onAssignmentExited" fitHeight="68.0" fitWidth="68.0" layoutX="1099.0" layoutY="631.0"
-                   pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="assignmentImageView" fitHeight="68.0" fitWidth="68.0" layoutX="1099.0" layoutY="631.0" onKeyPressed="#onAssignmentExited" onKeyReleased="#onAssignmentEntered" onMouseClicked="#onClickAssignmentInbox" onMouseEntered="#onAssignmentEntered" onMouseExited="#onAssignmentExited" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../resources/Assets/inbox.png" />
             </image>
