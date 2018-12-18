@@ -27,31 +27,34 @@ abstract public class CreateMaterialController implements DialogController {
     }
 
     private void createTeachingClass() {
-        if (this.teachingClass == null){
+        if (this.teachingClass == null) {
             this.teachingClass = new TeachingClass();
         }
+
 
         Date date = Date.from(this.createMaterialDialog.getDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         if (this.createMaterialDialog.getHourChoiceBox().getValue() != null)
             date.setHours(this.createMaterialDialog.getHourChoiceBox().getValue());
         if (this.createMaterialDialog.getMinuteChoiceBox().getValue() != null)
             date.setMinutes(this.createMaterialDialog.getMinuteChoiceBox().getValue());
-        teachingClass.setDate(date);
-        teachingClass.setTitle(this.createMaterialDialog.getTitleNameTextField().getText());
+        this.teachingClass.setDate(date);
+        this.teachingClass.setTitle(this.createMaterialDialog.getTitleNameTextField().getText());
 
         Material material = this.teachingClass.getMaterial();
+
         if (material == null)
             material = new Material();
+        material.setTeachingClass(this.teachingClass);
         material.setDescription(this.createMaterialDialog.getDescriptionTextArea().getText());
         //todo: file link
-        material.setTeachingClass(teachingClass);
+        material.setTeachingClass(this.teachingClass);
         material.setVideoLink(this.createMaterialDialog.getVideoLinkTextField().getText());
 //        material.save();
 
-        teachingClass.setMaterial(material);
-        teachingClass.save();
+        this.teachingClass.setMaterial(material);
+        this.teachingClass.saveOrUpdate();
 
-        this.onSuccess(teachingClass);
+        this.onSuccess(this.teachingClass);
         this.dismiss();
     }
 

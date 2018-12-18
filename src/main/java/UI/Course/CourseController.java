@@ -41,16 +41,20 @@ public class CourseController implements Controller {
         final CreateMaterialController createMaterialController = new CreateMaterialController() {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
+                teachingClass.setCourse(course);
+                teachingClass.save();
                 course.getTeachingClasses().add(teachingClass);
-                course.save();
+                course.saveOrUpdate();
                 coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };
         final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
+                teachingClass.setCourse(course);
+                teachingClass.save();
                 course.getTeachingClasses().add(teachingClass);
-                course.save();
+                course.saveOrUpdate();
                 coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };

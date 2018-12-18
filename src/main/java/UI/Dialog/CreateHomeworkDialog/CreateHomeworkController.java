@@ -30,16 +30,19 @@ abstract public class CreateHomeworkController implements DialogController {
     }
 
     private void createTeachingClass() {
+        if (this.teachingClass == null) {
+            this.teachingClass = new TeachingClass();
+        }
         AssignmentMaterial assignmentMaterial = (AssignmentMaterial) teachingClass.getMaterial();
         if (assignmentMaterial == null)
-            assignmentMaterial =new AssignmentMaterial();
+            assignmentMaterial = new AssignmentMaterial();
+        assignmentMaterial.setTeachingClass(this.teachingClass);
 
         Date startDate = Date.from(this.homeworkDialog.getDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         if (this.homeworkDialog.getHourChoiceBox().getValue() != null)
             startDate.setHours(this.homeworkDialog.getHourChoiceBox().getValue());
         if (this.homeworkDialog.getMinuteChoiceBox().getValue() != null)
             startDate.setMinutes(this.homeworkDialog.getMinuteChoiceBox().getValue());
-
 
         Date dueDate = Date.from(this.homeworkDialog.getDueDatePicker().getValue().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         if (this.homeworkDialog.getHourDueChoiceBox().getValue() != null)
@@ -56,6 +59,7 @@ abstract public class CreateHomeworkController implements DialogController {
         this.teachingClass.setTitle(this.homeworkDialog.getTitleNameTextField().getText());
         this.teachingClass.setDate(startDate);
         this.teachingClass.setMaterial(assignmentMaterial);
+        this.teachingClass.persist();
         this.onCreateSuccess(this.teachingClass);
     }
 
