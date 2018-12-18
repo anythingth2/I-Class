@@ -49,7 +49,6 @@ public class CourseMaterialController implements Controller {
                 SQLQuery query = Model.getSession().createSQLQuery("DELETE FROM TeachingClass WHERE id = :tid");
                 query.setParameter("tid", teachingClass.getId());
                 query.executeUpdate();
-//                Model.delete(teachingClass);
                 Model.commit();
                 parentController.refresh();
             }

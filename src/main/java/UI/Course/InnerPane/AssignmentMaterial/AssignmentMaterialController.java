@@ -8,6 +8,7 @@ import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
 import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import javafx.scene.Node;
+import org.hibernate.SQLQuery;
 
 import java.awt.*;
 import java.io.File;
@@ -42,9 +43,15 @@ public class AssignmentMaterialController extends CourseMaterialController {
             @Override
             public void onConfirm() {
                 course.getTeachingClasses().remove(teachingClass);
-                course.update();
+                System.out.println("TC:" + teachingClass.getId());
+                SQLQuery query = Model.getSession().createSQLQuery("DELETE FROM TeachingClass WHERE id = :tid");
+                query.setParameter("tid", teachingClass.getId());
+                query.executeUpdate();
+                Model.commit();
                 parentController.refresh();
                 System.out.println("assignmentMaterial");
+
+
             }
         };
         confirmDialog.show();
