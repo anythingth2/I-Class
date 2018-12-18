@@ -1,6 +1,7 @@
 package UI.Course.InnerPane.AssignmentMaterial;
 
 import Main.Main;
+import Main.FileStorage;
 import Model.*;
 import UI.Course.CourseController;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
@@ -63,8 +64,12 @@ public class AssignmentMaterialController extends CourseMaterialController {
         if (file == null) return;
         AssignmentMaterial assignmentMaterial = (AssignmentMaterial) this.teachingClass.getMaterial();
         System.out.printf("material:%d assignmentMaterial:%d ", this.teachingClass.getMaterial().hashCode(), assignmentMaterial.hashCode());
-        String path = file.getPath();//todo: use url from aws s3
-        Homework homework = new Homework(path, (Student) Main.getApplication().getUser());
+
+
+        String fileLink = FileStorage.upload(file, this.course.getId(), Main.getApplication().getUser().getUserid());
+        System.out.println("upload " + fileLink);
+
+        Homework homework = new Homework(fileLink, (Student) Main.getApplication().getUser());
         assignmentMaterial.addHomework(homework);
         assignmentMaterial.saveOrUpdate();
     }
