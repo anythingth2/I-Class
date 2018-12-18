@@ -11,8 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.text.Text;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 public class CourseMaterialPage extends ScrollPane {
@@ -98,6 +101,12 @@ public class CourseMaterialPage extends ScrollPane {
     @FXML
     void clickEdit(ActionEvent event) {
         controller.onEditMaterial();
+    }
+
+    @FXML
+    void onClickDownload() {
+        controller.onDownload();
+
     }
 
     @FXML

@@ -227,6 +227,8 @@ public class CreateMaterialDialog extends AnchorPane {
         return fileChooser.showOpenDialog(getScene().getWindow());
     }
 
+
+
     public void show() {
         Stage stage = new Stage();
         Scene scene = new Scene(this);
