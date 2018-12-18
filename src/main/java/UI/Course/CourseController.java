@@ -54,7 +54,7 @@ public class CourseController implements Controller {
                 teachingClass.setCourse(course);
 //                teachingClass.save();
                 course.getTeachingClasses().add(teachingClass);
-                course.saveOrUpdate();
+                course.persist();
                 coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };

@@ -38,6 +38,7 @@ Course course;
         if (this.teachingClass == null) {
             this.teachingClass = new TeachingClass();
         }
+
         AssignmentMaterial assignmentMaterial = (AssignmentMaterial) teachingClass.getMaterial();
         if (assignmentMaterial == null)
             assignmentMaterial = new AssignmentMaterial();
