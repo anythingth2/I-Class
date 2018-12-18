@@ -30,11 +30,11 @@
                         <Font name="Segoe UI" size="35.0" />
                     </font>
                 </Label>
-                <Button fx:id="todoButton" contentDisplay="CENTER" layoutX="801.0" layoutY="60.0" mnemonicParsing="false" onKeyPressed="#onTodoExited" onKeyReleased="#onTodoEntered" onMouseEntered="#onTodoEntered" onMouseExited="#onTodoExited" prefHeight="39.0" prefWidth="121.0" style="-fx-background-color: #B1DFDB;" text="งานที่ต้องส่ง" textFill="#ff5050">
-                    <font>
-                        <Font name="System Bold" size="18.0" />
-                    </font>
-                </Button>
+                <!--<Button fx:id="todoButton" contentDisplay="CENTER" layoutX="801.0" layoutY="60.0" mnemonicParsing="false" onKeyPressed="#onTodoExited" onKeyReleased="#onTodoEntered" onMouseEntered="#onTodoEntered" onMouseExited="#onTodoExited" prefHeight="39.0" prefWidth="121.0" style="-fx-background-color: #B1DFDB;" text="งานที่ต้องส่ง" textFill="#ff5050">-->
+                    <!--<font>-->
+                        <!--<Font name="System Bold" size="18.0" />-->
+                    <!--</font>-->
+                <!--</Button>-->
             </children>
         </Pane>
         <Pane layoutX="342.0" layoutY="110.0" prefHeight="68.0" prefWidth="938.0" style="-fx-background-color: #E6E6E6;">
@@ -89,12 +89,12 @@
                 <Image url="@../../../resources/Assets/plus.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="chatImageView" fitHeight="68.0" fitWidth="68.0" layoutX="1188.0" layoutY="631.0" onKeyPressed="#onChatExited" onKeyReleased="#onChatEntered" onMouseEntered="#onChatEntered" onMouseExited="#onChatExited" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../resources/Assets/chat.png" />
-            </image>
-        </ImageView>
-        <ImageView fx:id="assignmentImageView" fitHeight="68.0" fitWidth="68.0" layoutX="1099.0" layoutY="631.0" onKeyPressed="#onAssignmentExited" onKeyReleased="#onAssignmentEntered" onMouseClicked="#onClickAssignmentInbox" onMouseEntered="#onAssignmentEntered" onMouseExited="#onAssignmentExited" pickOnBounds="true" preserveRatio="true">
+        <!--<ImageView fx:id="chatImageView" fitHeight="68.0" fitWidth="68.0" layoutX="1188.0" layoutY="631.0" onKeyPressed="#onChatExited" onKeyReleased="#onChatEntered" onMouseEntered="#onChatEntered" onMouseExited="#onChatExited" pickOnBounds="true" preserveRatio="true">-->
+            <!--<image>-->
+                <!--<Image url="@../../../resources/Assets/chat.png" />-->
+            <!--</image>-->
+        <!--</ImageView>-->
+        <ImageView fx:id="assignmentImageView" fitHeight="68.0" fitWidth="68.0" layoutX="1188.0" layoutY="631.0" onKeyPressed="#onAssignmentExited" onKeyReleased="#onAssignmentEntered" onMouseClicked="#onClickAssignmentInbox" onMouseEntered="#onAssignmentEntered" onMouseExited="#onAssignmentExited" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../resources/Assets/inbox.png" />
             </image>
