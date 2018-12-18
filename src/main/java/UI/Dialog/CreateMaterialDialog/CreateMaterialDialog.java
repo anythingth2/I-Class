@@ -15,6 +15,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -198,7 +199,7 @@ public class CreateMaterialDialog extends AnchorPane {
             return false;
         }
         if (this.datePicker.getValue() == null) {
-            this.dateAlertLabel.setText("กรุณาเเลือกวัน");
+            this.dateAlertLabel.setText("กรุณาเเลือกวันที่");
             this.dateAlertLabel.setVisible(true);
             return false;
         }
@@ -235,6 +236,36 @@ public class CreateMaterialDialog extends AnchorPane {
 
     public void dismiss() {
         ((Stage) this.getScene().getWindow()).close();
+    }
+
+    @FXML
+    private void onUploadEntered() throws IOException {
+        this.uploadButton.setStyle("-fx-background-color : #16eedb;");
+    }
+
+    @FXML
+    private void onUploadExited() throws IOException {
+        this.uploadButton.setStyle("-fx-background-color : #92CBC5;");
+    }
+
+    @FXML
+    private void onConfirmEntered() throws IOException {
+        this.confirmButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onConfirmExited() throws IOException {
+        this.confirmButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelEntered() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelExited() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
     }
 
 

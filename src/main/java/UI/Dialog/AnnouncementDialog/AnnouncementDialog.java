@@ -9,9 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
 public class AnnouncementDialog extends AnchorPane {
@@ -70,7 +72,6 @@ public class AnnouncementDialog extends AnchorPane {
     @FXML
     void clickCancel(MouseEvent event) {
         this.dismiss();
-
     }
 
     @FXML
@@ -79,6 +80,28 @@ public class AnnouncementDialog extends AnchorPane {
         announcementDialogController.editAnnouncement(text);
         this.dismiss();
     }
+
+    @FXML
+    private void onEditEntered() throws IOException {
+        this.editButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onEditExited() throws IOException {
+        this.editButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelEntered() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelExited() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
+    }
+
+
 
 
 }

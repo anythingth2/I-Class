@@ -204,11 +204,13 @@ public class CoursePage extends AnchorPane {
     @FXML
     private void onEditAnnouncementEntered() throws IOException {
         this.editAnnouncementButton.setStyle("-fx-background-color : #6aede1");
+        this.announcementLabel.setStyle("-fx-text-fill: White; -fx-background-color: #58a39d; -fx-background-radius: 7; -fx-padding: 5 10 5 10;");
     }
 
     @FXML
     private void onEditAnnouncementExited() throws IOException {
         this.editAnnouncementButton.setStyle("-fx-background-color : #B1DFDB");
+        this.announcementLabel.setStyle("-fx-text-fill: Black; -fx-background-color: White; -fx-background-radius: 7; -fx-padding: 5 10 5 10;");
     }
 
     @FXML
@@ -233,7 +235,7 @@ public class CoursePage extends AnchorPane {
 
     @FXML
     private void onAddTeachingClassEntered() throws IOException {
-        this.color1.setBrightness(0.7);
+        this.color1.setBrightness(-0.5);
         this.addTeachingClassImageView.setEffect(this.color1);
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,16 +13,22 @@
                 <Font name="Segoe UI" size="36.0" />
             </font>
         </Label>
-        <Label fx:id="cancelButton" alignment="CENTER" layoutX="342.0" layoutY="170.0" onMouseClicked="#clickCancel" prefHeight="65.0" prefWidth="94.0" text="ยกเลิก" textFill="#80cbc4">
+        <Label fx:id="cancelButton" alignment="CENTER" layoutX="335.0" layoutY="190.0" onKeyPressed="#onCancelExited" onKeyReleased="#onCancelEntered" onMouseClicked="#clickCancel" onMouseEntered="#onCancelEntered" onMouseExited="#onCancelExited" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #424242;" text="ยกเลิก" textFill="#f50b0b">
+            <font>
+                <Font size="20.0" />
+            </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+        </Label>
+        <Label fx:id="editButton" alignment="CENTER" layoutX="546.0" layoutY="190.0" onKeyPressed="#onEditExited" onKeyReleased="#onEditEntered" onMouseClicked="#clickEdit" onMouseEntered="#onEditEntered" onMouseExited="#onEditExited" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-background-color: #424242;" text="แก้ไข" textFill="#80cbc4">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label fx:id="editButton" alignment="CENTER" layoutX="539.0" layoutY="172.0" onMouseClicked="#clickEdit" prefHeight="62.0" prefWidth="95.0" text="แก้ไข" textFill="#80cbc4">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
-        <TextField fx:id="dataField" layoutX="113.0" layoutY="106.0" prefHeight="36.0" prefWidth="761.0" />
+        <TextField fx:id="dataField" layoutX="113.0" layoutY="106.0" prefHeight="36.0" prefWidth="761.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
     </children>
 </fx:root>

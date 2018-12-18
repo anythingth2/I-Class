@@ -7,28 +7,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="ItemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="323.0" style="-fx-background-color: #010101; -fx-border-bottom: grey;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="itemPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onPaneExited" onKeyReleased="#onPaneEntered" onMouseEntered="#onPaneEntered" onMouseExited="#onPaneExited" prefHeight="100.0" prefWidth="325.0" style="-fx-background-color: #010101; -fx-border-bottom: grey;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fx:id="iconImageView" fitHeight="40.0" fitWidth="28.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../Designed/icon/img_49719%20(1).png" />
             </image>
         </ImageView>
-        <Text fx:id="dateTextView" fill="WHITE" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATE " wrappingWidth="173.24755859375">
+        <Text fx:id="dateTextView" fill="WHITE" layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATE " wrappingWidth="173.24755859375">
             <font>
                 <Font size="17.0" />
             </font>
         </Text>
-        <Text fx:id="timeTextView" fill="WHITE" layoutX="181.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIME" wrappingWidth="141.29541015625">
+        <Text fx:id="timeTextView" fill="WHITE" layoutX="181.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIME" wrappingWidth="141.29541015625">
             <font>
                 <Font name="Segoe UI" size="17.0" />
             </font>
         </Text>
-        <Text fx:id="chapterTextView" fill="WHITE" layoutX="14.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHAPTER" wrappingWidth="187.13671875">
+        <Text fx:id="chapterTextView" fill="WHITE" layoutX="14.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHAPTER" wrappingWidth="297.13671875">
             <font>
-                <Font name="Segoe UI" size="26.0" />
+                <Font name="Segoe UI" size="36.0" />
             </font>
         </Text>
-      <Line endX="267.0" endY="11.4" layoutX="54.0" layoutY="105.0" startX="-54.0" startY="11.4" stroke="#2c2b2b" strokeWidth="5.0" />
+      <Line endX="267.0" endY="11.4" layoutX="55.0" layoutY="90.0" startX="-55.0" startY="11.4" stroke="#2c2b2b" strokeWidth="5.0" />
     </children>
 </fx:root>

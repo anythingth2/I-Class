@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 
@@ -17,6 +18,8 @@ public class ClassItemPane extends Pane {
 
     public TeachingClass teachingClass;
 
+    @FXML
+    Pane itemPane;
     @FXML
     ImageView iconImageView;
     @FXML
@@ -60,5 +63,15 @@ public class ClassItemPane extends Pane {
         this();
         this.setTeachingClass(teachingClass);
 //        this.chapterTextView.setText(assignmentMaterial.getTitle());
+    }
+
+    @FXML
+    private void onPaneEntered() throws IOException {
+        this.itemPane.setStyle("-fx-background-color : #424242; -fx-border-bottom: Gray;");
+    }
+
+    @FXML
+    private void onPaneExited() throws IOException {
+        this.itemPane.setStyle("-fx-background-color : #010101; -fx-border-bottom: Gray;");
     }
 }
