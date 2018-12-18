@@ -47,14 +47,13 @@ public class CourseMaterialController implements Controller {
                 course.getTeachingClasses().remove(teachingClass);
                 course.update();
                 parentController.refresh();
-                System.out.println("courseMaterial");
             }
         };
         confirmDialog.show();
     }
 
     public void onEditMaterial() {
-        CreateMaterialController createMaterialController = new CreateMaterialController(teachingClass) {
+        CreateMaterialController createMaterialController = new CreateMaterialController(this.course,this.teachingClass) {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
                 parentController.refresh();

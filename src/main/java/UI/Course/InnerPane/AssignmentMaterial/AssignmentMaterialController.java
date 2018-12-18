@@ -43,13 +43,14 @@ public class AssignmentMaterialController extends CourseMaterialController {
                 course.getTeachingClasses().remove(teachingClass);
                 course.update();
                 parentController.refresh();
-                System.out.println("assignmentMaterial");}
+                System.out.println("assignmentMaterial");
+            }
         };
         confirmDialog.show();
     }
 
     public void onEditAssignmentMaterial() {
-        CreateHomeworkController createHomeworkController = new CreateHomeworkController(this.teachingClass) {
+        CreateHomeworkController createHomeworkController = new CreateHomeworkController(this.course, this.teachingClass) {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
                 parentController.refresh();
@@ -68,7 +69,7 @@ public class AssignmentMaterialController extends CourseMaterialController {
         assignmentMaterial.saveOrUpdate();
     }
 
-    public void onDownload(){
+    public void onDownload() {
         String link = this.teachingClass.getMaterial().getFileLink();
         System.out.println("navigate to " + link);
         try {

@@ -2,6 +2,7 @@ package UI.Dialog.CreateMaterialDialog;
 
 import Main.FileStorage;
 import Main.Main;
+import Model.Course;
 import Model.Material;
 import Model.TeachingClass;
 import UI.Dialog.DialogController;
@@ -13,17 +14,20 @@ import java.util.Date;
 abstract public class CreateMaterialController implements DialogController {
     protected CreateMaterialDialog createMaterialDialog;
     protected TeachingClass teachingClass;
+    protected Course course;
 
     @Override
     public Node getRoot() {
         return this.createMaterialDialog;
     }
 
-    public CreateMaterialController() {
+    public CreateMaterialController(Course course) {
+        this.course = course;
         this.createMaterialDialog = new CreateMaterialDialog(this);
     }
 
-    public CreateMaterialController(TeachingClass teachingClass) {
+    public CreateMaterialController(Course course, TeachingClass teachingClass) {
+        this.course = course;
         this.teachingClass = teachingClass;
         this.createMaterialDialog = new CreateMaterialDialog(this, teachingClass);
     }
@@ -48,9 +52,10 @@ abstract public class CreateMaterialController implements DialogController {
             material = new Material();
         material.setTeachingClass(this.teachingClass);
         material.setDescription(this.createMaterialDialog.getDescriptionTextArea().getText());
-        FileStorage.upload(this.createMaterialDialog.uploadFile, 1, Main.getApplication().getUser().getUserid());
-        System.out.println("upload done");
-        //todo: file link
+
+        String fileLink = FileStorage.upload(this.createMaterialDialog.uploadFile, this.course.getId(), Main.getApplication().getUser().getUserid());
+        System.out.println("upload " + fileLink);
+        material.setFileLink(fileLink);
         material.setTeachingClass(this.teachingClass);
         material.setVideoLink(this.createMaterialDialog.getVideoLinkTextField().getText());
 //        material.save();
