@@ -73,11 +73,12 @@ public class User extends Model {
 
     public static User findByUserID(String userid){
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
+//            session = HibernateUtil.getSessionFactory().openSession();
             Criteria criteria = session.createCriteria(User.class);
             User user = (User) criteria.add(Restrictions.eq("userid", userid)).uniqueResult();
             return user;
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
