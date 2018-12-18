@@ -38,7 +38,7 @@ public class CourseController implements Controller {
     }
 
     public void onClickAddTeachingClass() {
-        final CreateMaterialController createMaterialController = new CreateMaterialController() {
+        final CreateMaterialController createMaterialController = new CreateMaterialController(this.course) {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
                 teachingClass.setCourse(course);
@@ -48,7 +48,7 @@ public class CourseController implements Controller {
                 coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };
-        final CreateHomeworkController createHomeworkController = new CreateHomeworkController() {
+        final CreateHomeworkController createHomeworkController = new CreateHomeworkController(this.course) {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
                 teachingClass.setCourse(course);

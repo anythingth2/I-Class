@@ -106,7 +106,7 @@ public class CreateMaterialDialog extends AnchorPane {
     }
 
     CreateMaterialController controller;
-    File uploadFile;
+   public File uploadFile;
 
     public CreateMaterialDialog() {
         this("/UI/Dialog/CreateMaterialDialog/fileDialog.fxml");

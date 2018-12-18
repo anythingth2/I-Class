@@ -1,6 +1,9 @@
 package UI.Dialog.CreateHomeworkDialog;
 
+import Main.FileStorage;
+import Main.Main;
 import Model.AssignmentMaterial;
+import Model.Course;
 import Model.Material;
 import Model.TeachingClass;
 import UI.Dialog.DialogController;
@@ -12,19 +15,21 @@ import java.util.Date;
 abstract public class CreateHomeworkController implements DialogController {
     TeachingClass teachingClass;
     CreateHomeworkDialog homeworkDialog;
-
+Course course;
     @Override
     public Node getRoot() {
         return this.homeworkDialog;
     }
 
-    public CreateHomeworkController() {
+    public CreateHomeworkController(Course course) {
         super();
+        this.course = course;
         this.homeworkDialog = new CreateHomeworkDialog(this);
     }
 
-    public CreateHomeworkController(TeachingClass teachingClass) {
+    public CreateHomeworkController(Course course, TeachingClass teachingClass) {
         super();
+        this.course = course;
         this.teachingClass = teachingClass;
         this.homeworkDialog = new CreateHomeworkDialog(this, teachingClass);
     }
@@ -54,7 +59,9 @@ abstract public class CreateHomeworkController implements DialogController {
         assignmentMaterial.setDueDate(dueDate);
         assignmentMaterial.setVideoLink(this.homeworkDialog.getVideoLinkTextField().getText());
         assignmentMaterial.setDescription(this.homeworkDialog.getDescriptionTextArea().getText());
-        //todo: file link
+        String fileLink = FileStorage.upload(this.homeworkDialog.uploadFile, this.course.getId(), Main.getApplication().getUser().getUserid());
+        System.out.println("upload " + fileLink);
+        assignmentMaterial.setFileLink(fileLink);
 
         this.teachingClass.setTitle(this.homeworkDialog.getTitleNameTextField().getText());
         this.teachingClass.setDate(startDate);

@@ -1,6 +1,7 @@
 package UI.Course.InnerPane.AssignmentMaterial;
 
 import Main.Main;
+import Main.FileStorage;
 import Model.*;
 import UI.Course.CourseController;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
@@ -43,13 +44,14 @@ public class AssignmentMaterialController extends CourseMaterialController {
                 course.getTeachingClasses().remove(teachingClass);
                 course.update();
                 parentController.refresh();
-                System.out.println("assignmentMaterial");}
+                System.out.println("assignmentMaterial");
+            }
         };
         confirmDialog.show();
     }
 
     public void onEditAssignmentMaterial() {
-        CreateHomeworkController createHomeworkController = new CreateHomeworkController(this.teachingClass) {
+        CreateHomeworkController createHomeworkController = new CreateHomeworkController(this.course, this.teachingClass) {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
                 parentController.refresh();
@@ -62,13 +64,17 @@ public class AssignmentMaterialController extends CourseMaterialController {
         if (file == null) return;
         AssignmentMaterial assignmentMaterial = (AssignmentMaterial) this.teachingClass.getMaterial();
         System.out.printf("material:%d assignmentMaterial:%d ", this.teachingClass.getMaterial().hashCode(), assignmentMaterial.hashCode());
-        String path = file.getPath();//todo: use url from aws s3
-        Homework homework = new Homework(path, (Student) Main.getApplication().getUser());
+
+
+        String fileLink = FileStorage.upload(file, this.course.getId(), Main.getApplication().getUser().getUserid());
+        System.out.println("upload " + fileLink);
+
+        Homework homework = new Homework(fileLink, (Student) Main.getApplication().getUser());
         assignmentMaterial.addHomework(homework);
         assignmentMaterial.saveOrUpdate();
     }
 
-    public void onDownload(){
+    public void onDownload() {
         String link = this.teachingClass.getMaterial().getFileLink();
         System.out.println("navigate to " + link);
         try {
