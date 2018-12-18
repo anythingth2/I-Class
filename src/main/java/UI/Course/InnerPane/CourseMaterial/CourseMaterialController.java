@@ -8,6 +8,7 @@ import UI.Course.CourseController;
 import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import javafx.scene.Node;
+import org.hibernate.SQLQuery;
 
 import java.awt.*;
 import java.io.IOException;
@@ -43,9 +44,13 @@ public class CourseMaterialController implements Controller {
         final ConfirmDialogController confirmDialog = new ConfirmDialogController(course) {
             @Override
             public void onConfirm() {
-
                 course.getTeachingClasses().remove(teachingClass);
-                course.update();
+                System.out.println("TC:"+teachingClass.getId());
+                SQLQuery query = Model.getSession().createSQLQuery("DELETE FROM TeachingClass WHERE id = :tid");
+                query.setParameter("tid", teachingClass.getId());
+                query.executeUpdate();
+//                Model.delete(teachingClass);
+                Model.commit();
                 parentController.refresh();
             }
         };
