@@ -38,7 +38,7 @@ public class FileStorage {
             String uploadPath = courseID+"/"+userID+"/"+file.getName();
             Blob blob = bucket.create(uploadPath, fileContent);
             System.out.println(blob.getMediaLink());
-            return blob.getMediaLink();
+            return "https://storage.googleapis.com/iclassroom/uploads/"+courseID+"/"+userID+"/"+file.getName();
         }catch (Exception e){
             e.printStackTrace();
         }
