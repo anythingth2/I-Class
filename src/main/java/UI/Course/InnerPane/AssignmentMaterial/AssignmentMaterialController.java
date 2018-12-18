@@ -1,12 +1,14 @@
 package UI.Course.InnerPane.AssignmentMaterial;
 
-import Model.Course;
-import Model.TeachingClass;
+import Main.Main;
+import Model.*;
 import UI.Course.CourseController;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
 import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import javafx.scene.Node;
+
+import java.io.File;
 
 public class AssignmentMaterialController extends CourseMaterialController {
     CourseController parentController;
@@ -49,5 +51,15 @@ public class AssignmentMaterialController extends CourseMaterialController {
             }
         };
         createHomeworkController.show();
+    }
+
+    public void onSubmit(File file) {
+        if (file == null) return;
+        AssignmentMaterial assignmentMaterial = (AssignmentMaterial) this.teachingClass.getMaterial();
+        System.out.printf("material:%d assignmentMaterial:%d ", this.teachingClass.getMaterial().hashCode(), assignmentMaterial.hashCode());
+        String path = file.getPath();//todo: use url from aws s3
+        Homework homework = new Homework(path, (Student) Main.getApplication().getUser());
+        assignmentMaterial.addHomework(homework);
+        assignmentMaterial.saveOrUpdate();
     }
 }

@@ -10,7 +10,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 
+import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,7 +70,7 @@ public class AssignmentMaterialPage extends CourseMaterialPage {
         super.setTeachingClass(teachingClass);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        Date date = ((AssignmentMaterial)teachingClass.getMaterial()).getDueDate();
+        Date date = ((AssignmentMaterial) teachingClass.getMaterial()).getDueDate();
         this.dueDateLabel.setText(dateFormat.format(date));
         this.dueTimeLabel.setText(timeFormat.format(date) + " น.");
     }
@@ -75,6 +78,13 @@ public class AssignmentMaterialPage extends CourseMaterialPage {
     @FXML
     void clickEdit(ActionEvent event) {
         controller.onEditAssignmentMaterial();
+    }
+
+    @FXML
+    void onSubmit() {
+        FileChooser fileChooser = new FileChooser();
+
+        controller.onSubmit(fileChooser.showOpenDialog(getScene().getWindow()));
     }
 
     @FXML

@@ -16,7 +16,7 @@
          <children>
             <Pane prefHeight="84.0" prefWidth="919.0">
                <children>
-                  <Button fx:id="submitButton" layoutX="708.0" layoutY="22.0" mnemonicParsing="false" onKeyPressed="#onSubmitExited" onKeyReleased="#onSubmitEntered" onMouseEntered="#onSubmitEntered" onMouseExited="#onSubmitExited" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: #B1DFDB;" text="อัพโหลดไฟล์งาน">
+                  <Button fx:id="submitButton" layoutX="708.0" layoutY="22.0" mnemonicParsing="false" onKeyPressed="#onSubmitExited" onKeyReleased="#onSubmitEntered" onMouseEntered="#onSubmitEntered" onMouseExited="#onSubmitExited" onMouseClicked="#onSubmit" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: #B1DFDB;" text="อัพโหลดไฟล์งาน">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

@@ -1,6 +1,8 @@
 package Main;
 
 import Model.Model;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.hibernate.Session;
@@ -8,9 +10,6 @@ import org.hibernate.Session;
 public class Main extends javafx.application.Application {
 
     private static Application application;
-//    private static Stage globalStage;
-//    private static Scene scene;
-//    private static Session session;
 
     public static Application getApplication() {
         return application;
@@ -18,15 +17,12 @@ public class Main extends javafx.application.Application {
 
     @Override
     public void start(Stage primaryStage) {
-//        globalStage = primaryStage;
         application = new Application(primaryStage);
     }
 
     public static void main(String[] args) {
-        // Initial and update DB
-//        session = HibernateUtil.getSessionFactory().openSession();
-//        Transaction tx = session.beginTransaction();
         Model.createSession();
+//        AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
 //        User test = new Student("มยูวววว","3333","1234");
 //        test.save();
 //        List<Course> courses = new ArrayList<Course>();
