@@ -23,8 +23,8 @@ public class Course extends Model{
 //    @JoinColumn(columnDefinition="integer",nullable = true)
 //    private Student student;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<TeachingClass> teachingClasses;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="course" )
+    private List<TeachingClass> teachingClasses = new ArrayList<>();
 
     @OneToOne
     private Chat chat;
@@ -38,6 +38,10 @@ public class Course extends Model{
         this.codenumber = codenumber;
         this.description = description;
         this.announcement = announcement;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -72,7 +76,7 @@ public class Course extends Model{
         this.description = description;
     }
 
-
+    @OneToMany(cascade = CascadeType.ALL)
     public List<TeachingClass> getTeachingClasses() {
         return this.teachingClasses;
     }

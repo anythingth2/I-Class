@@ -14,6 +14,7 @@ public class TeachingClass extends Model {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Course course;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Material material;
 
