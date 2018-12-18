@@ -11,14 +11,14 @@
             <Font name="Segoe UI" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="noButton" alignment="CENTER" layoutX="140.0" layoutY="106.0" onMouseClicked="#clickNo" prefHeight="45.0" prefWidth="97.0" text="ไม่ใช่" textFill="#80cbc4">
+      <Label fx:id="noButton" alignment="CENTER" layoutX="131.0" layoutY="106.0" onKeyPressed="#onNoExited" onKeyReleased="#onNoEntered" onMouseClicked="#clickNo" onMouseEntered="#onNoEntered" onMouseExited="#onNoExited" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b #424242lack;" text="ไม่ใช่" textFill="#f50b0b">
          <font>
-            <Font size="30.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="yesButton" alignment="CENTER" layoutX="328.0" layoutY="106.0" onMouseClicked="#clickYes" prefHeight="45.0" prefWidth="97.0" text="ใช่" textFill="#80cbc4">
+      <Label fx:id="yesButton" alignment="CENTER" layoutX="319.0" layoutY="106.0" onKeyPressed="#onYesExited" onKeyReleased="#onYesEntered" onMouseClicked="#clickYes" onMouseEntered="#onYesEntered" onMouseExited="#onYesExited" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: b #424242lack;" text="ใช่" textFill="#80cbc4">
          <font>
-            <Font size="30.0" />
+            <Font size="25.0" />
          </font>
       </Label>
    </children>

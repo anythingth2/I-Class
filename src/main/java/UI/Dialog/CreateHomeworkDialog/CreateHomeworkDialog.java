@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -103,7 +104,7 @@ public class CreateHomeworkDialog extends CreateMaterialDialog {
         if (!validated) return validated;
         this.dueDateAlertLabel.setVisible(this.dueDatePicker.getValue() == null);
         if (this.dueDatePicker.getValue() == null) {
-            this.dueDateAlertLabel.setText("กรุณากรอกวันสิ้นสุด");
+            this.dueDateAlertLabel.setText("กรุณากรอกวันที่สิ้นสุด");
             this.dueDateAlertLabel.setVisible(true);
             return false;
         }
@@ -132,5 +133,35 @@ public class CreateHomeworkDialog extends CreateMaterialDialog {
 
     public void dismiss() {
         ((Stage) this.getScene().getWindow()).close();
+    }
+
+    @FXML
+    private void onUploadEntered() throws IOException {
+        this.uploadButton.setStyle("-fx-background-color : #16eedb;");
+    }
+
+    @FXML
+    private void onUploadExited() throws IOException {
+        this.uploadButton.setStyle("-fx-background-color : #92CBC5;");
+    }
+
+    @FXML
+    private void onConfirmEntered() throws IOException {
+        this.confirmButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onConfirmExited() throws IOException {
+        this.confirmButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelEntered() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelExited() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
     }
 }

@@ -1,12 +1,18 @@
 package UI.Course.InnerPane.CourseMaterial;
 
 import Model.Course;
+import Model.Model;
 import Model.TeachingClass;
 import UI.Controller;
 import UI.Course.CourseController;
 import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import UI.Dialog.CreateMaterialDialog.CreateMaterialController;
 import javafx.scene.Node;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class CourseMaterialController implements Controller {
     private CourseController parentController;
@@ -33,12 +39,15 @@ public class CourseMaterialController implements Controller {
 
     }
 
-   public void onClickDelete() {
+    public void onClickDelete() {
         final ConfirmDialogController confirmDialog = new ConfirmDialogController(course) {
             @Override
             public void onConfirm() {
+
                 course.getTeachingClasses().remove(teachingClass);
+                course.update();
                 parentController.refresh();
+                System.out.println("courseMaterial");
             }
         };
         confirmDialog.show();
@@ -52,5 +61,17 @@ public class CourseMaterialController implements Controller {
             }
         };
         createMaterialController.show();
+    }
+
+    public void onDownload() {
+        String link = this.teachingClass.getMaterial().getFileLink();
+        System.out.println("navigate to " + link);
+        try {
+            Desktop.getDesktop().browse(new URI(link));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -44,7 +44,7 @@ public class Homework extends Model {
     public void setSubmitDate(Date submitDate) {
         this.submitDate = submitDate;
     }
-
+public Homework(){}
     public Homework(String filePath, Student student) {
         this.filePath = filePath;
         this.owner = student;

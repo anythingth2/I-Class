@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
 public class TypeDialog extends AnchorPane {
@@ -76,6 +77,26 @@ public class TypeDialog extends AnchorPane {
         this.controller.onAccept(typeRadio);
         this.dismiss();
 
+    }
+
+    @FXML
+    private void onConfirmEntered() throws IOException {
+        this.okButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onConfirmExited() throws IOException {
+        this.okButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelEntered() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #010101; -fx-background-radius: 7;");
+    }
+
+    @FXML
+    private void onCancelExited() throws IOException {
+        this.cancelButton.setStyle("-fx-background-color : #424242; -fx-background-radius: 7;");
     }
 
 }

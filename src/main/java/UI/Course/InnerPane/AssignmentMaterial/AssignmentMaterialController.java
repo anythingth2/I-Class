@@ -1,12 +1,18 @@
 package UI.Course.InnerPane.AssignmentMaterial;
 
-import Model.Course;
-import Model.TeachingClass;
+import Main.Main;
+import Model.*;
 import UI.Course.CourseController;
 import UI.Course.InnerPane.CourseMaterial.CourseMaterialController;
 import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import javafx.scene.Node;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class AssignmentMaterialController extends CourseMaterialController {
     CourseController parentController;
@@ -35,8 +41,9 @@ public class AssignmentMaterialController extends CourseMaterialController {
             @Override
             public void onConfirm() {
                 course.getTeachingClasses().remove(teachingClass);
+                course.update();
                 parentController.refresh();
-            }
+                System.out.println("assignmentMaterial");}
         };
         confirmDialog.show();
     }
@@ -49,5 +56,27 @@ public class AssignmentMaterialController extends CourseMaterialController {
             }
         };
         createHomeworkController.show();
+    }
+
+    public void onSubmit(File file) {
+        if (file == null) return;
+        AssignmentMaterial assignmentMaterial = (AssignmentMaterial) this.teachingClass.getMaterial();
+        System.out.printf("material:%d assignmentMaterial:%d ", this.teachingClass.getMaterial().hashCode(), assignmentMaterial.hashCode());
+        String path = file.getPath();//todo: use url from aws s3
+        Homework homework = new Homework(path, (Student) Main.getApplication().getUser());
+        assignmentMaterial.addHomework(homework);
+        assignmentMaterial.saveOrUpdate();
+    }
+
+    public void onDownload(){
+        String link = this.teachingClass.getMaterial().getFileLink();
+        System.out.println("navigate to " + link);
+        try {
+            Desktop.getDesktop().browse(new URI(link));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 }

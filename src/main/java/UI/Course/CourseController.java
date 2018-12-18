@@ -92,14 +92,14 @@ public class CourseController implements Controller {
 
     void onClickAssignmentInbox() {
         List<AssignmentMaterial> assignmentMaterials;
-        assignmentMaterials = MockData.mockAssignment();
-//        assignmentMaterials = new ArrayList<AssignmentMaterial>();
-//        for (TeachingClass teachingClass : this.course.getTeachingClasses()) {
-//            Material material = teachingClass.getMaterial();
-//            if (material instanceof AssignmentMaterial) {
-//                assignmentMaterials.add((AssignmentMaterial) material);
-//            }
-//        }
+//        assignmentMaterials = MockData.mockAssignment();
+        assignmentMaterials = new ArrayList<AssignmentMaterial>();
+        for (TeachingClass teachingClass : this.course.getTeachingClasses()) {
+            Material material = teachingClass.getMaterial();
+            if (material instanceof AssignmentMaterial) {
+                assignmentMaterials.add((AssignmentMaterial) material);
+            }
+        }
         AssignmentInboxController assignmentInboxController = new AssignmentInboxController(assignmentMaterials);
 
         this.coursePage.displayContent(assignmentInboxController);
