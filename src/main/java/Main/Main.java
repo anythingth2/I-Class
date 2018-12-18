@@ -21,7 +21,10 @@ public class Main extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
+
         Model.createSession();
+        FileStorage.init();
+//        FileStorage.upload("555");
 //        AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
 //        User test = new Student("มยูวววว","3333","1234");
 //        test.save();
