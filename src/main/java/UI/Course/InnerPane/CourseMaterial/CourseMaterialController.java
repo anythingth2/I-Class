@@ -1,6 +1,7 @@
 package UI.Course.InnerPane.CourseMaterial;
 
 import Model.Course;
+import Model.Model;
 import Model.TeachingClass;
 import UI.Controller;
 import UI.Course.CourseController;
@@ -42,8 +43,11 @@ public class CourseMaterialController implements Controller {
         final ConfirmDialogController confirmDialog = new ConfirmDialogController(course) {
             @Override
             public void onConfirm() {
+
                 course.getTeachingClasses().remove(teachingClass);
+                course.update();
                 parentController.refresh();
+                System.out.println("courseMaterial");
             }
         };
         confirmDialog.show();

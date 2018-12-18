@@ -39,8 +39,6 @@ public class CoursePage extends AnchorPane {
     @FXML
     private Button courseInfoButton;
     @FXML
-    private Button todoButton;
-    @FXML
     private VBox classVBox;
     private List<ClassItemPane> classItemPanes = new ArrayList<ClassItemPane>();
     @FXML
@@ -103,13 +101,6 @@ public class CoursePage extends AnchorPane {
                 displayContent(new CourseInfoController(course));
             }
         });
-        this.todoButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Pane pane = new StudentTodoPage();
-                displayContent(pane);
-            }
-        });
 
         this.displayContent(new CourseInfoController(course));
         this.setTeachingClasses(course.getTeachingClasses());
@@ -118,7 +109,7 @@ public class CoursePage extends AnchorPane {
     public void setUser(User user) {
         boolean isTeacher = user instanceof Teacher;
         this.editAnnouncementButton.setVisible(isTeacher);
-        this.todoButton.setVisible(!isTeacher);
+
         this.addTeachingClassImageView.setVisible(isTeacher);
         this.assignmentImageView.setVisible(isTeacher);
     }
@@ -213,15 +204,6 @@ public class CoursePage extends AnchorPane {
         this.announcementLabel.setStyle("-fx-text-fill: Black; -fx-background-color: White; -fx-background-radius: 7; -fx-padding: 5 10 5 10;");
     }
 
-    @FXML
-    private void onTodoEntered() throws IOException {
-        this.todoButton.setStyle("-fx-background-color : #6aede1");
-    }
-
-    @FXML
-    private void onTodoExited() throws IOException {
-        this.todoButton.setStyle("-fx-background-color : #B1DFDB");
-    }
 
     @FXML
     private void onCourseInfoEntered() throws IOException {

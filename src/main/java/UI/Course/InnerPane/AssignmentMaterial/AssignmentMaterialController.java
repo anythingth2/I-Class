@@ -41,8 +41,9 @@ public class AssignmentMaterialController extends CourseMaterialController {
             @Override
             public void onConfirm() {
                 course.getTeachingClasses().remove(teachingClass);
+                course.update();
                 parentController.refresh();
-            }
+                System.out.println("assignmentMaterial");}
         };
         confirmDialog.show();
     }
