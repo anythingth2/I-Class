@@ -52,10 +52,11 @@ abstract public class CreateMaterialController implements DialogController {
             material = new Material();
         material.setTeachingClass(this.teachingClass);
         material.setDescription(this.createMaterialDialog.getDescriptionTextArea().getText());
-
-        String fileLink = FileStorage.upload(this.createMaterialDialog.uploadFile, this.course.getId(), Main.getApplication().getUser().getUserid());
-        System.out.println("upload " + fileLink);
-        material.setFileLink(fileLink);
+        if (this.createMaterialDialog.uploadFile != null) {
+            String fileLink = FileStorage.upload(this.createMaterialDialog.uploadFile, this.course.getId(), Main.getApplication().getUser().getUserid());
+            System.out.println("upload " + fileLink);
+            material.setFileLink(fileLink);
+        }
         material.setTeachingClass(this.teachingClass);
         material.setVideoLink(this.createMaterialDialog.getVideoLinkTextField().getText());
 //        material.save();

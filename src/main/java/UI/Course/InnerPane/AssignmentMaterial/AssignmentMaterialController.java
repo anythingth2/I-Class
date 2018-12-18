@@ -78,6 +78,7 @@ public class AssignmentMaterialController extends CourseMaterialController {
 
         Homework homework = new Homework(fileLink, (Student) Main.getApplication().getUser());
         assignmentMaterial.addHomework(homework);
+
         assignmentMaterial.saveOrUpdate();
     }
 

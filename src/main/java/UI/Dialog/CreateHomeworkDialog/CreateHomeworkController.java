@@ -15,7 +15,8 @@ import java.util.Date;
 abstract public class CreateHomeworkController implements DialogController {
     TeachingClass teachingClass;
     CreateHomeworkDialog homeworkDialog;
-Course course;
+    Course course;
+
     @Override
     public Node getRoot() {
         return this.homeworkDialog;
@@ -60,9 +61,11 @@ Course course;
         assignmentMaterial.setDueDate(dueDate);
         assignmentMaterial.setVideoLink(this.homeworkDialog.getVideoLinkTextField().getText());
         assignmentMaterial.setDescription(this.homeworkDialog.getDescriptionTextArea().getText());
-        String fileLink = FileStorage.upload(this.homeworkDialog.uploadFile, this.course.getId(), Main.getApplication().getUser().getUserid());
-        System.out.println("upload " + fileLink);
-        assignmentMaterial.setFileLink(fileLink);
+        if (this.homeworkDialog.uploadFile != null) {
+            String fileLink = FileStorage.upload(this.homeworkDialog.uploadFile, this.course.getId(), Main.getApplication().getUser().getUserid());
+            System.out.println("upload " + fileLink);
+            assignmentMaterial.setFileLink(fileLink);
+        }
 
         this.teachingClass.setTitle(this.homeworkDialog.getTitleNameTextField().getText());
         this.teachingClass.setDate(startDate);
