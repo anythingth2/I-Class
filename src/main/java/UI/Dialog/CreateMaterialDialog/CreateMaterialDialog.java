@@ -106,6 +106,7 @@ public class CreateMaterialDialog extends AnchorPane {
     }
 
     CreateMaterialController controller;
+    File uploadFile;
 
     public CreateMaterialDialog() {
         this("/UI/Dialog/CreateMaterialDialog/fileDialog.fxml");
@@ -168,11 +169,11 @@ public class CreateMaterialDialog extends AnchorPane {
         this.uploadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                File file = browseFile();
-                if (file == null) {
+                uploadFile = browseFile();
+                if (uploadFile == null) {
                     return;
                 }
-                pathLabel.setText(file.getName());
+                pathLabel.setText(uploadFile.getName());
                 pathLabel.setVisible(true);
             }
         });
@@ -226,7 +227,6 @@ public class CreateMaterialDialog extends AnchorPane {
 
         return fileChooser.showOpenDialog(getScene().getWindow());
     }
-
 
 
     public void show() {

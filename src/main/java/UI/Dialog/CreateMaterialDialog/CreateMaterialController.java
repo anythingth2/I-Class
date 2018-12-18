@@ -1,5 +1,7 @@
 package UI.Dialog.CreateMaterialDialog;
 
+import Main.FileStorage;
+import Main.Main;
 import Model.Material;
 import Model.TeachingClass;
 import UI.Dialog.DialogController;
@@ -46,13 +48,15 @@ abstract public class CreateMaterialController implements DialogController {
             material = new Material();
         material.setTeachingClass(this.teachingClass);
         material.setDescription(this.createMaterialDialog.getDescriptionTextArea().getText());
+        FileStorage.upload(this.createMaterialDialog.uploadFile, 1, Main.getApplication().getUser().getUserid());
+        System.out.println("upload done");
         //todo: file link
         material.setTeachingClass(this.teachingClass);
         material.setVideoLink(this.createMaterialDialog.getVideoLinkTextField().getText());
 //        material.save();
 
         this.teachingClass.setMaterial(material);
-        this.teachingClass.saveOrUpdate();
+        this.teachingClass.persist();
 
         this.onSuccess(this.teachingClass);
         this.dismiss();

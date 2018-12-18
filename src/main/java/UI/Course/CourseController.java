@@ -42,9 +42,9 @@ public class CourseController implements Controller {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
                 teachingClass.setCourse(course);
-                teachingClass.save();
+//                teachingClass.save();
                 course.getTeachingClasses().add(teachingClass);
-                course.saveOrUpdate();
+                course.persist();
                 coursePage.setTeachingClasses(course.getTeachingClasses());
             }
         };
@@ -52,7 +52,7 @@ public class CourseController implements Controller {
             @Override
             public void onCreateSuccess(TeachingClass teachingClass) {
                 teachingClass.setCourse(course);
-                teachingClass.save();
+//                teachingClass.save();
                 course.getTeachingClasses().add(teachingClass);
                 course.saveOrUpdate();
                 coursePage.setTeachingClasses(course.getTeachingClasses());
