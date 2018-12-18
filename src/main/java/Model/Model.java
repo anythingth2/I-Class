@@ -17,8 +17,6 @@ public class Model {
     // Begin generally ORM methods
     public void save(){
         try {
-//            Session session555 = HibernateUtil.getSessionFactory().getCurrentSession();
-//            Transaction tx = session555.beginTransaction();
             session.save(this);
             if (!transaction.wasCommitted())
                 transaction.commit();
@@ -28,39 +26,33 @@ public class Model {
         }
     }
 
-    public void update(){
+    public void persist(){
         try {
-//            Session session555 = HibernateUtil.getSessionFactory().getCurrentSession();
-//            Transaction tx = session555.beginTransaction();
-            session.update(this);
-            transaction.commit();
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-
-
-    public static void save(Model obj){
-        try {
-//            Session session = HibernateUtil.getSessionFactory().openSession();
-//            Transaction tx = session.beginTransaction();
-            session.save(obj);
-//            transaction.commit();
+            session.persist(this);
             if (!transaction.wasCommitted())
                 transaction.commit();
+            session.flush();
         } catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public static void saveOrUpdate(Model obj){
+    public void update(){
         try {
-//            Session session = HibernateUtil.getSessionFactory().openSession();
-//            Transaction tx = session.beginTransaction();
-            session.saveOrUpdate(obj);
-            transaction.commit();
+            session.update(this);
+            if (!transaction.wasCommitted())
+                transaction.commit();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void saveOrUpdate(){
+        try {
+            session.saveOrUpdate(this);
+            if (!transaction.wasCommitted())
+                transaction.commit();
         } catch (Exception e){
             e.printStackTrace();
         }

@@ -53,7 +53,6 @@ public class AssignmentMaterial extends Material {
     public void addHomework(Homework homework) {
         if (this.homework == null) this.homework = new ArrayList<>();
         this.homework.add(homework);
-
     }
 
     public boolean isSubmitted(Student student) {
