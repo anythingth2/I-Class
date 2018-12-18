@@ -7,7 +7,7 @@
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://db.tmp.eiei.life:3306/iclass</property>
+        <property name="hibernate.connection.url">jdbc:mysql://db-prod.tmp.eiei.life:3306/iclass_prod1</property>
         <property name="hibernate.connection.username">iclass_db</property>
         <property name="hibernate.connection.password">eiei555!</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
