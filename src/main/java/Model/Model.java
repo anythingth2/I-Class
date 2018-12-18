@@ -68,4 +68,18 @@ public class Model {
             e.printStackTrace();
         }
     }
+
+    public static void commit(){
+        try {
+//            if (!transaction.wasCommitted())
+                transaction.commit();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static Session getSession() {
+        return session;
+    }
 }

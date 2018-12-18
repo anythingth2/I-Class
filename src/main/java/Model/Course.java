@@ -23,7 +23,7 @@ public class Course extends Model{
 //    @JoinColumn(columnDefinition="integer",nullable = true)
 //    private Student student;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="course" )
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="course",fetch = FetchType.LAZY)
     private List<TeachingClass> teachingClasses = new ArrayList<>();
 
     @OneToOne

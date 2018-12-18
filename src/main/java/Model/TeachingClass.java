@@ -12,12 +12,15 @@ public class TeachingClass extends Model {
     private String title;
     private Date date;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Course course;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Material material;
 
+    public int getId() {
+        return id;
+    }
 
     public String getTitle() {
         return this.title;
