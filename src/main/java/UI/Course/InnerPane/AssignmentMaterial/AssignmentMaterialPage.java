@@ -83,8 +83,12 @@ public class AssignmentMaterialPage extends CourseMaterialPage {
     @FXML
     void onSubmit() {
         FileChooser fileChooser = new FileChooser();
-
         controller.onSubmit(fileChooser.showOpenDialog(getScene().getWindow()));
+    }
+
+    @FXML
+    void onClickDownload() {
+        controller.onDownload();
     }
 
     @FXML

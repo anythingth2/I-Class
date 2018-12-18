@@ -106,7 +106,6 @@ public class CourseMaterialPage extends ScrollPane {
     @FXML
     void onClickDownload() {
         controller.onDownload();
-
     }
 
     @FXML

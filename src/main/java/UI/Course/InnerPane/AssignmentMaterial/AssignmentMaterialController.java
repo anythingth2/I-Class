@@ -8,7 +8,11 @@ import UI.Dialog.ConfirmDialog.ConfirmDialogController;
 import UI.Dialog.CreateHomeworkDialog.CreateHomeworkController;
 import javafx.scene.Node;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class AssignmentMaterialController extends CourseMaterialController {
     CourseController parentController;
@@ -61,5 +65,17 @@ public class AssignmentMaterialController extends CourseMaterialController {
         Homework homework = new Homework(path, (Student) Main.getApplication().getUser());
         assignmentMaterial.addHomework(homework);
         assignmentMaterial.saveOrUpdate();
+    }
+
+    public void onDownload(){
+        String link = this.teachingClass.getMaterial().getFileLink();
+        System.out.println("navigate to " + link);
+        try {
+            Desktop.getDesktop().browse(new URI(link));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 }
