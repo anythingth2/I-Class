@@ -69,7 +69,7 @@ abstract public class CreateMaterialController implements DialogController {
     }
 
     void onConfirm() {
-        createTeachingClass();
+        this.createTeachingClass();
     }
 
     abstract public void onSuccess(TeachingClass teachingClass);

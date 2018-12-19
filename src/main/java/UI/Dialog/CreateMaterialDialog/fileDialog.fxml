@@ -27,11 +27,6 @@
             </font>
         </Label>
         <DatePicker fx:id="datePicker" editable="false" layoutX="165.0" layoutY="140.0" prefHeight="31.0" prefWidth="203.0" />
-        <Label fx:id="fileName" layoutX="149.0" layoutY="371.0" prefHeight="20.0" prefWidth="231.0" textFill="WHITE">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
         <Button fx:id="uploadButton" layoutX="85.0" layoutY="399.0" mnemonicParsing="false" onKeyPressed="#onUploadExited" onKeyReleased="#onUploadEntered" onMouseEntered="#onUploadEntered" onMouseExited="#onUploadExited" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #92CBC5;" text="อัพโหลดไฟล์">
             <font>
                 <Font size="16.0" />
@@ -85,11 +80,6 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label fx:id="pathLabel" layoutX="186.0" layoutY="392.0" prefHeight="21.0" prefWidth="322.0" text="Label" textFill="WHITE" visible="false">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
       <Label layoutX="71.0" layoutY="96.0" text="ชื่อหัวข้อ :" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -104,7 +94,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Label fx:id="fileName1" layoutX="202.0" layoutY="409.0" prefHeight="20.0" prefWidth="231.0" text="xxxxxxxxxxxxxxxx.xxx" textFill="WHITE" visible="false">
+      <Label fx:id="pathLabel" layoutX="202.0" layoutY="409.0" prefHeight="20.0" prefWidth="231.0" textFill="WHITE" visible="false">
          <font>
             <Font size="14.0" />
          </font>

@@ -72,11 +72,11 @@ abstract public class CreateHomeworkController implements DialogController {
         this.teachingClass.setMaterial(assignmentMaterial);
         this.teachingClass.persist();
         this.onCreateSuccess(this.teachingClass);
+        this.dismiss();
     }
 
     void onConfirm() {
-        createTeachingClass();
-        this.dismiss();
+        this.createTeachingClass();
     }
 
     abstract public void onCreateSuccess(TeachingClass teachingClass);

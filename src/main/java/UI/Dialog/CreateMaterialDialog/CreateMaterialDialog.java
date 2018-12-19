@@ -22,6 +22,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class CreateMaterialDialog extends AnchorPane {
     @FXML
@@ -106,7 +107,7 @@ public class CreateMaterialDialog extends AnchorPane {
     }
 
     CreateMaterialController controller;
-   public File uploadFile;
+    public File uploadFile;
 
     public CreateMaterialDialog() {
         this("/UI/Dialog/CreateMaterialDialog/fileDialog.fxml");
@@ -195,30 +196,26 @@ public class CreateMaterialDialog extends AnchorPane {
     }
 
     protected boolean validateInput() {
+        boolean validate = true;
         this.titleNameAlertLabel.setVisible(this.titleNameTextField.getText() == null || this.titleNameTextField.getText().equals(""));
+        this.dateAlertLabel.setVisible(this.datePicker.getValue() == null || this.datePicker.getValue().isBefore(LocalDate.now()));
         if (this.titleNameTextField.getText() == null || this.titleNameTextField.getText().equals("")) {
-            return false;
+            validate = false;
         }
         if (this.datePicker.getValue() == null) {
             this.dateAlertLabel.setText("กรุณาเเลือกวันที่");
-            this.dateAlertLabel.setVisible(true);
-            return false;
+            validate = false;
         }
-        if (this.datePicker.getValue().isBefore(LocalDate.now())) {
+        else if (this.datePicker.getValue().isBefore(LocalDate.now())) {
             this.dateAlertLabel.setText("ไม่สามารถเลือกวันในอดีตได้");
-            this.dateAlertLabel.setVisible(true);
-            return false;
+            validate = false;
         }
-        this.dateAlertLabel.setVisible(false);
-
-        this.titleNameAlertLabel.setVisible(false);
-        return true;
+        return validate;
     }
 
 
     private void onConfirm() {
-        controller.onConfirm();
-
+        this.controller.onConfirm();
     }
 
 

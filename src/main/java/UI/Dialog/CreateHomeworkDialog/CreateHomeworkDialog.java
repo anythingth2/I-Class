@@ -73,20 +73,24 @@ public class CreateHomeworkDialog extends CreateMaterialDialog {
         super.initialise();
         ObservableList<Integer> hourValues = FXCollections.observableArrayList();
         List<Integer> tempHourValues = new ArrayList<Integer>();
-        for (int i = 8; i < 20; tempHourValues.add(i), i++) ;
+        for (int i = 0; i < 24; tempHourValues.add(i), i++) ;
         hourValues.addAll(tempHourValues);
+        this.hourChoiceBox.setItems(hourValues);
         this.hourDueChoiceBox.setItems(hourValues);
 
         ObservableList<Integer> minuteValues = FXCollections.observableArrayList();
         List<Integer> tempMinuteValues = new ArrayList<Integer>();
         for (int i = 0; i < 60; tempMinuteValues.add(i), i += 30) ;
         minuteValues.addAll(tempMinuteValues);
+        this.minuteChoiceBox.setItems(minuteValues);
         this.minuteDueChoiceBox.setItems(minuteValues);
 
         this.confirmButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                onConfirm();
+                if (validateInput()) {
+                    onConfirm();
+                }
             }
         });
     }
@@ -100,23 +104,19 @@ public class CreateHomeworkDialog extends CreateMaterialDialog {
 
     @Override
     protected boolean validateInput() {
-        boolean validated = super.validateInput();
-        if (!validated) return validated;
-        this.dueDateAlertLabel.setVisible(this.dueDatePicker.getValue() == null);
+        boolean validate = super.validateInput();
+        this.dueDateAlertLabel.setVisible(this.dueDatePicker.getValue() == null || this.dueDatePicker.getValue().isBefore(this.getDatePicker().getValue()));
         if (this.dueDatePicker.getValue() == null) {
-            this.dueDateAlertLabel.setText("กรุณากรอกวันที่สิ้นสุด");
-            this.dueDateAlertLabel.setVisible(true);
-            return false;
+            this.dueDateAlertLabel.setText("กรุณาเเลือกวันที่");
+            validate = false;
         }
-        if (this.dueDatePicker.getValue().isBefore(this.getDatePicker().getValue())) {
-            this.dueDateAlertLabel.setText("วันที่ไม่ถูกต้อง");
-            this.dueDateAlertLabel.setVisible(true);
-            return false;
+        else if (this.dueDatePicker.getValue().isBefore(this.getDatePicker().getValue())) {
+            this.dueDateAlertLabel.setText("ไม่สามารถเลือกวันในอดีตได้");
+            validate = false;
         }
-        this.dueDateAlertLabel.setVisible(false);
-
-        return true;
+        return validate;
     }
+
 
     private void onConfirm() {
         this.controller.onConfirm();
