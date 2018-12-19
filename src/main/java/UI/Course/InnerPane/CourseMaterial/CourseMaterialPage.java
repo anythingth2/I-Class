@@ -109,6 +109,11 @@ public class CourseMaterialPage extends ScrollPane {
     }
 
     @FXML
+    public void onClickVideo() {
+        controller.onViewVideo();
+    }
+
+    @FXML
     private void onDownloadEntered() throws IOException {
         this.fileButton.setStyle("-fx-background-color : #016f9e;");
     }

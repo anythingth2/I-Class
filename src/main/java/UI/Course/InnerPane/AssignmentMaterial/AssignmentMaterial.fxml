@@ -91,7 +91,7 @@
                      <Font size="24.0" />
                   </font>
                </Label>
-               <Hyperlink fx:id="videoHyperlink" layoutX="157.0" layoutY="8.0" prefHeight="53.0" prefWidth="736.0" text="www.youtube.com">
+               <Hyperlink fx:id="videoHyperlink" layoutX="157.0" layoutY="8.0" prefHeight="53.0" prefWidth="736.0" text="www.youtube.com" onMouseClicked="#onClickVideo">
                   <font>
                      <Font size="24.0" />
                   </font>

@@ -58,6 +58,11 @@ public class AssignmentMaterialPage extends CourseMaterialPage {
         this.controller.onClickDelete();
     }
 
+    @FXML
+    public void onClickVideo(){
+        this.controller.onViewVideo();
+    }
+
     @Override
     public void setUser(User user) {
         super.setUser(user);

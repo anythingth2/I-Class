@@ -82,15 +82,6 @@ public class AssignmentMaterialController extends CourseMaterialController {
         assignmentMaterial.saveOrUpdate();
     }
 
-    public void onDownload() {
-        String link = this.teachingClass.getMaterial().getFileLink();
-        System.out.println("navigate to " + link);
-        try {
-            Desktop.getDesktop().browse(new URI(link));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }
+
+
 }

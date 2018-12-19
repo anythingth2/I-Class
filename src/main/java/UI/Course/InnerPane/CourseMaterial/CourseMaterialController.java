@@ -45,7 +45,7 @@ public class CourseMaterialController implements Controller {
             @Override
             public void onConfirm() {
                 course.getTeachingClasses().remove(teachingClass);
-                System.out.println("TC:"+teachingClass.getId());
+                System.out.println("TC:" + teachingClass.getId());
                 SQLQuery query = Model.getSession().createSQLQuery("DELETE FROM TeachingClass WHERE id = :tid");
                 query.setParameter("tid", teachingClass.getId());
                 query.executeUpdate();
@@ -57,7 +57,7 @@ public class CourseMaterialController implements Controller {
     }
 
     public void onEditMaterial() {
-        CreateMaterialController createMaterialController = new CreateMaterialController(this.course,this.teachingClass) {
+        CreateMaterialController createMaterialController = new CreateMaterialController(this.course, this.teachingClass) {
             @Override
             public void onSuccess(TeachingClass teachingClass) {
                 parentController.refresh();
@@ -66,8 +66,7 @@ public class CourseMaterialController implements Controller {
         createMaterialController.show();
     }
 
-    public void onDownload() {
-        String link = this.teachingClass.getMaterial().getFileLink();
+    public void navigate(String link) {
         System.out.println("navigate to " + link);
         try {
             Desktop.getDesktop().browse(new URI(link));
@@ -76,5 +75,15 @@ public class CourseMaterialController implements Controller {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onDownload() {
+        String link = this.teachingClass.getMaterial().getFileLink();
+        this.navigate(link);
+    }
+
+    public void onViewVideo() {
+        String link = this.teachingClass.getMaterial().getVideoLink();
+        this.navigate(link);
     }
 }
